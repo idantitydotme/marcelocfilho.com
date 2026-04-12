@@ -67,4 +67,38 @@ export default defineConfig({
   ],
 
   adapter: cloudflare()
+
+  // security: {
+  //   checkOrigin: true,
+  //   allowedDomains: [
+  //     {
+  //       hostname: "**.marcelocfilho.com",
+  //       protocol: "https"
+  //     }
+  //   ],
+  //   csp: {
+  //     algorithm: "SHA-384",
+  //     directives: [
+  //       "default-src 'none'",
+  //       "img-src 'self' https://cdn.marcelocfilho.com https://i3.ytimg.com https://www.youtube.com https://www.youtube-nocookie.com",
+  //       "font-src 'self'",
+  //       "connect-src 'self'",
+  //       "frame-ancestors 'none'",
+  //       "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://challenges.cloudflare.com",
+  //       "upgrade-insecure-requests",
+  //       "base-uri 'self'",
+  //       "form-action 'self'"
+  //     ],
+  //     scriptDirective: {
+  //       resources: [
+  //         "'self'",
+  //         "https://challenges.cloudflare.com",
+  //         "https://betterlytics.io/analytics.js"
+  //       ]
+  //     },
+  //     styleDirective: {
+  //       resources: ["'self'"]
+  //     }
+  //   }
+  // }
 })
