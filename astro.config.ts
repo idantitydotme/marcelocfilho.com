@@ -1,5 +1,6 @@
 import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
+import starlight from "@astrojs/starlight"
 import { ui } from "@rimelight/ui"
 import { defineConfig, fontProviders, memoryCache } from "astro/config"
 
@@ -41,7 +42,14 @@ export default defineConfig({
 
   site: "https://marcelocfilho.com",
 
-  integrations: [mdx(), sitemap(), ui()],
+  integrations: [
+    starlight({
+      title: "marcelocfilho.com"
+    }),
+    mdx(),
+    sitemap(),
+    ui()
+  ],
 
   fonts: [
     {
