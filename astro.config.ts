@@ -44,8 +44,16 @@ export default defineConfig({
 
   integrations: [
     starlight({
-      title: "marcelocfilho.com"
+      title: "marcelocfilho.com",
+      sidebar: [
+        { label: "Home", link: "/docs/" },
+        {
+          label: "Documentation",
+          autogenerate: { directory: "docs" }
+        }
+      ]
     }),
+
     mdx(),
     sitemap(),
     ui()
