@@ -1,16 +1,17 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import { getRelativeLocaleUrl } from "astro:i18n";
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/')}>{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/docs">Docs</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/')}>Home</HeaderLink>
+			<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/blog')}>Blog</HeaderLink>
+			<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/docs')}>Docs</HeaderLink>
+			<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/about')}>About</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
