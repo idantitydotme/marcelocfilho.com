@@ -44,6 +44,9 @@ export default defineConfig({
 
   site: "https://marcelocfilho.com",
   output: "server",
+  prefetch: {
+    prefetchAll: true
+  },
 
   adapter: cloudflare(),
 
