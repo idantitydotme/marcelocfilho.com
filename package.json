@@ -2,6 +2,22 @@
   "name": "marcelocfilho-dot-com",
   "version": "0.0.1",
   "private": true,
+  "description": "My personal portfolio website.",
+  "keywords": [
+    "astro",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/idantitydotme/marcelocfilho/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Marchi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idantitydotme/marcelocfilho.git"
+  },
   "type": "module",
   "scripts": {
     "prepare": "vp config",
