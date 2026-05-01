@@ -1,25 +1,22 @@
 ---
 import RLAHeader from "@rimelight/ui/components/astro/RLAHeader.astro";
+import RLALogo from "@rimelight/ui/components/astro/RLALogo.astro";
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import { getRelativeLocaleUrl } from "astro:i18n";
 ---
 
-<RLAHeader contain={true} fixed={true} stackIndex={0} class="bg-white/90 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
+<RLAHeader contain={true} fixed={true} stackIndex={0} class="bg-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
 	<div slot="left">
-		<h2 class="m-0 text-base font-bold">
-			<a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/')} class="text-inherit no-underline">
-				{SITE_TITLE}
-			</a>
-		</h2>
-	</div>
-	<nav slot="center" class="flex items-center gap-2">
 		<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/')}>Home</HeaderLink>
 		<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/blog')}>Blog</HeaderLink>
 		<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/docs')}>Docs</HeaderLink>
 		<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/about')}>About</HeaderLink>
 		<HeaderLink href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/legal')}>Legal</HeaderLink>
-	</nav>
+	</div>
+	<span slot="center" class="flex items-center">
+		{{ SITE_TITLE }}
+	</span>
 	<div slot="right" class="social-links flex gap-2 max-md:hidden">
 		<a href="https://m.webtoo.ls/@astro" target="_blank" class="text-black">
 			<span class="sr-only">Follow Astro on Mastodon</span>
