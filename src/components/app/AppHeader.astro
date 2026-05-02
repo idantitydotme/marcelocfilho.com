@@ -41,6 +41,14 @@ const items: NavigationMenuItem[] = [
 			client:load
 			items={items}
 			variant="link"
+			ui={{
+				link: [
+					'text-white transition-colors duration-200',
+					'hover:text-primary-400',
+					'data-[state=open]:text-primary-400',
+					'aria-[current]:text-primary-400'
+				]
+			}}
 		/>
 	</div>
 	<div slot="center" class="items-center">
