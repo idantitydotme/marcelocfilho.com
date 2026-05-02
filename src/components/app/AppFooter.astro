@@ -1,49 +1,15 @@
 ---
 import RLAFooter from "@rimelight/ui/components/astro/RLAFooter.astro";
-import RLALogo from "@rimelight/ui/components/astro/RLALogo.astro";
 import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
-import { FooterColumns } from "@rimelight/ui/nuxt";
 import ThemeToggle from "@rimelight/ui/components/ThemeToggle.astro";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
-const columns = [
-  {
-    label: 'Resources',
-    children: [
-      {
-        label: 'Branding',
-        to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', "/branding")
-      }
-    ]
-  },
-  {
-    label: 'Legal',
-    children: [
-      {
-        label: 'Privacy Policy',
-        to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', "/legal/privacy-policy")
-      },
-      {
-        label: 'Other Documents',
-        to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', "/legal")
-      }
-    ]
-  }
-];
 ---
 
-<RLAFooter contain={false} class="bg-black z-50">
+<RLAFooter contain={false} class="z-50">
   <div slot="left" class="flex flex-col items-center gap-xs lg:items-start">
-    <RLALogo variant="logotype" class="h-6 w-auto" />
-    <p class="text-sm text-white">Accessing me.</p>
-    <span class="text-sm text-white">© {new Date().getFullYear()} idantity.me</span>
+    <span class="text-sm text-white">© {new Date().getFullYear()} Marcelo Caldart Filho</span>
   </div>
   <div slot="center">
-    <FooterColumns client:load columns={columns} ui={{
-      label: 'text-white',
-      item: 'text-white',
-      link: 'text-white'
-    }} />
+
   </div>
   <div slot="right" class="flex flex-col gap-sm lg:items-end">
     <ThemeToggle size="sm" />
@@ -52,37 +18,16 @@ const columns = [
           size="xl"
           color="neutral"
           variant="ghost"
-          leadingIcon="i-logos-instagram-icon?mask text-white hover:text-primary-500"
+          leadingIcon="i-logos-soundcloud-icon?mask text-white hover:text-primary-500"
           size="xl"
-          href="https://www.instagram.com/idantity.me"
-      />
-      <RLAButton
-          size="xl"
-          color="neutral"
-          variant="ghost"
-          leadingIcon="i-logos-discord-icon?mask text-white hover:text-primary-500"
-          href="https://discord.com/users/682049695173836979"
-      />
-      <RLAButton
-          size="xl"
-          color="neutral"
-          variant="ghost"
-          leadingIcon="i-logos-spotify-icon?mask text-white hover:text-primary-500"
-          href="https://open.spotify.com/user/v5m4qoc9j35ccc6nbzqcookvj?si=d795f9bc1cb34222"
-      />
-      <RLAButton
-          size="xl"
-          color="neutral"
-          variant="ghost"
-          leadingIcon="i-logos-github-icon?mask text-white hover:text-primary-500"
-          href="https://www.github.com/idantitydotme"
+          href="https://www.soundcloud.com/marcelo-filho-32565359"
       />
       <RLAButton
           size="xl"
           color="neutral"
           variant="ghost"
           leadingIcon="i-logos-linkedin-icon?mask text-white hover:text-primary-500"
-          href="https://www.linkedin.com/daniel-marchi"
+          href="https://www.linkedin.com/marcelocfilho"
       />
     </div>
   </div>

@@ -1,6 +1,7 @@
 ---
 import RLAHeader from "@rimelight/ui/components/astro/RLAHeader.astro";
 import type { NavigationMenuItem } from "@rimelight/ui/nuxt/types"
+import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
 import { NavigationMenu } from "@rimelight/ui/nuxt"
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -8,7 +9,7 @@ const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 
 const items: NavigationMenuItem[] = [
   {
-    label: 'Home',
+    label: 'Projects',
     to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/'),
     active: pathname === getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/').replace(/\/+$/, '')
   },
@@ -18,19 +19,9 @@ const items: NavigationMenuItem[] = [
     active: pathname.startsWith(getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/blog').replace(/\/+$/, ''))
   },
   {
-    label: 'Docs',
+    label: 'About',
     to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/docs'),
     active: pathname.startsWith(getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/docs').replace(/\/+$/, ''))
-  },
-  {
-    label: 'About',
-    to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/about'),
-    active: pathname.startsWith(getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/about').replace(/\/+$/, ''))
-  },
-  {
-    label: 'Legal',
-    to: getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/legal'),
-    active: pathname.startsWith(getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/legal').replace(/\/+$/, ''))
   }
 ];
 ---
@@ -53,5 +44,22 @@ const items: NavigationMenuItem[] = [
 	</div>
 	<div slot="center" class="items-center">
 		<span>Marcelo Caldart Filho</span>
+	</div>
+	<div slot="right" class="flex gap-sm items-right">
+		<RLAButton
+			size="xl"
+			color="neutral"
+			variant="ghost"
+			leadingIcon="i-logos-soundcloud-icon?mask text-white hover:text-primary-500"
+			size="xl"
+			href="https://www.soundcloud.com/marcelo-filho-32565359"
+		/>
+		<RLAButton
+			size="xl"
+			color="neutral"
+			variant="ghost"
+			leadingIcon="i-logos-linkedin-icon?mask text-white hover:text-primary-500"
+			href="https://www.linkedin.com/marcelocfilho"
+		/>
 	</div>
 </RLAHeader>
