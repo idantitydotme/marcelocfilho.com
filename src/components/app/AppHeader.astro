@@ -1,6 +1,5 @@
 ---
 import RLAHeader from "@rimelight/ui/components/astro/RLAHeader.astro";
-import RLALogo from "@rimelight/ui/components/astro/RLALogo.astro";
 import type { NavigationMenuItem } from "@rimelight/ui/nuxt/types"
 import { NavigationMenu } from "@rimelight/ui/nuxt"
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -43,5 +42,8 @@ const items: NavigationMenuItem[] = [
 			items={items}
 			variant="link"
 		/>
+	</div>
+	<div slot="center" class="items-center">
+		<span>Marcelo Caldart Filho</span>
 	</div>
 </RLAHeader>
