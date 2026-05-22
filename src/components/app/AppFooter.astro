@@ -1,8 +1,59 @@
 ---
 import RLAFooter from "@rimelight/ui/components/astro/RLAFooter.astro";
+import RLALogo from "@rimelight/ui/components/astro/RLALogo.astro";
 import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
+import type { ButtonProps } from "@rimelight/ui/types";
+import { FooterColumns } from "@rimelight/ui/nuxt";
 import ThemeToggle from "@rimelight/ui/components/ThemeToggle.astro";
 import LanguagePicker from "./LanguagePicker.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useI18n } from "astro-nanostores-i18n:runtime";
+
+const activeLocale = Astro.currentLocale ?? "en";
+
+const messages = useI18n("app_footer", {
+  "links_resources_label": "Resources",
+  "links_resources_branding": "Branding",
+  "links_legal_label": "Legal",
+  "links_legal_privacy-policy": "Privacy Policy",
+  "links_legal_other_documents": "Other Documents",
+});
+
+const columns = [
+  {
+    label: messages["links_resources_label"],
+    children: [
+      {
+        label: messages["links_resources_branding"],
+        to: getRelativeLocaleUrl(activeLocale, "/branding")
+      }
+    ]
+  },
+  {
+    label: messages["links_legal_label"],
+    children: [
+      {
+        label: messages["links_legal_privacy-policy"],
+        to: getRelativeLocaleUrl(activeLocale, "/legal/privacy-policy")
+      },
+      {
+        label: messages["links_legal_other_documents"],
+        to: getRelativeLocaleUrl(activeLocale, "/legal")
+      }
+    ]
+  }
+];
+
+const socials: ButtonProps[] = [
+  {
+    leadingIcon: "i-logos-soundcloud-icon?mask text-white hover:text-primary-500",
+    href: "https://www.soundcloud.com/marcelo-filho-32565359"
+  },
+  {
+    leadingIcon: "i-logos-linkedin-icon?mask text-white hover:text-primary-500",
+    href: "https://www.linkedin.com/marcelocfilho"
+  }
+];
 ---
 
 <RLAFooter contain={false} class="z-50">
@@ -16,21 +67,14 @@ import LanguagePicker from "./LanguagePicker.astro";
     <ThemeToggle size="sm" />
     <LanguagePicker />
     <div class="flex flex-row gap-sm lg:items-end">
-      <RLAButton
-          size="xl"
-          color="neutral"
-          variant="ghost"
-          leadingIcon="i-logos-soundcloud-icon?mask text-white hover:text-primary-500"
-          size="xl"
-          href="https://www.soundcloud.com/marcelo-filho-32565359"
-      />
-      <RLAButton
-          size="xl"
-          color="neutral"
-          variant="ghost"
-          leadingIcon="i-logos-linkedin-icon?mask text-white hover:text-primary-500"
-          href="https://www.linkedin.com/marcelocfilho"
-      />
+      {socials.map((social) => (
+          <RLAButton
+              size="xl"
+              color="neutral"
+              variant="ghost"
+              {...social}
+          />
+      ))}
     </div>
   </div>
 </RLAFooter>
