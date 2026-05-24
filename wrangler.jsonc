@@ -25,5 +25,8 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "CONSTRUCTION_MODE": "true"
   }
 }
