@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "marcelocfilho-dot-com",
   "main": "@astrojs/cloudflare/entrypoints/server",
-  "compatibility_date": "2026-04-12",
+  "compatibility_date": "2026-05-01",
   "compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
   "observability": {
     "enabled": true,
@@ -26,7 +26,14 @@
     "directory": "./dist",
     "binding": "ASSETS"
   },
+  "r2_buckets": [
+    {
+      "binding": "BLOB",
+      "bucket_name": "marcelocfilho-dot-com"
+    }
+  ],
   "vars": {
     "CONSTRUCTION_MODE": "true"
   }
 }
+
