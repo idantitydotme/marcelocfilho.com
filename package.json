@@ -1,25 +1,25 @@
 {
   "name": "marcelocfilho-dot-com",
-  "description": "My personal portfolio website.",
-  "homepage": "https://marcelcofilho.com",
-  "author": {
-    "name": "Daniel Marchi"
-  },
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "license": "MIT",
+  "description": "My personal portfolio website.",
   "keywords": [
     "astro",
     "typescript"
   ],
+  "homepage": "https://marcelcofilho.com",
+  "bugs": {
+    "url": "https://github.com/idantitydotme/marcelocfilho.com/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Marchi"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/idantitydotme/marcelocfilho.com.git"
   },
-  "bugs": {
-    "url": "https://github.com/idantitydotme/marcelocfilho.com/issues"
-  },
+  "type": "module",
   "scripts": {
     "prepare": "vp config",
     "generate-types": "wrangler types",
