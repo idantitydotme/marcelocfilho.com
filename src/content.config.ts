@@ -16,7 +16,7 @@ const blog = defineCollection({
     loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
     schema: ({ image }) =>
         z.object({
-            type: z.enum(["development-log", "other"]),
+            type: z.enum(["other", "personal-stories", "project-updates"]),
             title: z.string(),
             description: z.string(),
             pubDate: z.coerce.date(),
