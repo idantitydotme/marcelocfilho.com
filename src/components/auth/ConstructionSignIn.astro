@@ -1,0 +1,118 @@
+---
+import RLACard from "@rimelight/ui/components/astro/RLACard.astro"
+import RLAForm from "@rimelight/ui/components/astro/RLAForm.astro"
+import RLAFormField from "@rimelight/ui/components/astro/RLAFormField.astro"
+import RLAInput from "@rimelight/ui/components/astro/RLAInput.astro"
+import RLACheckbox from "@rimelight/ui/components/astro/RLACheckbox.astro"
+import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro"
+
+const { allowAuth = true } = Astro.props
+---
+
+{allowAuth ? (
+  <RLACard class="bg-black">
+    <div class="flex flex-col gap-4">
+      <div id="auth-error" class="text-red-500 text-sm hidden"></div>
+
+      <RLAForm id="auth-form">
+        <div class="flex flex-col gap-4">
+          <RLAFormField
+            name="email"
+            label="E-mail"
+            required
+            ui={{
+              label: 'text-white',
+              description: 'text-neutral-500',
+            }}
+          >
+            <RLAInput
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              class="w-full"
+              required
+            />
+          </RLAFormField>
+
+          <RLAFormField
+            name="password"
+            label="Password"
+            required
+            ui={{
+              label: 'text-white',
+              description: 'text-neutral-500',
+            }}
+          >
+            <RLAInput
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              class="w-full"
+              required
+            />
+          </RLAFormField>
+
+          <RLACheckbox
+            name="rememberMe"
+            label="Remember me"
+            checked
+            ui={{
+              label: 'text-white',
+            }}
+          />
+
+          <RLAButton
+            type="submit"
+            color="primary"
+            variant="solid"
+            block
+            class="text-white bg-primary-500 hover:bg-primary-600"
+            id="auth-submit"
+          >
+            Sign In
+          </RLAButton>
+        </div>
+      </RLAForm>
+    </div>
+  </RLACard>
+) : (
+  <p class="text-neutral-400">Please return at a later stage.</p>
+)}
+
+<script>
+  const form = document.getElementById('auth-form') as HTMLFormElement;
+  const errorEl = document.getElementById('auth-error');
+  const submitBtn = document.getElementById('auth-submit');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!errorEl || !submitBtn) return;
+
+    errorEl.classList.add('hidden');
+    submitBtn.setAttribute('data-loading', 'true');
+
+    // const formData = new FormData(form);
+
+    try {
+      // const { authClient } = await import('@/auth/auth-client');
+      // const { error: signInError } = await authClient.signIn.email({
+      //   email,
+      //   password,
+      //   rememberMe,
+      // });
+      //
+      // if (signInError) {
+      //   errorEl.textContent = signInError.message || 'Something went wrong';
+      //   errorEl.classList.remove('hidden');
+      // } else {
+      //   const params = new URLSearchParams(window.location.search);
+      //   window.location.href = params.get('redirect') || '/';
+      // }
+    } catch (err) {
+      errorEl.textContent = 'An unexpected error occurred';
+      errorEl.classList.remove('hidden');
+    } finally {
+      submitBtn.removeAttribute('data-loading');
+    }
+  });
+</script>

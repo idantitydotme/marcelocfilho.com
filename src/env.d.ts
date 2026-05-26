@@ -6,3 +6,6 @@ declare namespace App {
         session: import("better-auth").Session | null;
     }
 }
+
+declare module "turndown";
+declare module "turndown-plugin-gfm";
