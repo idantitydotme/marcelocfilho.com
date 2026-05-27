@@ -5,8 +5,8 @@ import es from "./src/translations/es.json"
 import pt from "./src/translations/pt.json"
 import sitemap from "@astrojs/sitemap"
 import mdx from "@astrojs/mdx"
-import { ui } from "@rimelight/ui/integrations"
-import { sri } from "@rimelight/ui/integrations"
+import { ui, sri } from "@rimelight/ui/integrations"
+import { defineSecurity } from "@rimelight/ui/config"
 import cloudflare from "@astrojs/cloudflare"
 import { defineConfig, fontProviders, memoryCache, svgoOptimizer } from "astro/config"
 
@@ -60,40 +60,9 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare(),
 
-  // security: {
-  //   checkOrigin: true,
-  //   allowedDomains: [
-  //     {
-  //       hostname: "**.marcelocfilho.com",
-  //       protocol: "https"
-  //     }
-  //   ],
-  //   csp: {
-  //     algorithm: "SHA-384",
-  //     directives: [
-  //       "default-src 'none'",
-  //       "img-src 'self' https://cdn.marcelocfilho.com https://i3.ytimg.com https://www.youtube.com https://www.youtube-nocookie.com",
-  //       "font-src 'self'",
-  //       "connect-src 'self' https://cloudflareinsights.com",
-  //       "frame-ancestors 'none'",
-  //       "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
-  //       "upgrade-insecure-requests",
-  //       "base-uri 'self'",
-  //       "form-action 'self'"
-  //     ],
-  //     scriptDirective: {
-  //       resources: [
-  //         "'self'",
-  //         "https://challenges.cloudflare.com",
-  //         "https://static.cloudflareinsights.com",
-  //         "https://betterlytics.io/analytics.js"
-  //       ]
-  //     },
-  //     styleDirective: {
-  //       resources: ["'self'"]
-  //     }
-  //   }
-  // },
+  security: defineSecurity({
+    domain: "marcelocfilho.com"
+  }),
 
   i18n: {
     locales: ["en", "pt", "es"],
