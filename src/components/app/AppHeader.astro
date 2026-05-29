@@ -1,69 +1,215 @@
 ---
 import RLAHeader from "@rimelight/ui/components/astro/RLAHeader.astro";
 import RLALogo from "@rimelight/ui/components/astro/RLALogo.astro";
-import RLANavigationMenu from "@rimelight/ui/components/astro/RLANavigationMenu.astro";
-import type { NavigationMenuItem } from "@rimelight/ui/types";
+import RLANavigationMenu from "@rimelight/ui/components/astro/RLANavigationMenu.astro"
 import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
+import RLASlideover from "@rimelight/ui/components/astro/RLASlideover.astro";
+import type { NavigationMenuItem, ButtonProps } from "@rimelight/ui/types";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useI18n } from "astro-nanostores-i18n:runtime";
 
 const activeLocale = Astro.currentLocale ?? "en";
 
-const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
-
 const messages = useI18n("app_header", {
-	"links_projects_label": "Projects",
-	"links_blog_label": "Blog",
-	"links_about_label": "About"
+	"left-links_projects_label": "Projects",
+	"left-links_blog_label": "Blog",
+	"left-links_about_label": "About"
 });
 
-const items: NavigationMenuItem[] = [
+const leftLinks: NavigationMenuItem[] = [
   {
-    label: messages["links_projects_label"],
+    label: messages["left-links_projects_label"],
     to: getRelativeLocaleUrl(activeLocale, '/projects'),
-    active: pathname === getRelativeLocaleUrl(activeLocale, '/projects').replace(/\/+$/, '')
   },
   {
-    label: messages["links_blog_label"],
+    label: messages["left-links_blog_label"],
     to: getRelativeLocaleUrl(activeLocale, '/blog'),
-    active: pathname.startsWith(getRelativeLocaleUrl(activeLocale, '/blog').replace(/\/+$/, ''))
   },
   {
-    label: messages["links_about_label"],
+    label: messages["left-links_about_label"],
     to: getRelativeLocaleUrl(activeLocale, '/docs'),
-    active: pathname.startsWith(getRelativeLocaleUrl(activeLocale, '/docs').replace(/\/+$/, ''))
+  }
+];
+
+const socials: ButtonProps[] = [
+  {
+    color: "neutral",
+    variant: "ghost",
+    leadingIcon: "i-logos-soundcloud-icon?mask",
+    to: "https://www.soundcloud.com/marcelo-filho-32565359"
+  },
+  {
+    color: "neutral",
+    variant: "ghost",
+    leadingIcon: "i-logos-linkedin-icon?mask",
+    to: "https://www.linkedin.com/marcelocfilho"
   }
 ];
 ---
 
-<RLAHeader contain={true} fixed={true} stackIndex={0}>
-	<div slot="left" class="flex flex-row items-center gap-md">
-		<RLANavigationMenu
-			items={items}
-			variant="link"
-			theme="flat"
-			ui={{
-				link: 'text-white transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400'
-			}}
-		/>
+<RLAHeader
+  fixed={true}
+  class="scroll-header bg-black left-1/2 -translate-x-1/2 duration-300">
+>
+  <div slot="left" class="flex items-center gap-md">
+    <div class="hidden md:flex flex-row gap-md">
+      <RLANavigationMenu
+        items={leftLinks}
+        variant="link"
+        theme="flat"
+        ui={{
+          link: 'text-white transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400'
+        }}
+      />
+    </div>
+
+    <div class="block md:hidden">
+      <RLASlideover side="left" title="Menu">
+        <RLAButton
+          slot="trigger"
+          color="neutral"
+          variant="ghost"
+          rounded={true}
+          leadingIcon="i-lucide-menu"
+          class="!text-white"
+          theme="dark"
+          aria-label="Open Menu"
+        />
+
+        <RLANavigationMenu
+          items={leftLinks}
+          orientation="vertical"
+          variant="link"
+          ui={{
+            link: "text-black dark:text-white flex justify-start items-center w-full text-left py-2 text-lg transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400"
+          }}
+        />
+      </RLASlideover>
+    </div>
 	</div>
-	<div slot="center" class="items-center">
-		<a href="/" class="text-white hover:text-primary-400 transition-colors font-bold no-underline">Marcelo Caldart Filho</a>
-	</div>
-	<div slot="right" class="flex flex-row items-center gap-md">
-		<RLAButton
-			size="xl"
-			color="neutral"
-			variant="ghost"
-			leadingIcon="i-logos-soundcloud-icon?mask text-white hover:text-primary-500"
-			href="https://www.soundcloud.com/marcelo-filho-32565359"
-		/>
-		<RLAButton
-			size="xl"
-			color="neutral"
-			variant="ghost"
-			leadingIcon="i-logos-linkedin-icon?mask text-white hover:text-primary-500"
-			href="https://www.linkedin.com/marcelocfilho"
-		/>
-	</div>
+
+  <div slot="center" class="flex items-center gap-md">
+    <div class="block md:hidden">
+      <a href="/" class="text-white hover:text-primary-400 transition-colors font-bold no-underline">Marcelo Caldart Filho</a>
+    </div>
+  </div>
+
+  <div slot="right" class="flex items-center gap-md">
+    <div class="hidden md:flex flex-row gap-md">
+      {socials.map((buttonProps) => (
+        <RLAButton {...buttonProps} />
+      ))}
+    </div>
+
+    <div class="block md:hidden">
+      <RLASlideover side="right" title="Actions">
+        <RLAButton
+          slot="trigger"
+          color="neutral"
+          variant="ghost"
+          rounded={true}
+          leadingIcon="i-lucide-ellipsis-vertical"
+          class="!text-white"
+          theme="dark"
+          aria-label="Open Actions"
+        />
+
+        <div class="flex flex-col gap-md">
+          {socials.map((buttonProps) => (
+            <RLAButton {...buttonProps} block={true} />
+          ))}
+        </div>
+      </RLASlideover>
+    </div>
+  </div>
 </RLAHeader>
+
+<style is:global>
+  @property --viewport-margin {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  @property --viewport-radius {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  @keyframes shrinkHeader {
+    from {
+      margin-top: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+    to {
+      margin-top: 16px;
+      width: calc(100% - 32px);
+      border-radius: 9999px;
+    }
+  }
+
+  @keyframes shrinkViewport {
+    from {
+      --viewport-margin: 0px;
+      --viewport-radius: 0px;
+      width: 100%;
+      max-width: 100%;
+    }
+    to {
+      --viewport-margin: 12px;
+      --viewport-radius: 16px;
+      width: calc(100% - 32px);
+    }
+  }
+
+  .scroll-header {
+    animation: shrinkHeader linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 90px;
+  }
+
+  /* Starter override: Mega menu transitions on scroll */
+  html [data-nav-viewport] {
+    margin-top: var(--viewport-margin, 0px) !important;
+    border-radius: var(--viewport-radius, 0px) !important;
+    animation: shrinkViewport linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 90px;
+  }
+
+  /* Vertical mega menu content static override */
+  html [data-nav-menu][data-orientation="vertical"] [data-nav-content] {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 8px 0 0 0 !important;
+    display: block !important;
+  }
+
+  html [data-nav-menu][data-orientation="vertical"] [data-nav-content].hidden {
+    display: none !important;
+  }
+
+  html [data-nav-menu][data-orientation="vertical"] [data-nav-content] [slot="features-content"] {
+    background: transparent !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  html [data-nav-menu][data-orientation="vertical"] [data-nav-content] .p-lg,
+  html [data-nav-menu][data-orientation="vertical"] [data-nav-content] .p-xl {
+    padding: 12px 4px !important;
+  }
+
+  html [data-nav-menu][data-orientation="vertical"] [data-nav-content] .w-64 {
+    width: 100% !important;
+    background: transparent !important;
+    padding: 12px 4px !important;
+  }
+</style>
