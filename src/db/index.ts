@@ -1,39 +1,32 @@
-import { neon } from "@neondatabase/serverless"
-import { drizzle } from "drizzle-orm/neon-http"
-import type { NeonHttpDatabase } from "drizzle-orm/neon-http"
+import { drizzle } from "drizzle-orm/d1"
+import type { DrizzleD1Database } from "drizzle-orm/d1"
 import * as schema from "@/db/schema"
 
 export * from "@/db/schema"
 export { schema }
 
-function stub(): NeonHttpDatabase<typeof schema>
-function stub(): unknown {
-  console.warn("[db] DATABASE_URL is not set. Any attempt to query the database will throw.")
-  return new Proxy(
-    {},
-    {
-      get(_target, prop) {
-        if (prop === "then") return undefined
-        return () => {
-          throw new Error(
-            "[db] DATABASE_URL is not set. Set the variable and restart the dev server."
-          )
-        }
+function anyObject(): any {
+  return {}
+}
+
+function createDbProxy(): DrizzleD1Database<typeof schema> {
+  let cachedDb: DrizzleD1Database<typeof schema> | null = null
+  return new Proxy(anyObject(), {
+    get(_target, prop) {
+      if (prop === "then") return undefined
+
+      const d1Binding = globalThis.DB
+      if (!d1Binding) {
+        throw new Error("[db] DB binding is not set. Bind the D1 database to the environment.")
       }
+
+      if (!cachedDb) {
+        cachedDb = drizzle(d1Binding, { schema })
+      }
+
+      return Reflect.get(cachedDb, prop)
     }
-  )
+  })
 }
 
-let db!: NeonHttpDatabase<typeof schema>
-
-const databaseUrl = import.meta.env.DATABASE_URL ?? process.env.DATABASE_URL
-
-if (databaseUrl) {
-  db = drizzle(neon(databaseUrl), { schema })
-} else if (import.meta.env.PROD) {
-  throw new Error("[db] DATABASE_URL is not set. Cannot start in production.")
-} else {
-  db = stub()
-}
-
-export { db }
+export const db = createDbProxy()

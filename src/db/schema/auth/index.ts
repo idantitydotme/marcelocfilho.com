@@ -1,158 +1,173 @@
 import { relations } from "drizzle-orm"
 import {
-  type AnyPgColumn,
-  bigint,
-  boolean,
-  index,
+  type AnySQLiteColumn,
   integer,
-  pgTable,
+  sqliteTable,
   primaryKey,
   text,
-  timestamp,
   uniqueIndex,
-  uuid
-} from "drizzle-orm/pg-core"
+  index
+} from "drizzle-orm/sqlite-core"
 import type { UserAvailability } from "@/types/user"
 
 // ============================================================================
 // Core Auth Tables
 // ============================================================================
 
-export const user = pgTable(
+export const user = sqliteTable(
   "user",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
     name: text("name").notNull(),
     tag: text("tag").notNull().default("0000"),
     email: text("email").notNull().unique(),
-    emailVerified: boolean("email_verified").default(false).notNull(),
+    emailVerified: integer("email_verified", { mode: "boolean" }).default(false).notNull(),
     image: text("image"),
     firstName: text("first_name").notNull(),
     lastName: text("last_name").notNull(),
     availability: text("availability").$type<UserAvailability>().notNull().default("available"),
     status: text("status"),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true }),
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" }),
     role: text("role"),
-    banned: boolean("banned").default(false),
+    banned: integer("banned", { mode: "boolean" }).default(false),
     banReason: text("ban_reason"),
-    banExpires: timestamp("ban_expires"),
+    banExpires: integer("ban_expires", { mode: "timestamp" }),
     publicKey: text("public_key"),
     encryptedPrivateKey: text("encrypted_private_key"),
     derivationSalt: text("derivation_salt")
   },
-  (table) => ({
-    nameTagUnique: uniqueIndex("user_name_tag_unique").on(table.name, table.tag)
-  })
+  (table) => [uniqueIndex("user_name_tag_unique").on(table.name, table.tag)]
 )
 
-export const session = pgTable(
+export const session = sqliteTable(
   "session",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
-    expiresAt: timestamp("expires_at").notNull(),
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
+    expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
     token: text("token").notNull().unique(),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true }),
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" }),
     ipAddress: text("ip_address"),
     userAgent: text("user_agent"),
-    userId: uuid("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
     impersonatedBy: text("impersonated_by"),
-    activeOrganizationId: uuid("active_organization_id"),
-    activeTeamId: uuid("active_team_id")
+    activeOrganizationId: text("active_organization_id"),
+    activeTeamId: text("active_team_id")
   },
   (table) => [index("session_userId_idx").on(table.userId)]
 )
 
-export const account = pgTable(
+export const account = sqliteTable(
   "account",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
     accountId: text("account_id").notNull(),
     providerId: text("provider_id").notNull(),
-    userId: uuid("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
     accessToken: text("access_token"),
     refreshToken: text("refresh_token"),
     idToken: text("id_token"),
-    accessTokenExpiresAt: timestamp("access_token_expires_at"),
-    refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
+    accessTokenExpiresAt: integer("access_token_expires_at", { mode: "timestamp" }),
+    refreshTokenExpiresAt: integer("refresh_token_expires_at", { mode: "timestamp" }),
     scope: text("scope"),
     password: text("password"),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true })
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" })
   },
   (table) => [index("account_userId_idx").on(table.userId)]
 )
 
-export const verification = pgTable(
+export const verification = sqliteTable(
   "verification",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
     identifier: text("identifier").notNull(),
     value: text("value").notNull(),
-    expiresAt: timestamp("expires_at").notNull(),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true })
+    expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" })
   },
   (table) => [index("verification_identifier_idx").on(table.identifier)]
 )
 
-export const rateLimit = pgTable("rate_limit", {
-  id: uuid("id").defaultRandom().notNull().primaryKey(),
+export const rateLimit = sqliteTable("rate_limit", {
+  id: text("id")
+    .$defaultFn(() => crypto.randomUUID())
+    .notNull()
+    .primaryKey(),
   key: text("key"),
   count: integer("count"),
-  lastRequest: bigint("last_request", { mode: "number" })
+  lastRequest: integer("last_request")
 })
 
 // ============================================================================
 // Organization Tables
 // ============================================================================
 
-export const organization = pgTable("organization", {
-  id: uuid("id").defaultRandom().notNull().primaryKey(),
+export const organization = sqliteTable("organization", {
+  id: text("id")
+    .$defaultFn(() => crypto.randomUUID())
+    .notNull()
+    .primaryKey(),
   name: text("name").notNull(),
   slug: text("slug").notNull().unique(),
   logo: text("logo"),
-  updatedAt: timestamp("updated_at", {
-    withTimezone: true
-  }).$onUpdate(() => new Date()),
-  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-  deletedAt: timestamp("deleted_at", { withTimezone: true }),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  deletedAt: integer("deleted_at", { mode: "timestamp" }),
   metadata: text("metadata")
 })
 
-export const member = pgTable(
+export const member = sqliteTable(
   "member",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
-    organizationId: uuid("organization_id")
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
+    organizationId: text("organization_id")
       .notNull()
       .references(() => organization.id, { onDelete: "cascade" }),
-    userId: uuid("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
     role: text("role").default("member").notNull(),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true })
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" })
   },
   (table) => [
     index("member_organizationId_idx").on(table.organizationId),
@@ -160,23 +175,26 @@ export const member = pgTable(
   ]
 )
 
-export const invitation = pgTable(
+export const invitation = sqliteTable(
   "invitation",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
-    organizationId: uuid("organization_id")
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
+    organizationId: text("organization_id")
       .notNull()
       .references(() => organization.id, { onDelete: "cascade" }),
     email: text("email").notNull(),
     role: text("role"),
     status: text("status").default("pending").notNull(),
-    expiresAt: timestamp("expires_at").notNull(),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true }),
-    inviterId: uuid("inviter_id")
+    expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" }),
+    inviterId: text("inviter_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" })
   },
@@ -186,106 +204,119 @@ export const invitation = pgTable(
   ]
 )
 
-export const team = pgTable(
+export const team = sqliteTable(
   "team",
   {
-    id: uuid("id").defaultRandom().notNull().primaryKey(),
+    id: text("id")
+      .$defaultFn(() => crypto.randomUUID())
+      .notNull()
+      .primaryKey(),
     name: text("name").notNull(),
-    organizationId: uuid("organization_id")
+    organizationId: text("organization_id")
       .notNull()
       .references(() => organization.id, { onDelete: "cascade" }),
-    parentId: uuid("parent_id").references((): AnyPgColumn => team.id, {
+    parentId: text("parent_id").references((): AnySQLiteColumn => team.id, {
       onDelete: "cascade"
     }),
-    updatedAt: timestamp("updated_at", {
-      withTimezone: true
-    }).$onUpdate(() => new Date()),
-    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-    deletedAt: timestamp("deleted_at", { withTimezone: true }),
+    updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+      .$defaultFn(() => new Date())
+      .notNull(),
+    deletedAt: integer("deleted_at", { mode: "timestamp" }),
     metadata: text("metadata")
   },
   (table) => [index("team_organizationId_idx").on(table.organizationId)]
 )
 
-export const teamMember = pgTable("team_member", {
-  id: uuid("id").defaultRandom().notNull().primaryKey(),
-  teamId: uuid("team_id")
+export const teamMember = sqliteTable("team_member", {
+  id: text("id")
+    .$defaultFn(() => crypto.randomUUID())
+    .notNull()
+    .primaryKey(),
+  teamId: text("team_id")
     .notNull()
     .references(() => team.id, { onDelete: "cascade" }),
-  userId: uuid("user_id")
+  userId: text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   role: text("role").notNull(),
-  updatedAt: timestamp("updated_at", {
-    withTimezone: true
-  }).$onUpdate(() => new Date()),
-  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-  deletedAt: timestamp("deleted_at", { withTimezone: true })
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  deletedAt: integer("deleted_at", { mode: "timestamp" })
 })
 
 // ============================================================================
 // Note Tables (shared feature)
 // ============================================================================
 
-export const todo = pgTable("todo", {
-  id: uuid("id").defaultRandom().notNull().primaryKey(),
-  userId: uuid("user_id")
+export const todo = sqliteTable("todo", {
+  id: text("id")
+    .$defaultFn(() => crypto.randomUUID())
+    .notNull()
+    .primaryKey(),
+  userId: text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   title: text("title").notNull(),
   description: text("description"),
-  completed: boolean("completed").default(false).notNull(),
-  completedAt: timestamp("completed_at"),
-  isArchived: boolean("is_archived").default(false).notNull(),
-  updatedAt: timestamp("updated_at", {
-    withTimezone: true
-  }).$onUpdate(() => new Date()),
-  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-  deletedAt: timestamp("deleted_at", { withTimezone: true })
+  completed: integer("completed", { mode: "boolean" }).default(false).notNull(),
+  completedAt: integer("completed_at", { mode: "timestamp" }),
+  isArchived: integer("is_archived", { mode: "boolean" }).default(false).notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  deletedAt: integer("deleted_at", { mode: "timestamp" })
 })
 
-export const note = pgTable("note", {
-  id: uuid("id").defaultRandom().notNull().primaryKey(),
-  userId: uuid("user_id")
+export const note = sqliteTable("note", {
+  id: text("id")
+    .$defaultFn(() => crypto.randomUUID())
+    .notNull()
+    .primaryKey(),
+  userId: text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   title: text("title"),
   content: text("content"),
-  isPinned: boolean("is_pinned").default(false).notNull(),
-  isArchived: boolean("is_archived").default(false).notNull(),
-  updatedAt: timestamp("updated_at", {
-    withTimezone: true
-  }).$onUpdate(() => new Date()),
-  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-  deletedAt: timestamp("deleted_at", { withTimezone: true })
+  isPinned: integer("is_pinned", { mode: "boolean" }).default(false).notNull(),
+  isArchived: integer("is_archived", { mode: "boolean" }).default(false).notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  deletedAt: integer("deleted_at", { mode: "timestamp" })
 })
 
-export const noteLabel = pgTable("noteLabel", {
-  id: uuid("id").defaultRandom().notNull().primaryKey(),
-  userId: uuid("user_id")
+export const noteLabel = sqliteTable("noteLabel", {
+  id: text("id")
+    .$defaultFn(() => crypto.randomUUID())
+    .notNull()
+    .primaryKey(),
+  userId: text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   name: text("name").notNull(),
-  updatedAt: timestamp("updated_at", {
-    withTimezone: true
-  }).$onUpdate(() => new Date()),
-  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-  deletedAt: timestamp("deleted_at", { withTimezone: true })
+  updatedAt: integer("updated_at", { mode: "timestamp" }).$onUpdate(() => new Date()),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  deletedAt: integer("deleted_at", { mode: "timestamp" })
 })
 
-export const note_noteLabel = pgTable(
+export const note_noteLabel = sqliteTable(
   "note_noteLabel",
   {
-    noteId: uuid("note_id")
+    noteId: text("note_id")
       .notNull()
       .references(() => note.id, { onDelete: "cascade" }),
-    labelId: uuid("label_id")
+    labelId: text("label_id")
       .notNull()
       .references(() => noteLabel.id, { onDelete: "cascade" })
   },
-  (t) => ({
-    pk: primaryKey({ columns: [t.noteId, t.labelId] })
-  })
+  (t) => [primaryKey({ columns: [t.noteId, t.labelId] })]
 )
 
 // ============================================================================

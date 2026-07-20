@@ -1,10 +1,11 @@
-import { defineDocsConfig } from "@rimelight/ui/utils"
+import { defineDocsConfig } from "@rimelight/docs"
 
 export default defineDocsConfig({
   editLink: {
     baseUrl:
       "https://github.com/rimelight/rimelight/edit/main/packages/playground/src/content/docs/"
   },
+  tableOfContents: undefined,
   sidebar: [
     {
       id: "overview",
@@ -18,9 +19,7 @@ export default defineDocsConfig({
         },
         {
           label: "Getting Started",
-          autogenerate: {
-            directory: ""
-          }
+          href: "/{locale}/docs/getting-started/"
         }
       ]
     },
@@ -32,9 +31,7 @@ export default defineDocsConfig({
       items: [
         {
           label: "Testing Suite",
-          autogenerate: {
-            directory: "tests/"
-          }
+          href: "/{locale}/docs/tests/testing-suite/"
         }
       ]
     }

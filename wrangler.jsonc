@@ -4,12 +4,18 @@
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-05-01",
   "compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
+  "cache": {
+    "enabled": true
+  },
   "observability": {
     "enabled": true,
     "logs": {
       "enabled": true,
       "head_sampling_rate": 1,
       "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
     }
   },
   //  "routes": [
@@ -32,7 +38,22 @@
       "bucket_name": "marcelocfilho-dot-com"
     }
   ],
+  "kv_namespaces": [
+    {
+      "binding": "marcelocfilho-dot-com_translations",
+      "id": "TODO_REPLACE_WITH_ACTUAL_KV_NAMESPACE_ID"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "marcelocfilho-dot-com_db",
+      "database_id": "TODO_REPLACE_WITH_ACTUAL_D1_DATABASE_ID",
+      "migrations_dir": "./drizzle"
+    }
+  ],
   "vars": {
-    "CONSTRUCTION_MODE": "true"
+    "CONSTRUCTION_MODE": "true",
+    "CONSTRUCTION_AUTH": "true"
   }
 }

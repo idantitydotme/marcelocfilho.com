@@ -1,14 +1,12 @@
 ---
 import AppLayout from "./AppLayout.astro";
-import RLASidebar from "@rimelight/ui/components/astro/RLASidebar.astro";
-import TableOfContents from "@rimelight/ui/components/TableOfContents.astro";
+import RLASidebar from "@rimelight/ui/components/sidebar/RLASidebar.astro";
+import RLATableOfContents from "@rimelight/ui/components/table-of-contents/RLATableOfContents.astro";
 import RLASurround from "@/components/docs/RLASurround.astro";
-import RLABadge from "@rimelight/ui/components/astro/RLABadge.astro";
-import { getDocsSidebar, getSurroundItems } from "@rimelight/ui/utils";
-import type { ResolvedSidebarItem } from "@rimelight/ui/utils";
-import { getCollection } from "astro:content";
+import RLABadge from "@rimelight/ui/components/badge/RLABadge.astro";
+import { getDocsSidebar, getSurroundItems } from "@rimelight/docs";
+import type { ResolvedSidebarItem, TableOfContentsConfig } from "@rimelight/docs";
 import docsConfig from "@/config/docs.config";
-import type { TableOfContentsConfig } from "@rimelight/ui/components/TableOfContents.astro";
 import type { SurroundOverride } from "@/components/docs/RLASurround.astro";
 
 function normalizeBadge(badge: any) {
@@ -74,8 +72,7 @@ const currentPath = Astro.url.pathname;
 const { items: sidebarItems, scopes, activeScope } = await getDocsSidebar(
   docsConfig,
   locale,
-  currentPath,
-  getCollection
+  currentPath
 );
 const { prev, next } = getSurroundItems(sidebarItems, currentPath);
 
@@ -324,7 +321,7 @@ const tocHeadings = hasToc
     {/* TOC right column — xl+ only */}
     {hasToc && (
       <div class="hidden xl:block w-[240px] shrink-0 sticky top-[calc(var(--rl-total-header-height,64px)+2rem)] max-h-[calc(100vh-var(--rl-total-header-height,64px)-4rem)] overflow-y-auto pl-4">
-        <TableOfContents headings={headings} tableOfContents={resolvedToc as any} />
+        <RLATableOfContents headings={headings} tableOfContents={resolvedToc as any} />
       </div>
     )}
 

@@ -1,12 +1,11 @@
 ---
 import AppLayout from '@/layouts/AppLayout.astro';
-import { useI18n, currentLocale } from 'astro-nanostores-i18n:runtime';
-// import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useI18n, currentLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
 
 const activeLocale = Astro.currentLocale ?? 'en';
 currentLocale.set(activeLocale);
 
-const messages = useI18n('errors', {
+const messages = useI18n(Astro, 'errors', {
   notFound: 'Page Not Found',
   notFoundDesc: 'The page you are looking for does not exist.',
   serverError: 'Server Error',

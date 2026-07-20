@@ -26,7 +26,16 @@ const blog = defineCollection({
 })
 
 const docs = defineCollection({
-  loader: glob({ base: "./src/content/docs", pattern: "**/*.{md,mdx}" }),
+  loader: glob({
+    base: "./src/content/docs",
+    pattern: "**/*.{md,mdx}",
+    deferRender: true,
+    generateId: ({ entry }) =>
+      entry
+        .replace(/\/?index\.(md|mdx)$/, "")
+        .replace(/\.(md|mdx)$/, "")
+        .replace(/\/$/, "") || "index"
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
@@ -35,12 +44,32 @@ const docs = defineCollection({
       .optional(),
     next: z
       .union([z.string(), z.object({ link: z.string(), label: z.string().optional() })])
+      .optional(),
+    editUrl: z.string().optional(),
+    tableOfContents: z
+      .union([
+        z.object({ minHeadingLevel: z.number(), maxHeadingLevel: z.number() }),
+        z.literal(false)
+      ])
       .optional()
   })
+})
+
+const projects = defineCollection({
+  loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      heroImage: image().optional()
+    })
 })
 
 export const collections = {
   legal,
   blog,
-  docs
+  docs,
+  projects
 }

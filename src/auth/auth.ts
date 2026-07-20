@@ -6,7 +6,7 @@ import { ac, owner, admin, member, user } from "@/auth/permissions"
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
-    provider: "pg"
+    provider: "sqlite"
   }),
   emailAndPassword: {
     enabled: true,

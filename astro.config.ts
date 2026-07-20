@@ -1,34 +1,20 @@
-import { visualizer } from "rollup-plugin-visualizer"
-import nanostoresI18n from "astro-nanostores-i18n"
 import en from "./src/translations/en.json"
-import es from "./src/translations/es.json"
 import pt from "./src/translations/pt.json"
 import sitemap from "@astrojs/sitemap"
 import mdx from "@astrojs/mdx"
-import { ui, sri } from "@rimelight/ui/integrations"
-import { defineSecurity } from "@rimelight/ui/config"
+import { ui } from "@rimelight/ui"
+import { sri } from "@rimelight/security"
+import { defineSecurity } from "@rimelight/security/config"
 import cloudflare from "@astrojs/cloudflare"
-import { defineConfig, fontProviders, memoryCache, svgoOptimizer } from "astro/config"
+import { rimelightI18n } from "@rimelight/i18n/integration"
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config"
+import { cacheCloudflare } from "@astrojs/cloudflare/cache"
 
 export default defineConfig({
   experimental: {
     contentIntellisense: true,
-    queuedRendering: {
-      enabled: true,
-      contentCache: true
-    },
-    cache: {
-      provider: memoryCache()
-    },
-    routeRules: {
-      "/api/[...path]": {
-        swr: 600 // 10 minutes stale-while-revalidate
-      },
-      "/[...path]": {
-        maxAge: 300 // 5 minutes cache
-      }
-    },
     clientPrerender: true,
+    collectionStorage: "chunked",
     svgOptimizer: svgoOptimizer({
       plugins: [
         "preset-default",
@@ -44,12 +30,9 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [
-      visualizer({
-        emitFile: true,
-        filename: "stats.html"
-      })
-    ]
+    define: {
+      "import.meta.env.BUILD_TIME": JSON.stringify(new Date().toISOString())
+    }
   },
 
   site: "https://marcelocfilho.com",
@@ -59,13 +42,24 @@ export default defineConfig({
 
   output: "server",
   adapter: cloudflare(),
+  cache: {
+    provider: cacheCloudflare()
+  },
+  routeRules: {
+    "/api/[...path]": {
+      swr: 600 // 10 minutes stale-while-revalidate
+    },
+    "/[...path]": {
+      maxAge: 300 // 5 minutes cache
+    }
+  },
 
   security: defineSecurity({
     domain: "marcelocfilho.com"
   }),
 
   i18n: {
-    locales: ["en", "pt", "es"],
+    locales: ["en", "pt"],
     defaultLocale: "en",
     routing: {
       prefixDefaultLocale: true,
@@ -94,27 +88,21 @@ export default defineConfig({
     }
   ],
 
-  markdown: {
-    syntaxHighlight: "prism"
+  image: {
+    domains: ["marcelocfilho.com", "cdn.marcelocfilho.com"]
   },
 
   integrations: [
-    nanostoresI18n({
-      translationLoader: "./src/i18n/loader.ts",
-      addMiddleware: true,
-      translations: {
-        "en": en,
-        "es": es,
-        "pt-br": pt
-      }
+    rimelightI18n({
+      translations: { en, pt },
+      kvBinding: "marcelocfilho-dot-com_translations"
     }),
     sitemap({
       i18n: {
         defaultLocale: "en",
         locales: {
           en: "en-US",
-          pt: "pt-BR",
-          es: "es-ES"
+          pt: "pt-BR"
         }
       }
     }),
