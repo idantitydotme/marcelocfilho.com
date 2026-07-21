@@ -5,6 +5,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { siteConfig } from '@/site.config';
 import { useI18nAsync } from "@rimelight/i18n";
 import RLAPageSection from "@rimelight/ui/components/page-section/RLAPageSection.astro"
+import RLATabs from "@rimelight/ui/components/tabs/RLATabs.astro"
 import RLAGrid from "@rimelight/ui/components/grid/RLAGrid.astro"
 import RLAPost from "@rimelight/ui/components/post/RLAPost.astro"
 
@@ -21,38 +22,83 @@ const groupedPosts = posts.reduce<Record<string, typeof posts>>((acc, post) => {
 
 const categoryOrder = ["project-updates", "personal-stories", "other"] as const;
 
+const badgeColorMap: Record<string, string> = {
+  "project-updates": "info",
+  "personal-stories": "primary",
+  "other": "success",
+};
+
 const currentLocale = Astro.currentLocale ?? 'en';
 
 const messages = await useI18nAsync(Astro, 'blog', {
+	title: "Blog",
+	description: "Articles, project updates, and personal stories.",
 	categories: {
-  "project-updates": "Project Updates",
-  "personal-stories": "Personal Stories",
-  "other": "Other"
-} as any
-});
+		"project-updates": "Project Updates",
+		"personal-stories": "Personal Stories",
+		"other": "Other"
+	} as any
+} as any);
+
+const tabsItems = [
+	{ label: "All", value: "all" },
+	...categoryOrder
+		.filter((cat) => groupedPosts[cat]?.length)
+		.map((cat) => ({
+			label: (messages.categories as unknown as Record<string, string>)[cat],
+			value: cat
+		}))
+];
 ---
 
 <AppLayout title={siteConfig.name} description={siteConfig.description}>
-		{categoryOrder.map((category) => {
-			const categoryPosts = groupedPosts[category];
-			if (!categoryPosts || categoryPosts.length === 0) return null;
-			return (
-				<RLAPageSection title={(messages.categories as unknown as Record<string, string>)[category]}>
-					<RLAGrid>
-						{
-							categoryPosts.map((post) => (
-								<RLAPost
-									variant="ghost"
-									image={post.data.heroImage}
-									date={post.data.pubDate}
-									title={post.data.title}
-									description={post.data.description}
-									to={getRelativeLocaleUrl(currentLocale, `/blog/${post.id}/`)}
-								/>
-							))
-						}
-					</RLAGrid>
-				</RLAPageSection>
-			);
-		})}
+	<RLAPageSection title={(messages as any).title} description={(messages as any).description}>
+		<RLATabs slot="content" items={tabsItems} variant="underline">
+			<div role="tabpanel" data-value="all" class="hidden">
+				<RLAGrid cols={4}>
+					{posts.map((post, index) => (
+						<RLAPost
+							variant="ghost"
+							orientation={index === 0 ? "horizontal" : "vertical"}
+							class={index === 0 ? "col-span-full mb-6" : ""}
+							image={post.data.heroImage}
+							date={post.data.pubDate}
+							title={post.data.title}
+							description={post.data.description}
+							to={getRelativeLocaleUrl(currentLocale, `/blog/${post.id}/`)}
+							badge={(messages.categories as unknown as Record<string, string>)[post.data.type]}
+							badgeColor={badgeColorMap[post.data.type] || "primary"}
+						/>
+					))}
+				</RLAGrid>
+			</div>
+			{categoryOrder.map((category) => {
+				const categoryPosts = groupedPosts[category];
+				if (!categoryPosts || categoryPosts.length === 0) return null;
+				return (
+					<div role="tabpanel" data-value={category} class="hidden">
+						<RLAGrid cols={4}>
+							{
+								categoryPosts.map((post, index) => (
+									<RLAPost
+										variant="ghost"
+										orientation={index === 0 ? "horizontal" : "vertical"}
+										class={index === 0 ? "col-span-full mb-6" : ""}
+										image={post.data.heroImage}
+										date={post.data.pubDate}
+										title={post.data.title}
+										description={post.data.description}
+										to={getRelativeLocaleUrl(currentLocale, `/blog/${post.id}/`)}
+										badge={(messages.categories as unknown as Record<string, string>)[category]}
+										badgeColor={badgeColorMap[category] || "primary"}
+									/>
+								))
+							}
+						</RLAGrid>
+					</div>
+				);
+			})}
+		</RLATabs>
+	</RLAPageSection>
 </AppLayout>
+
