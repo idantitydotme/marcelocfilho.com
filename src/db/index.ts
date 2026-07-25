@@ -5,6 +5,8 @@ import * as schema from "@/db/schema"
 export * from "@/db/schema"
 export { schema }
 
+declare var DB: any
+
 function anyObject(): any {
   return {}
 }
@@ -15,7 +17,7 @@ function createDbProxy(): DrizzleD1Database<typeof schema> {
     get(_target, prop) {
       if (prop === "then") return undefined
 
-      const d1Binding = globalThis.DB
+      const d1Binding = DB
       if (!d1Binding) {
         throw new Error("[db] DB binding is not set. Bind the D1 database to the environment.")
       }
