@@ -20,9 +20,9 @@ minimumReleaseAgeExclude:
   - vitest
   - "@vitest/*"
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.6
   vitest: 4.1.9
-  vite-plus: 0.2.4
+  vite-plus: 0.2.6
 overrides:
   vite-plus: "catalog:"
   kysely: "0.28.17"
