@@ -1,10 +1,8 @@
 configDependencies:
   "@pnpm/pacquet": 0.11.12
-preferWorkspacePackages: true
 linkWorkspacePackages: true
-saveWorkspaceProtocol: false
+saveWorkspaceProtocol: rolling
 saveExact: true
-packageImportMethod: copy
 strictSsl: true
 minimumReleaseAge: 4320 # Minutes = 3 Days
 minimumReleaseAgeExclude:

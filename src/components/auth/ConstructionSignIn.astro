@@ -91,28 +91,31 @@ const { allowAuth = true } = Astro.props
     errorEl.classList.add('hidden');
     submitBtn.setAttribute('data-loading', 'true');
 
-    // const formData = new FormData(form);
-
     try {
-      // const { authClient } = await import('@/auth/auth-client');
-      // const { error: signInError } = await authClient.signIn.email({
-      //   email,
-      //   password,
-      //   rememberMe,
-      // });
-      //
-      // if (signInError) {
-      //   errorEl.textContent = signInError.message || 'Something went wrong';
-      //   errorEl.classList.remove('hidden');
-      // } else {
-      //   const params = new URLSearchParams(window.location.search);
-      //   window.location.href = params.get('redirect') || '/';
-      // }
+      const response = await fetch("/api/construction-guest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: (form.elements.namedItem("email") as HTMLInputElement).value,
+          password: (form.elements.namedItem("password") as HTMLInputElement).value,
+          rememberMe: (form.elements.namedItem("rememberMe") as HTMLInputElement).checked
+        })
+      })
+      const errorBody = response.ok ? null : await response.json() as { error?: string }
+      const signInError = response.ok ? null : { message: errorBody?.error }
+
+      if (signInError) {
+        errorEl.textContent = signInError.message || "Something went wrong"
+        errorEl.classList.remove("hidden")
+      } else {
+        const params = new URLSearchParams(window.location.search)
+        window.location.href = params.get("redirect") || "/"
+      }
     } catch (err) {
-      errorEl.textContent = 'An unexpected error occurred';
-      errorEl.classList.remove('hidden');
+      errorEl.textContent = "An unexpected error occurred"
+      errorEl.classList.remove("hidden")
     } finally {
-      submitBtn.removeAttribute('data-loading');
+      submitBtn.removeAttribute("data-loading")
     }
   });
 </script>
