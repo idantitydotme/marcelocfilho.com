@@ -56,7 +56,6 @@ const socials: ButtonProps[] = [
 
 const targetLanguages = [
   { code: 'en', label: 'English' },
-  { code: 'es', label: 'Español' },
   { code: 'pt', label: "Português" }
 ];
 ---
@@ -69,8 +68,8 @@ const targetLanguages = [
   </div>
   <div slot="center" class="flex gap-12">
     {columns.map(column => (
-      <RLALinkGroup 
-        title={column.label} 
+      <RLALinkGroup
+        title={column.label}
         links={column.children.map(child => ({ label: child.label, href: child.to }))}
         theme="flat"
       />
