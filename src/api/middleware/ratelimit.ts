@@ -5,7 +5,7 @@ import type { Context } from "hono"
 const SENSITIVE_ROUTES = ["/auth/sign-in", "/auth/sign-up", "/api/upload", "/api/chat"]
 
 // Middleware to enforce rate limits on sensitive endpoints
-export const ratelimit = async (c: Context<{ Bindings: ENV }>, next: any) => {
+export const ratelimit = async (c: Context<{ Bindings: Env }>, next: any) => {
   const isSensitive = SENSITIVE_ROUTES.some((path) => c.req.path.includes(path))
   if (!isSensitive) {
     return next()

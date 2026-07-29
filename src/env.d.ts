@@ -1,11 +1,6 @@
 /// <reference path="../.astro/types.d.ts" />
 
-declare namespace App {
-    interface Locals {
-        user: import("better-auth").User | null;
-        session: import("better-auth").Session | null;
-    }
+// Enables importing `.astro` components inside `.ts` files (e.g., email rendering)
+declare module "*.astro" {
+  export default {} as import("astro/runtime/server").AstroComponentFactory;
 }
-
-declare module "turndown";
-declare module "turndown-plugin-gfm";
