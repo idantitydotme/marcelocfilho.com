@@ -7,26 +7,20 @@ import type { NavigationMenuItem } from "@rimelight/ui/components/navigation-men
 import type { ButtonProps } from "@rimelight/ui/components/button/button.ts";
 import { useI18n, getRelativeLocaleUrl } from "@rimelight/i18n";
 
-const activeLocale = Astro.currentLocale ?? "en";
-
-const messages = useI18n(Astro, "app_header", {
-	"left-links_projects_label": "Projects",
-	"left-links_blog_label": "Blog",
-	"left-links_about_label": "About"
-});
+const messages = useI18n("app_header");
 
 const leftLinks: NavigationMenuItem[] = [
   {
     label: messages["left-links_projects_label"],
-    to: getRelativeLocaleUrl(activeLocale, '/projects'),
+    to: getRelativeLocaleUrl('/projects'),
   },
   {
     label: messages["left-links_blog_label"],
-    to: getRelativeLocaleUrl(activeLocale, '/blog'),
+    to: getRelativeLocaleUrl('/blog'),
   },
   {
     label: messages["left-links_about_label"],
-    to: getRelativeLocaleUrl(activeLocale, '/docs'),
+    to: getRelativeLocaleUrl('/docs'),
   }
 ];
 

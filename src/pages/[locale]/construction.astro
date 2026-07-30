@@ -3,17 +3,9 @@ import ConstructionLayout from '@/layouts/ConstructionLayout.astro'
 import RLALogo from '@rimelight/ui/components/logo/RLALogo.astro'
 import RLALocaleSelector from "@rimelight/ui/components/locale-selector/RLALocaleSelector.astro";
 import ConstructionSignIn from '@/components/auth/ConstructionSignIn.astro'
-import { useI18n, currentLocale } from "@rimelight/i18n"
+import { useI18n } from "@rimelight/i18n"
 
-const activeLocale = Astro.currentLocale ?? 'en'
-currentLocale.set(activeLocale)
-
-const messages = useI18n(Astro, 'construction', {
-  constructionTitle: 'Under Construction',
-  constructionHeading: 'THIS WEBSITE IS CURRENTLY IN CONSTRUCTION',
-  constructionDescription: 'Please sign in if you have access.',
-  constructionSignIn: 'Sign In',
-})
+const messages = useI18n('construction')
 
 const targetLanguages = [
   { code: 'en', label: 'English' },

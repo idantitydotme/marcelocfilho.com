@@ -2,6 +2,39 @@
   "app_header": {
     "links_projects_label": "Projects",
     "links_blog_label": "Blog",
-    "links_about_label": "About"
+    "links_about_label": "About",
+    "left-links_projects_label": "Projects",
+    "left-links_blog_label": "Blog",
+    "left-links_about_label": "About"
+  },
+  "app_footer": {
+    "links_resources_label": "Resources",
+    "links_resources_branding": "Branding",
+    "links_legal_label": "Legal",
+    "links_legal_privacy-policy": "Privacy Policy",
+    "links_legal_other-documents": "Other Documents"
+  },
+  "page_construction": {
+    "constructionTitle": "Under Construction",
+    "constructionHeading": "THIS WEBSITE IS CURRENTLY IN CONSTRUCTION",
+    "constructionDescription": "Please sign in if you have access.",
+    "constructionSignIn": "Sign In"
+  },
+  "page_about": {
+    "title": "About",
+    "description": "About Marcelo C. Filho",
+    "heading": "About Me"
+  },
+  "playground": {
+    "heroTitle": "Welcome to the Rimelight Entertainment",
+    "heroDesc": "Look around, test, and play with some of our interactive technologies.",
+    "heroLink": "Explore Now",
+    "postsTitle": "Latest Posts",
+    "postsDesc": "Read the latest updates to our projects.",
+    "viewAllPosts": "View All Posts",
+    "ctaTitle": "Wish to join us?",
+    "ctaDesc": "Explore our latest projects and get in touch.",
+    "ctaStart": "Get Started",
+    "ctaContribute": "Join Us"
   }
 }
