@@ -3,8 +3,8 @@ import { defineConfig } from "drizzle-kit"
 export default defineConfig({
   out: "./drizzle",
   schema: "./src/db/schema",
-  dialect: "sqlite",
+  dialect: "postgresql",
   dbCredentials: {
-    url: ".wrangler/state/v3/d1/miniflare-D1DatabaseObject/local.sqlite"
+    url: process.env.DATABASE_URL
   }
 })

@@ -1,7 +1,7 @@
 import en from "./src/translations/en.json"
 import pt from "./src/translations/pt.json"
-import sitemap from "@astrojs/sitemap"
 import mdx from "@astrojs/mdx"
+import solid from "@astrojs/solid-js"
 import { ui } from "@rimelight/ui"
 import { sri } from "@rimelight/security"
 import { defineSecurity } from "@rimelight/security/config"
@@ -12,6 +12,7 @@ import { cacheCloudflare } from "@astrojs/cloudflare/cache"
 
 export default defineConfig({
   experimental: {
+    incrementalBuild: true,
     contentIntellisense: true,
     clientPrerender: true,
     collectionStorage: "chunked",
@@ -31,7 +32,7 @@ export default defineConfig({
 
   vite: {
     define: {
-      "import.meta.env.BUILD_TIME": JSON.stringify(new Date().toISOString())
+      "import.meta.env.BUILD_TIME": JSON.stringify(process.env.BUILD_TIME || "static")
     }
   },
 
@@ -55,7 +56,8 @@ export default defineConfig({
   },
 
   security: defineSecurity({
-    domain: "marcelocfilho.com"
+    domain: "marcelocfilho.com",
+    imgSrc: ["https://cdn.marcelocfilho.com"]
   }),
 
   i18n: {
@@ -89,19 +91,17 @@ export default defineConfig({
     domains: ["marcelocfilho.com", "cdn.marcelocfilho.com"]
   },
 
+  markdown: {
+    syntaxHighlight: "prism"
+  },
+
   integrations: [
     rimelightI18n({
       translations: { en, pt },
       kvBinding: "marcelocfilho-dot-com_translations"
     }),
-    sitemap({
-      i18n: {
-        defaultLocale: "en",
-        locales: {
-          en: "en-US",
-          pt: "pt-BR"
-        }
-      }
+    solid({
+      include: ["**/solid/**", "**/*.tsx"]
     }),
 
     mdx(),
