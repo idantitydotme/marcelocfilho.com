@@ -84,6 +84,10 @@ export default defineConfig({
     domains: ["marcelocfilho.com", "cdn.marcelocfilho.com"]
   },
 
+  markdown: {
+    syntaxHighlight: "prism"
+  },
+
   integrations: [
     rimelightI18n({
       translations: { en, pt },
