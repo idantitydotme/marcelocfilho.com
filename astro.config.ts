@@ -1,6 +1,5 @@
 import en from "./src/translations/en.json"
 import pt from "./src/translations/pt.json"
-import mdx from "@astrojs/mdx"
 import solid from "@astrojs/solid-js"
 import { ui } from "@rimelight/ui"
 import { sri } from "@rimelight/security"
@@ -28,12 +27,6 @@ export default defineConfig({
         }
       ]
     })
-  },
-
-  vite: {
-    define: {
-      "import.meta.env.BUILD_TIME": JSON.stringify(process.env.BUILD_TIME || "static")
-    }
   },
 
   site: "https://marcelocfilho.com",
@@ -89,10 +82,6 @@ export default defineConfig({
 
   image: {
     domains: ["marcelocfilho.com", "cdn.marcelocfilho.com"]
-  },
-
-  markdown: {
-    syntaxHighlight: "prism"
   },
 
   integrations: [
