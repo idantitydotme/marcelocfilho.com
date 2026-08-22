@@ -1,7 +1,11 @@
 saveExact: true
+minimumReleaseAgeStrict: true
+minimumReleaseAgeExclude:
+  - "@rimelight/*"
 overrides:
   # Vulnerability Fixes
   esbuild: ">=0.24.3"
 allowBuilds:
   esbuild: true
+  sharp: true
   workerd: true
