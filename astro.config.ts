@@ -96,24 +96,25 @@ export default defineConfig({
     solid({
       include: ["**/solid/**", "**/*.tsx"]
     }),
-
-    mdx(),
-
-    ui({
-      logos: {
-        logomark: {
-          color: "./src/assets/logos/logomark_color.svg",
-          white: "./src/assets/logos/logomark_white.svg",
-          black: "./src/assets/logos/logomark_black.svg"
-        },
-        logotype: {
-          color: "./src/assets/logos/logotype_color.svg",
-          white: "./src/assets/logos/logotype_color.svg",
-          black: "./src/assets/logos/logotype_black.svg"
-        }
-      }
-    }),
-
     sri()
-  ]
+  ],
+
+  vite: {
+    plugins: [
+      ui({
+        logos: {
+          logomark: {
+            color: "./src/assets/logos/logomark_color.svg",
+            white: "./src/assets/logos/logomark_white.svg",
+            black: "./src/assets/logos/logomark_black.svg"
+          },
+          logotype: {
+            color: "./src/assets/logos/logotype_color.svg",
+            white: "./src/assets/logos/logotype_color.svg",
+            black: "./src/assets/logos/logotype_black.svg"
+          }
+        }
+      })
+    ]
+  }
 })

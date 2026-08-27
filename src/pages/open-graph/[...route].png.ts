@@ -11,7 +11,9 @@ function getLocalizedText(val: unknown, locale = "en"): string {
     const record = val as Record<string, string>
     return record[locale] || Object.values(record)[0] || ""
   }
-  return String(val || "")
+  if (typeof val === "string") return val
+  if (typeof val === "number" || typeof val === "boolean") return String(val)
+  return ""
 }
 
 export async function getStaticPaths() {
