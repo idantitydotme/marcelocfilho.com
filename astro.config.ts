@@ -81,7 +81,9 @@ export default defineConfig({
   ],
 
   image: {
-    domains: ["marcelocfilho.com", "cdn.marcelocfilho.com"]
+    domains: ["marcelocfilho.com", "cdn.marcelocfilho.com"],
+    layout: "constrained",
+    responsiveStyles: true
   },
 
   markdown: {

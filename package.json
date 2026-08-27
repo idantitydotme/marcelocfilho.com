@@ -40,7 +40,6 @@
     "@neondatabase/serverless": "1.1.0",
     "@rimelight/auth": "0.0.2",
     "@rimelight/cms": "0.0.3",
-    "@rimelight/docs": "0.0.2",
     "@rimelight/i18n": "0.0.6",
     "@rimelight/security": "0.0.5",
     "@rimelight/seo": "0.0.2",
