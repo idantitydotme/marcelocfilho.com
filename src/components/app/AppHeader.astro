@@ -11,16 +11,28 @@ const messages = useI18n("app_header");
 
 const leftLinks: NavigationMenuItem[] = [
   {
-    label: messages["left-links_projects_label"],
+    label: messages["left-links_projects_label"] || "Projects",
     to: getRelativeLocaleUrl('/projects'),
   },
   {
-    label: messages["left-links_blog_label"],
-    to: getRelativeLocaleUrl('/blog'),
+    label: messages["left-links_services_label"] || "Services",
+    to: getRelativeLocaleUrl('/services'),
   },
   {
-    label: messages["left-links_about_label"],
-    to: getRelativeLocaleUrl('/docs'),
+    label: messages["left-links_about_label"] || "About",
+    to: getRelativeLocaleUrl('/about'),
+  },
+  {
+    label: messages["left-links_resume_label"] || "Resume",
+    to: getRelativeLocaleUrl('/resume'),
+  },
+  {
+    label: messages["left-links_contact_label"] || "Contact",
+    to: getRelativeLocaleUrl('/contact'),
+  },
+  {
+    label: messages["left-links_blog_label"] || "Blog",
+    to: getRelativeLocaleUrl('/blog'),
   }
 ];
 
@@ -83,7 +95,7 @@ const socials: ButtonProps[] = [
 
   <div slot="center" class="flex items-center gap-md">
     <div class="block md:hidden">
-      <a href="/" class="text-white hover:text-primary-400 transition-colors font-bold no-underline">Marcelo Caldart Filho</a>
+      <a href={getRelativeLocaleUrl('/')} class="text-white hover:text-primary-400 transition-colors font-bold no-underline">Marcelo Caldart Filho</a>
     </div>
   </div>
 

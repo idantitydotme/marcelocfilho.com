@@ -12,23 +12,43 @@ const messages = useI18n("app_footer");
 
 const columns = [
   {
-    label: messages["links_resources_label"],
+    label: messages["links_navigation_label"] || "Navigation",
     children: [
       {
-        label: messages["links_resources_branding"],
-        to: getRelativeLocaleUrl("/branding")
+        label: messages["links_projects"] || "Projects",
+        to: getRelativeLocaleUrl("/projects")
+      },
+      {
+        label: messages["links_services"] || "Services",
+        to: getRelativeLocaleUrl("/services")
+      },
+      {
+        label: messages["links_about"] || "About",
+        to: getRelativeLocaleUrl("/about")
+      },
+      {
+        label: messages["links_resume"] || "Resume",
+        to: getRelativeLocaleUrl("/resume")
+      },
+      {
+        label: messages["links_contact"] || "Contact",
+        to: getRelativeLocaleUrl("/contact")
       }
     ]
   },
   {
-    label: messages["links_legal_label"],
+    label: messages["links_legal_label"] || "Legal",
     children: [
       {
-        label: messages["links_legal_privacy-policy"],
+        label: messages["links_resources_cv"] || "Download CV",
+        to: "https://pub-d59ba6f09fc247e5b5215dbca8bb5841.r2.dev/Resume/Resume_Marcelo_C_Filho.pdf"
+      },
+      {
+        label: messages["links_legal_privacy-policy"] || "Privacy Policy",
         to: getRelativeLocaleUrl("/legal/privacy-policy")
       },
       {
-        label: messages["links_legal_other-documents"],
+        label: messages["links_legal_other-documents"] || "Legal Documents",
         to: getRelativeLocaleUrl("/legal")
       }
     ]
@@ -55,8 +75,8 @@ const targetLanguages = [
 <RLAFooter contain={false} class="bg-black z-50">
   <div slot="left" class="flex flex-col items-center gap-xs lg:items-start">
     <RLALogo variant="logotype" class="h-6 w-auto" />
-    <p class="text-sm text-white">Accessing me.</p>
-    <span class="text-sm text-white">© {new Date().getFullYear()} Marcelo Caldart Filho</span>
+    <p class="text-sm text-neutral-400">{messages.tagline || "Sound Designer & Musician"}</p>
+    <span class="text-sm text-neutral-500">© {new Date().getFullYear()} Marcelo Caldart Filho</span>
   </div>
   <div slot="center" class="flex gap-12">
     {columns.map(column => (

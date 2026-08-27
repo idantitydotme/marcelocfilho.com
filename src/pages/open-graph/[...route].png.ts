@@ -35,26 +35,35 @@ export async function getStaticPaths() {
     .catch(() => [])
 
   const paths = [
-    { params: { route: "page" }, props: {}, cacheKey: "static-page" },
+    {
+      params: { route: "page" },
+      props: {
+        title: "Marcelo Caldart Filho",
+        description: "Sound Designer & Musician",
+        type: "Portfolio",
+        isDocs: false
+      },
+      cacheKey: "static-page"
+    },
     {
       params: { route: "default" },
       props: {
-        title: "Rimelight Entertainment",
-        description: "Starter Kit",
-        type: "Documentation",
+        title: "Marcelo Caldart Filho",
+        description: "Sound Designer & Musician",
+        type: "Portfolio",
         isDocs: false
       },
       cacheKey: "static-default"
     },
     {
-      params: { route: "forum-default" },
+      params: { route: "services" },
       props: {
-        title: "Rimelight Forums",
-        description: "Community Discussions",
-        type: "Community",
+        title: "Audio Services",
+        description: "Sound Design, Foley Art, Music Composition & Audio Production",
+        type: "Services",
         isDocs: false
       },
-      cacheKey: "static-forum"
+      cacheKey: "static-services"
     },
     ...blogPages.map((b) => ({
       params: { route: `blog/${b.slug}` },
@@ -250,7 +259,7 @@ function buildOgJsx(
                     color: "#ffffff",
                     letterSpacing: "-0.02em"
                   },
-                  children: "Rimelight"
+                  children: "Marcelo Caldart Filho"
                 }
               }
             ]
@@ -356,12 +365,12 @@ export const GET: APIRoute<OgProps> = async ({ request, params, props }) => {
 
   // Extract from props, query params or route
   const title =
-    props.title || url.searchParams.get("title") || routeParam || "Rimelight Entertainment"
-  const description = props.description || url.searchParams.get("description") || ""
-  const type = props.type || url.searchParams.get("type") || ""
-  const pubDate = props.pubDate || url.searchParams.get("pubDate") || ""
+    props?.title || url.searchParams.get("title") || routeParam || "Marcelo Caldart Filho"
+  const description = props?.description || url.searchParams.get("description") || ""
+  const type = props?.type || url.searchParams.get("type") || ""
+  const pubDate = props?.pubDate || url.searchParams.get("pubDate") || ""
   const isDocs =
-    props.isDocs ?? (url.searchParams.get("isDocs") === "true" || routeParam.includes("docs"))
+    props?.isDocs ?? (url.searchParams.get("isDocs") === "true" || routeParam.includes("docs"))
 
   const jsx = buildOgJsx(title, description, type, pubDate, isDocs)
 

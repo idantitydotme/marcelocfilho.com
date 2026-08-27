@@ -110,7 +110,7 @@ export default defineConfig({
           },
           logotype: {
             color: "./src/assets/logos/logotype_color.svg",
-            white: "./src/assets/logos/logotype_color.svg",
+            white: "./src/assets/logos/logotype_white.svg",
             black: "./src/assets/logos/logotype_black.svg"
           }
         }

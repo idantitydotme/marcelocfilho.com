@@ -2,26 +2,26 @@ import type { SiteConfig } from "@rimelight/seo"
 
 export const siteConfig: SiteConfig = {
   id: "marcelocfilho.com",
-  name: "Marcelo C. Filho",
-  description: "Welcome to my website!",
+  name: "Marcelo Caldart Filho",
+  description: "Sound Designer & Musician",
   url: "https://marcelocfilho.com",
   ogImage: "/og/placeholder.webp",
-  author: "Marcelo C. Filho",
-  email: "",
+  author: "Marcelo Caldart Filho",
+  email: "marcelocfilho96@gmail.com",
   branding: {
     logo: {
-      alt: "Marcelo C. Filho"
+      alt: "Marcelo Caldart Filho"
     },
     favicon: {
       svg: "/favicon.svg"
     },
     colors: {
-      themeColor: "#ffffff",
-      backgroundColor: "#ffffff"
+      themeColor: "#0ea5e9",
+      backgroundColor: "#000000"
     }
   },
   seo: {
-    titleTemplate: "%s | Marcelo C. Filho",
+    titleTemplate: "%s | Marcelo Caldart Filho",
     ogImageFallback: "/og/placeholder.webp",
     maxDescriptionLength: 160
   }

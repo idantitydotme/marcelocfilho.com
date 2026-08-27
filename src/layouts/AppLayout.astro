@@ -1,5 +1,5 @@
 ---
-import RLAHead from '@rimelight/ui/components/head/RLAHead.astro';
+import UIHead from '@rimelight/ui/components/head/UIHead.astro';
 import AppHeader from '@/components/app/AppHeader.astro';
 import RLAMain from "@rimelight/ui/components/main/RLAMain.astro"
 import AppFooter from '@/components/app/AppFooter.astro';
@@ -25,12 +25,12 @@ const ogLocale = localeMap[Astro.currentLocale || 'en'] || 'en_US';
 
 <!doctype html>
 <html lang={Astro.currentLocale || 'en'}>
-	<RLAHead title={title} description={description} config={siteConfig} ogLocale={ogLocale} rssFeed={{ href: '/rss.xml', title: siteConfig.name }}>
+	<UIHead title={title} description={description} config={siteConfig} ogLocale={ogLocale} rssFeed={{ href: '/rss.xml', title: siteConfig.name }}>
 		<slot name="head" slot="head" />
 		<Font cssVariable="--font-sans" preload={true} slot="head" />
 		<Font cssVariable="--font-serif" preload={true} slot="head" />
 		<Font cssVariable="--font-mono" preload={true} slot="head" />
-	</RLAHead>
+	</UIHead>
 	<body class="isolate">
 		<AppHeader />
 		<RLAMain>
