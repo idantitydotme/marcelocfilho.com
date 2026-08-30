@@ -218,9 +218,6 @@ importers:
       '@rimelight/cms':
         specifier: 0.0.3
         version: 0.0.3(@astrojs/solid-js@7.0.2(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.3.0)(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(@libsql/client@0.17.4)(@neondatabase/serverless@1.1.0)(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(better-auth@1.7.2(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@libsql/client@0.17.4)(@neondatabase/serverless@1.1.0)(kysely@0.28.17))(solid-js@1.9.15)(vitest@4.1.11)(vue@3.5.40(typescript@6.0.3)))(kysely@0.28.17)(vite@8.1.5(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
-      '@rimelight/docs':
-        specifier: 0.0.2
-        version: 0.0.2(@rimelight/ui@0.0.44(@astrojs/solid-js@7.0.2(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.3.0)(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(solid-js@1.9.15)(vite@8.1.5(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))
       '@rimelight/i18n':
         specifier: 0.0.6
         version: 0.0.6(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
@@ -2048,12 +2045,6 @@ packages:
   '@rimelight/config@0.0.3':
     resolution: {integrity: sha512-yNdurdFfqzlmVLuZ3NJ2l5p9ReHh3bE1LjcpIbCs4AccZZcOBnDJAU4Qh/j3tk4MNzqxg5AH1Dv5Z9ILd/aJlA==}
     engines: {node: '>=26.7.0'}
-
-  '@rimelight/docs@0.0.2':
-    resolution: {integrity: sha512-cptuaW28peXg0rUOGitMccysZ5b+aImhVAVm9fB6XF5mcPXiRVrqgsh6bp6lEuZ2pMEf6dyfcFslPohZD3/mEg==}
-    engines: {node: '>=26.7.0'}
-    peerDependencies:
-      '@rimelight/ui': workspace:*
 
   '@rimelight/i18n@0.0.6':
     resolution: {integrity: sha512-JqOBLN5ffgMcXqTdnOvepUyN87EVJza5O3xHUmv6XlJxOorKMwSB/gQEwMkXE4Wm11DwMozZwAsVwhjdE8Amxg==}
@@ -6119,10 +6110,6 @@ snapshots:
       - vue
 
   '@rimelight/config@0.0.3': {}
-
-  '@rimelight/docs@0.0.2(@rimelight/ui@0.0.44(@astrojs/solid-js@7.0.2(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.3.0)(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(solid-js@1.9.15)(vite@8.1.5(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))':
-    dependencies:
-      '@rimelight/ui': 0.0.44(@astrojs/solid-js@7.0.2(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.3.0)(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(solid-js@1.9.15)(vite@8.1.5(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
 
   '@rimelight/i18n@0.0.6(astro@7.2.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.3.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))':
     dependencies:
