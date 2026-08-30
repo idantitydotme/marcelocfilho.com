@@ -40,8 +40,8 @@
   ],
   "kv_namespaces": [
     {
-      "binding": "marcelocfilho-dot-com_translations",
-      "id": "TODO_REPLACE_WITH_ACTUAL_KV_NAMESPACE_ID"
+      "binding": "marcelocfilho-dot-com-translations",
+      "id": "c06d6e52f8d840ac976783a7a6f7ef4a"
     }
   ],
   "ratelimits": [
