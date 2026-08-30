@@ -30,10 +30,15 @@
     "tagline": "Sound Designer & Músico"
   },
   "page_construction": {
-    "constructionTitle": "Em Construção",
-    "constructionHeading": "ESTE SITE ESTÁ EM CONSTRUÇÃO",
-    "constructionDescription": "Por favor, faça login se tiver acesso.",
-    "constructionSignIn": "Entrar"
+    "meta_title": "Em Construção",
+    "meta_description": "Este site está atualmente em construção.",
+    "title": "ESTE SITE ESTÁ EM CONSTRUÇÃO",
+    "description": "Se tiver acesso, por favor insira a frase-passe.",
+    "description_no_auth": "Por favor, volte mais tarde.",
+    "form_passphrase_label": "Frase-passe",
+    "form_passphrase_placeholder": "Digite a frase-passe...",
+    "form_remember_me_label": "Lembrar-me",
+    "form_sign_in_button": "Entrar"
   },
   "playground": {
     "heroTitle": "Marcelo Caldart Filho",

@@ -58,8 +58,6 @@
     "crons": ["* * * * *"]
   },
   "vars": {
-    "CONSTRUCTION_MODE": "true",
-    "CONSTRUCTION_AUTH": "true",
-    "CONSTRUCTION_GUEST_EMAIL": "guest@marcelocfilho.com"
+    "CONSTRUCTION_MODE": "true"
   }
 }
