@@ -35,13 +35,15 @@
   "r2_buckets": [
     {
       "binding": "BLOB",
-      "bucket_name": "marcelocfilho-dot-com"
+      "bucket_name": "marcelocfilho-dot-com",
+      "remote": true
     }
   ],
   "kv_namespaces": [
     {
       "binding": "marcelocfilho-dot-com-translations",
-      "id": "c06d6e52f8d840ac976783a7a6f7ef4a"
+      "id": "c06d6e52f8d840ac976783a7a6f7ef4a",
+      "remote": true
     }
   ],
   "ratelimits": [
