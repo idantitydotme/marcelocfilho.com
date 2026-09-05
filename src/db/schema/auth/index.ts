@@ -8,7 +8,7 @@ import {
   uniqueIndex,
   index
 } from "drizzle-orm/sqlite-core"
-import type { UserAvailability } from "@/types/user"
+import type { UserAvailability } from "#types/user"
 
 // ============================================================================
 // Core Auth Tables

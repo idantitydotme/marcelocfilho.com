@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro"
 import { render } from "takumi-js"
-import { db } from "@/db"
-import { pages } from "@/db/schema"
+import { db } from "#db"
+import { pages } from "#db/schema"
 import { eq, and, isNull } from "drizzle-orm"
 
 export const prerender = true

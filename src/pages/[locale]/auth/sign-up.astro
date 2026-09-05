@@ -1,8 +1,8 @@
 ---
-import AppLayout from '@/layouts/AppLayout.astro'
+import AppLayout from '#layouts/AppLayout.astro'
 import { actions, isInputError } from 'astro:actions'
-import Form from '@/components/Form.astro'
-import Input from '@/components/Input.astro'
+import Form from '#components/Form.astro'
+import Input from '#components/Input.astro'
 import { useI18n, currentLocale } from "@rimelight/i18n"
 
 const activeLocale = Astro.currentLocale ?? 'en'

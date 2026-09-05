@@ -1,8 +1,8 @@
 import { Hono } from "hono"
 import type { Context } from "hono"
-import { sendVerificationEmail } from "@/auth/email/verification"
-import { sendPasswordResetEmail } from "@/auth/email/password-reset"
-import { sendExistingUserSignUpNotification } from "@/auth/email/notifications"
+import { sendVerificationEmail } from "#auth/email/verification"
+import { sendPasswordResetEmail } from "#auth/email/password-reset"
+import { sendExistingUserSignUpNotification } from "#auth/email/notifications"
 import { getCloudflareEnv, isCloudflareEnv } from "../../lib/env"
 
 const api = new Hono()
