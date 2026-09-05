@@ -1,14 +1,13 @@
 ---
 import AppLayout from "#layouts/AppLayout.astro";
 import { siteConfig } from "#config/site.config";
-import { useI18n, getLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { useI18n, getRelativeLocaleUrl } from "@rimelight/i18n";
 import RLAPageSection from "@rimelight/ui/components/page-section/RLAPageSection.astro";
 import RLALogo from "@rimelight/ui/components/logo/RLALogo.astro";
 import RLAButton from "@rimelight/ui/components/button/RLAButton.astro";
 import RLAGrid from "@rimelight/ui/components/grid/RLAGrid.astro";
 import RLAContainer from "@rimelight/ui/components/container/RLAContainer.astro";
 
-const activeLocale = getLocale();
 const messages = useI18n("playground");
 
 const heroLinks = [
