@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { security } from "#api/middleware/security"
+import { security } from "@rimelight/security/middleware"
 import { ratelimit } from "#api/middleware/ratelimit"
 import { auth } from "#api/middleware/auth"
 import { construction } from "#api/middleware/construction"
@@ -10,7 +10,12 @@ import { actions, pages } from "astro/hono"
 const app = new Hono()
 
 // 1. Security Middleware
-app.use(security)
+app.use(
+  security({
+    domain: "marcelocfilho.com",
+    imgSrc: ["https://cdn.marcelocfilho.com"]
+  })
+)
 
 // 2. Rate Limiting Middleware
 app.use(ratelimit)

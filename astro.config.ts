@@ -2,10 +2,9 @@ import en from "./src/translations/en.json"
 import pt from "./src/translations/pt.json"
 import solid from "@astrojs/solid-js"
 import { ui } from "@rimelight/ui"
-import { sri } from "@rimelight/security"
-import { defineSecurity } from "@rimelight/security/config"
+import { security } from "@rimelight/security"
 import cloudflare from "@astrojs/cloudflare"
-import { i18n } from "@rimelight/i18n/plugin"
+import { i18n } from "@rimelight/i18n"
 import { defineConfig, fontProviders } from "astro/config"
 import { cacheCloudflare } from "@astrojs/cloudflare/cache"
 
@@ -29,11 +28,6 @@ export default defineConfig({
       maxAge: 300 // 5 minutes cache
     }
   },
-
-  security: defineSecurity({
-    domain: "marcelocfilho.com",
-    imgSrc: ["https://cdn.marcelocfilho.com"]
-  }),
 
   fonts: [
     {
@@ -69,12 +63,12 @@ export default defineConfig({
   integrations: [
     solid({
       include: ["**/solid/**", "**/*.tsx"]
-    }),
-    sri()
+    })
   ],
 
   vite: {
     plugins: [
+      security(),
       i18n({
         locales: ["en", "pt"],
         defaultLocale: "en",
