@@ -1,6 +1,6 @@
 ---
 import AppLayout from '#layouts/AppLayout.astro';
-import { useI18n, currentLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { useI18n, getRelativeLocaleUrl, getLocale } from "@rimelight/i18n";
 
 interface Props {
     error: unknown;
@@ -8,8 +8,7 @@ interface Props {
 
 const { error } = Astro.props;
 
-const activeLocale = Astro.currentLocale ?? 'en';
-currentLocale.set(activeLocale);
+const activeLocale = getLocale();
 
 const messages = useI18n(Astro, 'errors', {
   notFound: 'Page Not Found',

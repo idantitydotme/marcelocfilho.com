@@ -1,4 +1,5 @@
 ---
+import { getLocale } from "@rimelight/i18n"
 import BlankLayout from "#layouts/BlankLayout.astro"
 import RLAMain from "@rimelight/ui/components/main/RLAMain.astro"
 import RLAButton from "@rimelight/ui/components/button/RLAButton.astro"
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const { title, template } = Astro.props
-const locale = Astro.currentLocale ?? "en"
+const locale = getLocale()
 ---
 <BlankLayout title={`${title} - Email Preview`} description={`Preview of the ${title} email template`}>
   <RLAMain class="max-w-[680px] mx-auto flex flex-col gap-md" data-email-locale={locale}>

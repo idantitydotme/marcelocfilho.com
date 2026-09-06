@@ -4,7 +4,7 @@ import { ratelimit } from "#api/middleware/ratelimit"
 import { auth } from "#api/middleware/auth"
 import { construction } from "#api/middleware/construction"
 import api from "#api"
-import { i18n } from "#api/middleware/i18n"
+import { i18n } from "@rimelight/i18n/hono"
 import { actions, pages } from "astro/hono"
 
 const app = new Hono()
@@ -25,7 +25,7 @@ app.use(construction)
 app.route("/api", api)
 
 // 6. Localization & Routing Middleware
-app.use(i18n)
+app.use(i18n())
 
 // 7. Astro Actions & Pages
 app.use(actions())

@@ -5,7 +5,7 @@ import { ui } from "@rimelight/ui"
 import { sri } from "@rimelight/security"
 import { defineSecurity } from "@rimelight/security/config"
 import cloudflare from "@astrojs/cloudflare"
-import { rimelightI18n } from "@rimelight/i18n/integration"
+import { i18n } from "@rimelight/i18n/plugin"
 import { defineConfig, fontProviders } from "astro/config"
 import { cacheCloudflare } from "@astrojs/cloudflare/cache"
 
@@ -34,12 +34,6 @@ export default defineConfig({
     domain: "marcelocfilho.com",
     imgSrc: ["https://cdn.marcelocfilho.com"]
   }),
-
-  i18n: {
-    locales: ["en", "pt"],
-    defaultLocale: "en",
-    routing: "manual"
-  },
 
   fonts: [
     {
@@ -73,10 +67,6 @@ export default defineConfig({
   },
 
   integrations: [
-    rimelightI18n({
-      translations: { en, pt },
-      kvBinding: "marcelocfilho-dot-com_translations"
-    }),
     solid({
       include: ["**/solid/**", "**/*.tsx"]
     }),
@@ -85,6 +75,13 @@ export default defineConfig({
 
   vite: {
     plugins: [
+      i18n({
+        locales: ["en", "pt"],
+        defaultLocale: "en",
+        prefixDefaultLocale: true,
+        translations: { en, pt },
+        kvBinding: "marcelocfilho-dot-com_translations"
+      }),
       ui({
         logos: {
           logomark: {
