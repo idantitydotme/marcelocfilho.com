@@ -68,7 +68,10 @@ export default defineConfig({
 
   vite: {
     plugins: [
-      security(),
+      security({
+        domain: "marcelocfilho.com",
+        imgSrc: ["https://cdn.marcelocfilho.com"]
+      }),
       i18n({
         locales: ["en", "pt"],
         defaultLocale: "en",
