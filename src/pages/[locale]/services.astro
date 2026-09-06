@@ -3,45 +3,44 @@ import AppLayout from '#layouts/AppLayout.astro';
 import RLAContainer from '@rimelight/ui/components/container/RLAContainer.astro';
 import RLAGrid from '@rimelight/ui/components/grid/RLAGrid.astro';
 import RLAButton from '@rimelight/ui/components/button/RLAButton.astro';
-import { useI18n, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 
-const messages = useI18n("page_services");
 
 const servicesList = [
   {
     icon: "i-lucide-volume-2",
-    title: messages.soundDesignTitle,
-    description: messages.soundDesignDesc
+    title: t("page_services.soundDesignTitle"),
+    description: t("page_services.soundDesignDesc")
   },
   {
     icon: "i-lucide-footprints",
-    title: messages.foleyArtTitle,
-    description: messages.foleyArtDesc
+    title: t("page_services.foleyArtTitle"),
+    description: t("page_services.foleyArtDesc")
   },
   {
     icon: "i-lucide-music",
-    title: messages.musicCompositionTitle,
-    description: messages.musicCompositionDesc
+    title: t("page_services.musicCompositionTitle"),
+    description: t("page_services.musicCompositionDesc")
   },
   {
     icon: "i-lucide-sliders",
-    title: messages.mixingMasteringTitle,
-    description: messages.mixingMasteringDesc
+    title: t("page_services.mixingMasteringTitle"),
+    description: t("page_services.mixingMasteringDesc")
   }
 ];
 ---
 
-<AppLayout title={messages.title} description={messages.description}>
+<AppLayout title={t("page_services.title")} description={t("page_services.description")}>
   <RLAContainer class="py-12 sm:py-16 max-w-5xl">
     <header class="mb-12 border-b border-neutral-800 pb-8 text-center max-w-3xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">{messages.heading}</h1>
-      <p class="text-lg sm:text-xl text-neutral-400 leading-relaxed">{messages.subheading}</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">{t("page_services.heading")}</h1>
+      <p class="text-lg sm:text-xl text-neutral-400 leading-relaxed">{t("page_services.subheading")}</p>
     </header>
 
     <section class="mb-16">
       <div class="mb-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">{messages.capabilitiesTitle}</h2>
-        <p class="text-neutral-400">{messages.capabilitiesDesc}</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">{t("page_services.capabilitiesTitle")}</h2>
+        <p class="text-neutral-400">{t("page_services.capabilitiesDesc")}</p>
       </div>
 
       <RLAGrid cols={2} class="gap-6">
@@ -60,18 +59,18 @@ const servicesList = [
     </section>
 
     <section class="rounded-3xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 p-8 sm:p-12 text-center">
-      <h2 class="text-3xl font-extrabold text-white mb-4">{messages.ctaTitle}</h2>
-      <p class="text-lg text-neutral-400 max-w-2xl mx-auto mb-8 leading-relaxed">{messages.ctaDesc}</p>
+      <h2 class="text-3xl font-extrabold text-white mb-4">{t("page_services.ctaTitle")}</h2>
+      <p class="text-lg text-neutral-400 max-w-2xl mx-auto mb-8 leading-relaxed">{t("page_services.ctaDesc")}</p>
       <div class="flex flex-wrap justify-center gap-4">
         <RLAButton
-          label={messages.ctaContact || "Get in Touch"}
+          label={t("page_services.ctaContact") || "Get in Touch"}
           href={getRelativeLocaleUrl('/contact')}
           color="primary"
           variant="solid"
           size="lg"
         />
         <RLAButton
-          label={messages.ctaProjects || "View Projects"}
+          label={t("page_services.ctaProjects") || "View Projects"}
           href={getRelativeLocaleUrl('/projects')}
           color="neutral"
           variant="outline"

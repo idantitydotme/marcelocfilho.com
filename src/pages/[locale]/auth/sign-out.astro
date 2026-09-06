@@ -2,28 +2,7 @@
 import AppLayout from '#layouts/AppLayout.astro'
 import { actions } from 'astro:actions'
 import Form from '#components/Form.astro'
-import { useI18n, getLocale } from "@rimelight/i18n"
-
-const activeLocale = getLocale()
-const messages = useI18n(Astro, 'auth', {
-  authSignInTitle: 'Sign in',
-  authSignInDescription: 'Sign in to your account',
-  authSignInNewUserMessage: 'Your account has been created. Please sign in.',
-  authSignInEmail: 'E-mail',
-  authSignInPassword: 'Password',
-  authSignInButton: 'Sign in',
-  authSignUpTitle: 'Sign up',
-  authSignUpDescription: 'Create a new account',
-  authSignUpFirstName: 'First name',
-  authSignUpLastName: 'Last name',
-  authSignUpEmail: 'E-mail',
-  authSignUpPassword: 'Password',
-  authSignUpButton: 'Sign up',
-  authSignOutTitle: 'Sign out',
-  authSignOutDescription: 'Sign out of your account',
-  authSignOutConfirmMessage: 'Are you sure you want to sign out?',
-  authSignOutButton: 'Sign out'
-})
+import { t } from "@rimelight/i18n"
 
 const result = Astro.getActionResult(actions.signOut)
 
@@ -39,9 +18,9 @@ if (result && !result.error && result.data.cookies.length > 0) {
 }
 ---
 
-<AppLayout title={messages.authSignOutTitle} description={messages.authSignOutDescription}>
+<AppLayout title={t("auth.authSignOutTitle")} description={t("auth.authSignOutDescription")}>
   <Form method="POST" action={actions.signOut} error={result?.error}>
-    <p>{messages.authSignOutConfirmMessage}</p>
-    <button>{messages.authSignOutButton}</button>
+    <p>{t("auth.authSignOutConfirmMessage")}</p>
+    <button>{t("auth.authSignOutButton")}</button>
   </Form>
 </AppLayout>

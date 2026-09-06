@@ -193,5 +193,52 @@
     "description": "Políticas de privacidade e termos legais.",
     "lastUpdated": "Última atualização:",
     "lastUpdatedOn": "Última atualização em:"
+  },
+  "errors": {
+    "notFound": "Página Não Encontrada",
+    "notFoundDesc": "A página que você está procurando não existe.",
+    "goHome": "Ir para o Início",
+    "serverError": "Erro no Servidor",
+    "unknownError": "Erro desconhecido"
+  },
+  "auth": {
+    "authSignInTitle": "Sign in",
+    "authSignInDescription": "Sign in to your account",
+    "authSignInNewUserMessage": "Your account has been created. Please sign in.",
+    "authSignInEmail": "E-mail",
+    "authSignInPassword": "Password",
+    "authSignInButton": "Sign in",
+    "authSignUpTitle": "Sign up",
+    "authSignUpDescription": "Create a new account",
+    "authSignUpFirstName": "First name",
+    "authSignUpLastName": "Last name",
+    "authSignUpEmail": "E-mail",
+    "authSignUpPassword": "Password",
+    "authSignUpButton": "Sign up",
+    "authSignOutTitle": "Sign out",
+    "authSignOutDescription": "Sign out of your account",
+    "authSignOutConfirmMessage": "Are you sure you want to sign out?",
+    "authSignOutButton": "Sign out",
+    "signInTitle": "Sign in",
+    "signInDescription": "Sign in to your account",
+    "signInNewUserMessage": "Your account has been created. Please sign in.",
+    "signInEmail": "E-mail",
+    "signInPassword": "Password",
+    "signInButton": "Sign in",
+    "signUpTitle": "Sign up",
+    "signUpDescription": "Create a new account",
+    "signUpFirstName": "First name",
+    "signUpLastName": "Last name",
+    "signUpEmail": "E-mail",
+    "signUpPassword": "Password",
+    "signUpButton": "Sign up",
+    "signOutTitle": "Sign out",
+    "signOutDescription": "Sign out of your account",
+    "signOutConfirmMessage": "Are you sure you want to sign out?",
+    "signOutButton": "Sign out"
+  },
+  "branding": {
+    "title": "Identidade Visual",
+    "description": "Diretrizes de marca de marcelocfilho.com"
   }
 }

@@ -1,6 +1,6 @@
 ---
 import AppLayout from '#layouts/AppLayout.astro';
-import { useI18n, getRelativeLocaleUrl, getLocale } from "@rimelight/i18n";
+import { t, getRelativeLocaleUrl, getLocale } from "@rimelight/i18n";
 
 interface Props {
     error: unknown;
@@ -10,20 +10,13 @@ const { error } = Astro.props;
 
 const activeLocale = getLocale();
 
-const messages = useI18n(Astro, 'errors', {
-  notFound: 'Page Not Found',
-  notFoundDesc: 'The page you are looking for does not exist.',
-  serverError: 'Server Error',
-  unknownError: 'Unknown error',
-  goHome: 'Go Home'
-});
 ---
 
-<AppLayout title={messages.serverError} description={messages.serverError}>
+<AppLayout title={t("errors.serverError")} description={t("errors.serverError")}>
   <div class="error-container">
     <p class="error-code">500</p>
-    <h1 class="error-title">{messages.serverError}</h1>
-    <p class="error-desc">{error instanceof Error ? error.message : messages.unknownError}</p>
-    <a href={getRelativeLocaleUrl(activeLocale, '/')} class="error-link">{messages.goHome}</a>
+    <h1 class="error-title">{t("errors.serverError")}</h1>
+    <p class="error-desc">{error instanceof Error ? error.message : t("errors.unknownError")}</p>
+    <a href={getRelativeLocaleUrl(activeLocale, '/')} class="error-link">{t("errors.goHome")}</a>
   </div>
 </AppLayout>

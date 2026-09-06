@@ -1,24 +1,23 @@
 ---
 import AppLayout from "#layouts/AppLayout.astro";
 import { siteConfig } from "#config/site.config";
-import { useI18n, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 import RLAPageSection from "@rimelight/ui/components/page-section/RLAPageSection.astro";
 import RLALogo from "@rimelight/ui/components/logo/RLALogo.astro";
 import RLAButton from "@rimelight/ui/components/button/RLAButton.astro";
 import RLAGrid from "@rimelight/ui/components/grid/RLAGrid.astro";
 import RLAContainer from "@rimelight/ui/components/container/RLAContainer.astro";
 
-const messages = useI18n("playground");
 
 const heroLinks = [
   {
-    label: messages.heroTalk || "Let's Talk",
+    label: t("playground.heroTalk") || "Let's Talk",
     href: getRelativeLocaleUrl("/contact"),
     color: "primary",
     variant: "solid"
   },
   {
-    label: messages.heroProjects || "View Projects",
+    label: t("playground.heroProjects") || "View Projects",
     href: getRelativeLocaleUrl("/projects"),
     color: "primary",
     variant: "outline",
@@ -28,13 +27,13 @@ const heroLinks = [
 
 const ctaLinks = [
   {
-    label: messages.ctaContact || "Get in Touch",
+    label: t("playground.ctaContact") || "Get in Touch",
     href: getRelativeLocaleUrl("/contact"),
     color: "primary",
     variant: "solid"
   },
   {
-    label: messages.ctaResume || "Download CV",
+    label: t("playground.ctaResume") || "Download CV",
     href: "https://pub-d59ba6f09fc247e5b5215dbca8bb5841.r2.dev/Resume/Resume_Marcelo_C_Filho.pdf",
     target: "_blank",
     color: "neutral",
@@ -44,10 +43,10 @@ const ctaLinks = [
 ];
 
 const faqItems = [
-  { q: messages.faq1_q, a: messages.faq1_a },
-  { q: messages.faq2_q, a: messages.faq2_a },
-  { q: messages.faq3_q, a: messages.faq3_a },
-  { q: messages.faq4_q, a: messages.faq4_a }
+  { q: t("playground.faq1_q"), a: t("playground.faq1_a") },
+  { q: t("playground.faq2_q"), a: t("playground.faq2_a") },
+  { q: t("playground.faq3_q"), a: t("playground.faq3_a") },
+  { q: t("playground.faq4_q"), a: t("playground.faq4_a") }
 ];
 
 const servicesPreview = [
@@ -79,8 +78,8 @@ const servicesPreview = [
   <RLAPageSection
     variant="hero"
     reverse={true}
-    title={messages.heroTitle}
-    description={`${messages.heroSubtitle} — ${messages.heroDesc}`}
+    title={t("playground.heroTitle")}
+    description={`${t("playground.heroSubtitle")} — ${t("playground.heroDesc")}`}
     links={heroLinks}
   >
     <RLALogo class="pointer-events-none h-64 w-auto drop-shadow-2xl" variant="logomark" />
@@ -90,17 +89,17 @@ const servicesPreview = [
   <RLAContainer class="py-12 sm:py-16">
     <div class="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-8 sm:p-12">
       <div class="max-w-3xl">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">{messages.aboutTitle}</h2>
-        <p class="text-lg text-neutral-300 leading-relaxed mb-8">{messages.aboutDesc}</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">{t("playground.aboutTitle")}</h2>
+        <p class="text-lg text-neutral-300 leading-relaxed mb-8">{t("playground.aboutDesc")}</p>
         <div class="flex flex-wrap gap-4">
           <RLAButton
-            label={messages.aboutLearnMore || "Learn More"}
+            label={t("playground.aboutLearnMore") || "Learn More"}
             href={getRelativeLocaleUrl("/about")}
             color="primary"
             variant="solid"
           />
           <RLAButton
-            label={messages.aboutResume || "Resume"}
+            label={t("playground.aboutResume") || "Resume"}
             href={getRelativeLocaleUrl("/resume")}
             color="neutral"
             variant="outline"
@@ -113,8 +112,8 @@ const servicesPreview = [
   <!-- Services Capabilities Section -->
   <RLAPageSection
     orientation="vertical"
-    title={messages.servicesTitle}
-    description={messages.servicesDesc}
+    title={t("playground.servicesTitle")}
+    description={t("playground.servicesDesc")}
   >
     <div slot="body" class="flex flex-col gap-xl">
       <RLAGrid cols={2} class="gap-6">
@@ -131,7 +130,7 @@ const servicesPreview = [
 
       <div class="flex justify-center mt-4">
         <RLAButton
-          label={messages.servicesViewAll || "View All Services"}
+          label={t("playground.servicesViewAll") || "View All Services"}
           href={getRelativeLocaleUrl("/services")}
           color="primary"
           variant="link"
@@ -144,8 +143,8 @@ const servicesPreview = [
   <!-- FAQ Section -->
   <RLAContainer class="py-12 sm:py-16 max-w-4xl">
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">{messages.faqTitle}</h2>
-      <p class="text-lg text-neutral-400 max-w-2xl mx-auto">{messages.faqDesc}</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">{t("playground.faqTitle")}</h2>
+      <p class="text-lg text-neutral-400 max-w-2xl mx-auto">{t("playground.faqDesc")}</p>
     </div>
 
     <div class="space-y-4">
@@ -164,8 +163,8 @@ const servicesPreview = [
   <RLAPageSection
     variant="cta"
     ctaVariant="solid"
-    title={messages.ctaTitle}
-    description={messages.ctaDesc}
+    title={t("playground.ctaTitle")}
+    description={t("playground.ctaDesc")}
     links={ctaLinks}
   />
 </AppLayout>

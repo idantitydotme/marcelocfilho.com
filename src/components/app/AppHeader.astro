@@ -5,33 +5,32 @@ import RLAButton from "@rimelight/ui/components/button/RLAButton.astro";
 import RLASlideover from "@rimelight/ui/components/slideover/RLASlideover.astro";
 import type { NavigationMenuItem } from "@rimelight/ui/components/navigation-menu/navigation-menu.ts";
 import type { ButtonProps } from "@rimelight/ui/components/button/button.ts";
-import { useI18n, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 
-const messages = useI18n("app_header");
 
 const leftLinks: NavigationMenuItem[] = [
   {
-    label: messages["left-links_projects_label"] || "Projects",
+    label: t("app_header.left-links_projects_label") || "Projects",
     to: getRelativeLocaleUrl('/projects'),
   },
   {
-    label: messages["left-links_services_label"] || "Services",
+    label: t("app_header.left-links_services_label") || "Services",
     to: getRelativeLocaleUrl('/services'),
   },
   {
-    label: messages["left-links_about_label"] || "About",
+    label: t("app_header.left-links_about_label") || "About",
     to: getRelativeLocaleUrl('/about'),
   },
   {
-    label: messages["left-links_resume_label"] || "Resume",
+    label: t("app_header.left-links_resume_label") || "Resume",
     to: getRelativeLocaleUrl('/resume'),
   },
   {
-    label: messages["left-links_contact_label"] || "Contact",
+    label: t("app_header.left-links_contact_label") || "Contact",
     to: getRelativeLocaleUrl('/contact'),
   },
   {
-    label: messages["left-links_blog_label"] || "Blog",
+    label: t("app_header.left-links_blog_label") || "Blog",
     to: getRelativeLocaleUrl('/blog'),
   }
 ];

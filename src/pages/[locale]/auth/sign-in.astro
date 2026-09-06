@@ -3,28 +3,7 @@ import AppLayout from '#layouts/AppLayout.astro'
 import { actions, isInputError } from 'astro:actions'
 import Form from '#components/Form.astro'
 import Input from '#components/Input.astro'
-import { useI18n, getLocale } from "@rimelight/i18n"
-
-const activeLocale = getLocale()
-const messages = useI18n(Astro, 'auth', {
-  authSignInTitle: 'Sign in',
-  authSignInDescription: 'Sign in to your account',
-  authSignInNewUserMessage: 'Your account has been created. Please sign in.',
-  authSignInEmail: 'E-mail',
-  authSignInPassword: 'Password',
-  authSignInButton: 'Sign in',
-  authSignUpTitle: 'Sign up',
-  authSignUpDescription: 'Create a new account',
-  authSignUpFirstName: 'First name',
-  authSignUpLastName: 'Last name',
-  authSignUpEmail: 'E-mail',
-  authSignUpPassword: 'Password',
-  authSignUpButton: 'Sign up',
-  authSignOutTitle: 'Sign out',
-  authSignOutDescription: 'Sign out of your account',
-  authSignOutConfirmMessage: 'Are you sure you want to sign out?',
-  authSignOutButton: 'Sign out'
-})
+import { t } from "@rimelight/i18n"
 
 const result = Astro.getActionResult(actions.signIn)
 
@@ -43,11 +22,11 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {}
 const isNewUser = new URL(Astro.request.url).searchParams.has('new')
 ---
 
-<AppLayout title={messages.authSignInTitle} description={messages.authSignInDescription}>
-  {isNewUser && <p>{messages.authSignInNewUserMessage}</p>}
+<AppLayout title={t("auth.authSignInTitle")} description={t("auth.authSignInDescription")}>
+  {isNewUser && <p>{t("auth.authSignInNewUserMessage")}</p>}
   <Form method="POST" action={actions.signIn} error={result?.error}>
-    <Input errors={inputErrors.email} name="email" label={messages.authSignInEmail} required type="email" />
-    <Input errors={inputErrors.password} name="password" label={messages.authSignInPassword} required type="password" />
-    <button>{messages.authSignInButton}</button>
+    <Input errors={inputErrors.email} name="email" label={t("auth.authSignInEmail")} required type="email" />
+    <Input errors={inputErrors.password} name="password" label={t("auth.authSignInPassword")} required type="password" />
+    <button>{t("auth.authSignInButton")}</button>
   </Form>
 </AppLayout>
