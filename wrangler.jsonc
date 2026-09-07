@@ -41,7 +41,7 @@
   ],
   "kv_namespaces": [
     {
-      "binding": "marcelocfilho-dot-com-translations",
+      "binding": "marcelocfilho-dot-com_translations",
       "id": "c06d6e52f8d840ac976783a7a6f7ef4a",
       "remote": true
     }

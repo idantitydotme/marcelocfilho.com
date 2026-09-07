@@ -91,6 +91,12 @@ export default defineConfig({
             white: "./src/assets/logos/logotype_white.svg",
             black: "./src/assets/logos/logotype_black.svg"
           }
+        },
+        shortcuts: {
+          categories: {
+            system: { label: "System" },
+            navigation: { label: "Navigation" }
+          }
         }
       })
     ]
