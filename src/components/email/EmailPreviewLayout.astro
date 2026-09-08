@@ -54,7 +54,7 @@ const locale = getLocale()
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({
-           template: btn.dataset.emailTest,
+           template: btn.dataset["emailTest"],
            locale: document.querySelector('[data-email-locale]')?.getAttribute('data-email-locale') ?? 'en'
          })
        });

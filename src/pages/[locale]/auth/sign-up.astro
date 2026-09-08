@@ -5,7 +5,7 @@ import Form from '#components/Form.astro'
 import Input from '#components/Input.astro'
 import { t } from "@rimelight/i18n"
 
-const result = Astro.getActionResult(actions.signUp)
+const result = Astro.getActionResult(actions["signUp"])
 
 if (result && !result.error) {
   return Astro.redirect(`/sign-in?new`)
@@ -15,7 +15,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {}
 ---
 
 <AppLayout title={t("auth.authSignUpTitle")} description={t("auth.authSignUpDescription")}>
-  <Form method="POST" action={actions.signUp} error={result?.error}>
+  <Form method="POST" action={actions["signUp"]} error={result?.error}>
     <Input errors={inputErrors.firstName} name="firstName" label={t("auth.authSignUpFirstName")} required />
     <Input errors={inputErrors.lastName} name="lastName" label={t("auth.authSignUpLastName")} required />
     <Input errors={inputErrors.email} name="email" label={t("auth.authSignUpEmail")} required type="email" />

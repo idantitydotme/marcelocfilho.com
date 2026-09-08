@@ -5,7 +5,7 @@ import Form from '#components/Form.astro'
 import Input from '#components/Input.astro'
 import { t } from "@rimelight/i18n"
 
-const result = Astro.getActionResult(actions.signIn)
+const result = Astro.getActionResult(actions["signIn"])
 
 if (result && !result.error && result.data.cookies.length > 0) {
   Astro.response.headers.append('Location', '/')
@@ -24,7 +24,7 @@ const isNewUser = new URL(Astro.request.url).searchParams.has('new')
 
 <AppLayout title={t("auth.authSignInTitle")} description={t("auth.authSignInDescription")}>
   {isNewUser && <p>{t("auth.authSignInNewUserMessage")}</p>}
-  <Form method="POST" action={actions.signIn} error={result?.error}>
+  <Form method="POST" action={actions["signIn"]} error={result?.error}>
     <Input errors={inputErrors.email} name="email" label={t("auth.authSignInEmail")} required type="email" />
     <Input errors={inputErrors.password} name="password" label={t("auth.authSignInPassword")} required type="password" />
     <button>{t("auth.authSignInButton")}</button>

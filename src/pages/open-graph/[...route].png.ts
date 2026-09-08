@@ -361,7 +361,7 @@ interface OgProps {
 
 export const GET: APIRoute<OgProps> = async ({ request, params, props }) => {
   const url = new URL(request.url)
-  const routeParam = params.route ?? ""
+  const routeParam = params["route"] ?? ""
 
   // Extract from props, query params or route
   const title =
