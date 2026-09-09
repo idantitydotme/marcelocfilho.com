@@ -6,7 +6,7 @@ const activeLocale = getLocale();
 
 ---
 
-<AppLayout title={t("errors.notFound")} description={t("errors.notFoundDesc")}>
+<AppLayout title={t("errors.notFound")} description={t("errors.notFoundDesc")} is404={true} noindex={true}>
   <div class="error-container">
     <p class="error-code">404</p>
     <h1 class="error-title">{t("errors.notFound")}</h1>

@@ -1,10 +1,10 @@
 {
-  "name": "Rimelight Starter",
-  "short_name": "Rimelight",
+  "name": "Marcelo Caldart Filho",
+  "short_name": "Marcelo Caldart Filho",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#000000",
+  "theme_color": "#0ea5e9",
   "icons": [
     {
       "src": "/icon-192.png",

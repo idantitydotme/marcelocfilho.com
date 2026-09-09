@@ -1,4 +1,5 @@
 ---
+import SEOHead from "@rimelight/seo/components/SEOHead.astro";
 import UIHead from '@rimelight/ui/components/head/UIHead.astro';
 import AppHeader from '#components/app/AppHeader.astro';
 import RLAMain from "@rimelight/ui/components/main/RLAMain.astro"
@@ -12,27 +13,58 @@ import { getHtmlLang, getOgLocale, getLanguageAlternates } from '@rimelight/i18n
 interface AppLayoutProps {
 	title: string;
 	description: string;
+	noindex?: boolean;
+	is404?: boolean;
+	robots?: string;
 	languageAlternates?: Array<{ hrefLang: string; href: string }>;
+	ogImageSrc?: string;
+	ogImageAlt?: string;
+	favicon?: string;
 }
 
 const {
 	title,
 	description,
-	languageAlternates = getLanguageAlternates(Astro.url.pathname, siteConfig.url || Astro.site?.toString() || "")
+	noindex,
+	is404,
+	robots,
+	languageAlternates = getLanguageAlternates(Astro.url.pathname, siteConfig.url || Astro.site?.toString() || ""),
+	ogImageSrc,
+	ogImageAlt,
+	favicon
 } = Astro.props as AppLayoutProps;
 
 const ogLocale = getOgLocale();
 const htmlLang = getHtmlLang();
+
+const ogImageUrl = ogImageSrc
+	? new URL(ogImageSrc, Astro.site).toString()
+	: new URL(`/open-graph/page.png?${new URLSearchParams({ title, description })}`, Astro.site).toString();
 ---
 
 <!doctype html>
 <html lang={htmlLang}>
-	<UIHead title={title} description={description} config={siteConfig} ogLocale={ogLocale} languageAlternates={languageAlternates} rssFeed={{ href: '/rss.xml', title: siteConfig.name }}>
-		<slot name="head" slot="head" />
-		<Font cssVariable="--font-sans" preload={true} slot="head" />
-		<Font cssVariable="--font-serif" preload={true} slot="head" />
-		<Font cssVariable="--font-mono" preload={true} slot="head" />
-	</UIHead>
+  <head>
+    <SEOHead
+      title={title}
+      description={description}
+      config={siteConfig}
+      ogLocale={ogLocale}
+      rssFeed={{ href: '/rss.xml', title: siteConfig.name }}
+      favicon={favicon}
+      noindex={noindex}
+      is404={is404}
+      robots={robots}
+      languageAlternates={languageAlternates}
+      ogImage={ogImageSrc ? { src: ogImageSrc, alt: ogImageAlt || '' } : undefined}
+    />
+    <UIHead />
+    <Font cssVariable="--font-sans" preload={true} />
+    <Font cssVariable="--font-serif" preload={true} />
+    <Font cssVariable="--font-mono" preload={true} />
+    <meta property="og:image" content={ogImageUrl} />
+    <slot name="head" />
+  </head>
 	<body class="isolate">
 		<AppHeader />
 		<RLAMain>

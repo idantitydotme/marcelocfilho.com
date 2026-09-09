@@ -12,7 +12,7 @@ const activeLocale = getLocale();
 
 ---
 
-<AppLayout title={t("errors.serverError")} description={t("errors.serverError")}>
+<AppLayout title={t("errors.serverError")} description={t("errors.serverError")} noindex={true}>
   <div class="error-container">
     <p class="error-code">500</p>
     <h1 class="error-title">{t("errors.serverError")}</h1>
