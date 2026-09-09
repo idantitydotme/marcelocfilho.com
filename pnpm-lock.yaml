@@ -228,8 +228,8 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
       '@rimelight/ui':
-        specifier: 0.0.46
-        version: 0.0.46(@astrojs/solid-js@7.0.2(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.5.0)(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(rolldown@1.1.5)(solid-js@1.9.15)(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.0.47
+        version: 0.0.47(@astrojs/solid-js@7.0.2(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.5.0)(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(rolldown@1.1.5)(solid-js@1.9.15)(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
       astro:
         specifier: 7.3.1
         version: 7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)
@@ -2144,6 +2144,25 @@ packages:
 
   '@rimelight/ui@0.0.46':
     resolution: {integrity: sha512-59Xt5ePCXiOxUG8Tm3U9N08UgQYdlcJmfypVg+vrriBMkQFsIJwl4UlxFEeLg+ClhiseNSv1S8icd/HISFg13g==}
+    engines: {node: '>=26.7.0'}
+    peerDependencies:
+      '@astrojs/solid-js': '>=7.0.1'
+      '@astrojs/vue': '>=7.0.1'
+      astro: '>=7.0.0'
+      solid-js: '>=1.9.13'
+      vue: '>=3.0.0'
+    peerDependenciesMeta:
+      '@astrojs/solid-js':
+        optional: true
+      '@astrojs/vue':
+        optional: true
+      solid-js:
+        optional: true
+      vue:
+        optional: true
+
+  '@rimelight/ui@0.0.47':
+    resolution: {integrity: sha512-opMvXMZfBmVPDmnm0bFFxvre2U8rxIjq/zhSdz6onoXNtak5HtZAVR3vmWXEzFRwWdJqVHFlqNSra1Nh5NABPA==}
     engines: {node: '>=26.7.0'}
     peerDependencies:
       '@astrojs/solid-js': '>=7.0.1'
@@ -6379,6 +6398,31 @@ snapshots:
       astro: 7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)
 
   '@rimelight/ui@0.0.46(@astrojs/solid-js@7.0.2(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.5.0)(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(rolldown@1.1.5)(solid-js@1.9.15)(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))':
+    dependencies:
+      '@unocss/vite': 66.10.0(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
+      astro: 7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)
+      unocss: 66.10.0(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(rolldown@1.1.5)(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
+    optionalDependencies:
+      '@astrojs/solid-js': 7.0.2(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0)
+      '@astrojs/vue': 7.0.1(@types/node@26.5.0)(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0)
+      solid-js: 1.9.15
+      vue: 3.5.40(typescript@6.0.3)
+    transitivePeerDependencies:
+      - '@devframes/hub'
+      - '@devframes/hub-ui'
+      - '@modelcontextprotocol/client'
+      - '@unocss/astro'
+      - '@unocss/postcss'
+      - '@unocss/webpack'
+      - cac
+      - crossws
+      - ocache
+      - rolldown
+      - rollup
+      - srvx
+      - vite
+
+  '@rimelight/ui@0.0.47(@astrojs/solid-js@7.0.2(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.1)(yaml@2.9.0))(@astrojs/vue@7.0.1(@types/node@26.5.0)(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.1)(vue@3.5.40(typescript@6.0.3))(yaml@2.9.0))(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(rolldown@1.1.5)(solid-js@1.9.15)(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))':
     dependencies:
       '@unocss/vite': 66.10.0(@devframes/hub@0.9.12(crossws@0.4.12(srvx@1.0.3))(devframe@0.9.12(cac@7.0.0)(srvx@1.0.3)))(cac@7.0.0)(crossws@0.4.12(srvx@1.0.3))(srvx@1.0.3)(vite@8.1.5(@types/node@26.5.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
       astro: 7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.5.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)
