@@ -5,6 +5,8 @@ import { ui } from "@rimelight/ui"
 import { security } from "@rimelight/security"
 import cloudflare from "@astrojs/cloudflare"
 import { i18n } from "@rimelight/i18n"
+import { rimelightCms } from "@rimelight/cms/integration"
+import { r2 } from "@rimelight/cms/storage"
 import { defineConfig, fontProviders } from "astro/config"
 import { cacheCloudflare } from "@astrojs/cloudflare/cache"
 
@@ -63,6 +65,12 @@ export default defineConfig({
   integrations: [
     solid({
       include: ["**/solid/**", "**/*.tsx"]
+    }),
+    rimelightCms({
+      storage: r2({
+        binding: "BLOB"
+      }),
+      auth: "./src/auth/auth.ts"
     })
   ],
 

@@ -46,6 +46,15 @@
       "remote": true
     }
   ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "marcelocfilho-dot-com",
+      "database_id": "0f7abeb7-7943-4916-8975-a5284bdff812",
+      "migrations_dir": "./drizzle",
+      "remote": true
+    }
+  ],
   "ratelimits": [
     {
       "namespace_id": "1001",

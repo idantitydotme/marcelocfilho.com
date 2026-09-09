@@ -1,2 +1,2 @@
-export * from "./auth"
-export * from "@rimelight/cms/schema"
+export * from "./search.ts"
+export * from "@rimelight/cms/schema/sqlite"

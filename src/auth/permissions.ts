@@ -1,13 +1,9 @@
-import { createAccessControl } from "better-auth/plugins/access"
-import {
-  defaultStatements,
-  ownerAc,
-  adminAc,
-  memberAc
-} from "better-auth/plugins/organization/access"
+import { createAccessControl, defaultStatements } from "@rimelight/auth/permissions"
+import { cmsStatements } from "@rimelight/cms"
 
 export const statement = {
   ...defaultStatements,
+  ...cmsStatements,
   organization: ["create", "edit", "delete"],
   team: ["create", "edit", "delete"],
   member: ["create", "edit", "delete"],
@@ -21,7 +17,7 @@ export const statement = {
 export const ac = createAccessControl(statement)
 
 export const owner = ac.newRole({
-  ...ownerAc.statements,
+  user: ["create", "list", "set-role", "ban", "impersonate", "delete", "setRole"],
   organization: ["create", "edit", "delete"],
   team: ["create", "edit", "delete"],
   member: ["create", "edit", "delete"],
@@ -33,7 +29,7 @@ export const owner = ac.newRole({
 })
 
 export const admin = ac.newRole({
-  ...adminAc.statements,
+  user: ["create", "list", "set-role", "ban", "impersonate", "delete", "setRole"],
   organization: [],
   team: ["create", "edit", "delete"],
   member: ["create", "edit", "delete"],
@@ -45,7 +41,7 @@ export const admin = ac.newRole({
 })
 
 export const member = ac.newRole({
-  ...memberAc.statements,
+  user: ["create", "list"],
   organization: [],
   team: [],
   member: [],

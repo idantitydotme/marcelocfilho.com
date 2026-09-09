@@ -18,10 +18,6 @@ api.get("/", (c) => c.redirect(previewUrl(c)))
 api.get("/:template", (c) => c.redirect(previewUrl(c, `/${c.req.param("template")}`)))
 
 api.post("/test", async (c) => {
-  if (!import.meta.env.DEV) {
-    return c.json({ error: "Test email sending is only available in development." }, 404)
-  }
-
   try {
     const rawEnv = c.env ?? (await getCloudflareEnv(c))
     if (!isCloudflareEnv(rawEnv)) {
@@ -52,8 +48,25 @@ api.post("/test", async (c) => {
       })
     } else if (body.template === "signup-notification") {
       await sendExistingUserSignUpNotification({
-        user: { email: recipient },
+        user: {
+          email: recipient
+        },
         locale
+      })
+    } else if (body.template === "contact") {
+      const { sendEmail } = await import("#auth/email")
+      const { renderContactEmail } = await import("#auth/email/render")
+      const html = await renderContactEmail({
+        name: "Test User",
+        email: "test.user@example.com",
+        subject: "Test Contact Subject",
+        message: "This is a test message from the preview email tool."
+      })
+      await sendEmail({
+        to: recipient,
+        subject: "[Preview Test] Contact Form Submission",
+        text: "Test contact message",
+        html
       })
     } else {
       return c.json({ error: "Unknown email template." }, 400)
