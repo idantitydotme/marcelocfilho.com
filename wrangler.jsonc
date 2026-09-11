@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "marcelocfilho-dot-com",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "main": "./src/fetch.ts",
   "compatibility_date": "2026-08-27",
   "cache": {
     "enabled": true
