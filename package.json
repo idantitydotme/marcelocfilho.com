@@ -39,6 +39,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "profile": "astro build && wrangler check startup",
     "check": "pnpm audit && wrangler types && vp check --fix && astro check"
   },
   "dependencies": {
