@@ -5,15 +5,11 @@ export const siteConfig: SiteConfig = {
   name: "Marcelo Caldart Filho",
   description: "Sound Designer & Musician",
   url: "https://marcelocfilho.com",
-  ogImage: "/og/placeholder.webp",
   author: "Marcelo Caldart Filho",
   email: "marcelocfilho96@gmail.com",
   branding: {
     logo: {
       alt: "Marcelo Caldart Filho"
-    },
-    favicon: {
-      svg: "/favicon.svg"
     },
     colors: {
       themeColor: "#0ea5e9",
@@ -22,7 +18,6 @@ export const siteConfig: SiteConfig = {
   },
   seo: {
     titleTemplate: "%s | Marcelo Caldart Filho",
-    ogImageFallback: "/og/placeholder.webp",
     maxDescriptionLength: 160
   }
 }
