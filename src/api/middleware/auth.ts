@@ -1,7 +1,6 @@
 import { auth } from "#auth/auth"
 import { isConstructionGuest } from "@rimelight/security"
 
-
 const IGNORED_ROUTES = ["/docs/"]
 const PROTECTED_ROUTES = ["/internal"]
 

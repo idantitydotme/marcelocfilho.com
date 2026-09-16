@@ -17,7 +17,6 @@ app.use(authMiddleware)
 app.use(construction())
 app.use(devOnly)
 
-
 // Hono API Routing
 app.route("/api", api)
 
