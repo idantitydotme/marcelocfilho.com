@@ -13,6 +13,10 @@ export default defineConfig(
         logo: {
           alt: "Marcelo Caldart Filho"
         },
+        favicon: {
+          svg: "https://cdn.marcelocfilho.com/logos/logomark_color.svg"
+        },
+        appleTouchIcon: "https://cdn.marcelocfilho.com/logos/logomark_color.svg",
         colors: {
           themeColor: "#0ea5e9",
           backgroundColor: "#000000"
@@ -43,6 +47,19 @@ export default defineConfig(
       locales: ["en", "es"],
       defaultLocale: "en"
     },
-    ui: true
+    ui: {
+      logos: {
+        logomark: {
+          color: "https://cdn.marcelocfilho.com/logos/logomark_color.svg",
+          white: "https://cdn.marcelocfilho.com/logos/logomark_white.svg",
+          black: "https://cdn.marcelocfilho.com/logos/logomark_black.svg"
+        },
+        logotype: {
+          color: "https://cdn.marcelocfilho.com/logos/logotype_color.svg",
+          white: "https://cdn.marcelocfilho.com/logos/logotype_white.svg",
+          black: "https://cdn.marcelocfilho.com/logos/logotype_black.svg"
+        }
+      }
+    }
   })
 )
