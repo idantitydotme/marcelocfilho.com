@@ -33,23 +33,16 @@ const {
 	ogImageAlt,
 	favicon
 } = Astro.props as AppLayoutProps;
-
-const ogLocale = getOgLocale();
-const htmlLang = getHtmlLang();
-
-const ogImageUrl = ogImageSrc
-	? new URL(ogImageSrc, Astro.site).toString()
-	: new URL(`/open-graph/page.png?${new URLSearchParams({ title, description })}`, Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang={htmlLang}>
+<html lang={getHtmlLang()}>
   <head>
     <SEOHead
       title={title}
       description={description}
       config={siteConfig}
-      ogLocale={ogLocale}
+      ogLocale={getOgLocale()}
       rssFeed={{ href: '/rss.xml', title: siteConfig.name }}
       favicon={favicon}
       noindex={noindex}
@@ -62,7 +55,6 @@ const ogImageUrl = ogImageSrc
     <Font cssVariable="--font-sans" />
     <Font cssVariable="--font-serif" />
     <Font cssVariable="--font-mono" />
-    <meta property="og:image" content={ogImageUrl} />
     <slot name="head" />
   </head>
 	<body class="isolate">
