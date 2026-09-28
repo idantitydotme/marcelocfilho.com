@@ -1,0 +1,165 @@
+import type { Component } from "solid-js"
+import { For } from "solid-js"
+import AppLayout from "#layouts/AppLayout"
+import { RLContainer, RLButton } from "@rimelight/ui"
+import { t } from "@rimelight/i18n"
+
+export const ContactPage: Component = () => {
+  const socials = [
+    {
+      label: "SoundCloud",
+      icon: "i-logos-soundcloud-icon",
+      to: "https://www.soundcloud.com/marcelo-filho-32565359"
+    },
+    {
+      label: "LinkedIn",
+      icon: "i-logos-linkedin-icon",
+      to: "https://www.linkedin.com/marcelocfilho"
+    }
+  ]
+
+  return (
+    <AppLayout title={t("page_contact.title")} description={t("page_contact.description")}>
+      <RLContainer class="py-12 sm:py-16 max-w-4xl">
+        <header class="mb-12 border-b border-neutral-800 pb-8 text-center max-w-2xl mx-auto">
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            {t("page_contact.heading")}
+          </h1>
+          <p class="text-lg text-neutral-400 leading-relaxed">{t("page_contact.subheading")}</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {/* Direct Contact Methods */}
+          <div class="flex flex-col gap-6">
+            <h2 class="text-2xl font-bold text-white mb-2">{t("page_contact.directChannels")}</h2>
+
+            <a
+              href="mailto:marcelocfilho96@gmail.com"
+              class="group flex items-start gap-4 p-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 hover:border-primary-500/50 hover:bg-neutral-900 transition-all text-decoration-none"
+            >
+              <div class="p-3 rounded-xl bg-primary-500/10 text-primary-400 text-2xl group-hover:scale-110 transition-transform">
+                <span class="i-lucide-mail" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-neutral-400 uppercase tracking-wider">
+                  {t("page_contact.emailLabel")}
+                </div>
+                <div class="text-lg font-bold text-white group-hover:text-primary-400 transition-colors">
+                  {t("page_contact.emailValue")}
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="https://wa.me/5541999862882"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-4 p-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 hover:border-green-500/50 hover:bg-neutral-900 transition-all text-decoration-none"
+            >
+              <div class="p-3 rounded-xl bg-green-500/10 text-green-400 text-2xl group-hover:scale-110 transition-transform">
+                <span class="i-lucide-message-circle" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-neutral-400 uppercase tracking-wider">
+                  {t("page_contact.whatsappLabel")}
+                </div>
+                <div class="text-lg font-bold text-white group-hover:text-green-400 transition-colors">
+                  {t("page_contact.whatsappValue")}
+                </div>
+              </div>
+            </a>
+
+            <div class="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40">
+              <div class="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-4">
+                {t("page_contact.socialsLabel")}
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <For each={socials}>
+                  {(social) => (
+                    <RLButton
+                      href={social.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      color="neutral"
+                      variant="outline"
+                      label={social.label}
+                      leadingIcon={`${social.icon}?mask`}
+                    />
+                  )}
+                </For>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Message Form */}
+          <div class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/70">
+            <h2 class="text-2xl font-bold text-white mb-6">{t("page_contact.formTitle")}</h2>
+            <form
+              action="mailto:marcelocfilho96@gmail.com"
+              method="get"
+              enctype="text/plain"
+              class="flex flex-col gap-4"
+            >
+              <div>
+                <label for="contact-name" class="block text-sm font-medium text-neutral-300 mb-1.5">
+                  {t("page_contact.nameLabel")}
+                </label>
+                <input
+                  id="contact-name"
+                  name="subject"
+                  type="text"
+                  required
+                  placeholder={t("page_contact.namePlaceholder")}
+                  class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-email"
+                  class="block text-sm font-medium text-neutral-300 mb-1.5"
+                >
+                  {t("page_contact.emailFieldLabel")}
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  placeholder={t("page_contact.emailPlaceholder")}
+                  class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-message"
+                  class="block text-sm font-medium text-neutral-300 mb-1.5"
+                >
+                  {t("page_contact.messageLabel")}
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="body"
+                  rows={4}
+                  required
+                  placeholder={t("page_contact.messagePlaceholder")}
+                  class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="mt-2 w-full py-3 px-6 rounded-xl font-semibold text-white bg-primary-600 hover:bg-primary-500 active:bg-primary-700 transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer border-none"
+              >
+                <span>{t("page_contact.submitButton")}</span>
+                <span class="i-lucide-send" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </RLContainer>
+    </AppLayout>
+  )
+}
+
+export default ContactPage

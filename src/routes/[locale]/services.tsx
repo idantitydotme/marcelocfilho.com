@@ -1,0 +1,96 @@
+import type { Component } from "solid-js"
+import { For } from "solid-js"
+import AppLayout from "#layouts/AppLayout"
+import { RLContainer, RLGrid, RLButton } from "@rimelight/ui"
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n"
+
+export const ServicesPage: Component = () => {
+  const servicesList = () => [
+    {
+      icon: "i-lucide-volume-2",
+      title: t("page_services.soundDesignTitle"),
+      description: t("page_services.soundDesignDesc")
+    },
+    {
+      icon: "i-lucide-footprints",
+      title: t("page_services.foleyArtTitle"),
+      description: t("page_services.foleyArtDesc")
+    },
+    {
+      icon: "i-lucide-music",
+      title: t("page_services.musicCompositionTitle"),
+      description: t("page_services.musicCompositionDesc")
+    },
+    {
+      icon: "i-lucide-sliders",
+      title: t("page_services.mixingMasteringTitle"),
+      description: t("page_services.mixingMasteringDesc")
+    }
+  ]
+
+  return (
+    <AppLayout title={t("page_services.title")} description={t("page_services.description")}>
+      <RLContainer class="py-12 sm:py-16 max-w-5xl">
+        <header class="mb-12 border-b border-neutral-800 pb-8 text-center max-w-3xl mx-auto">
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            {t("page_services.heading")}
+          </h1>
+          <p class="text-lg sm:text-xl text-neutral-400 leading-relaxed">
+            {t("page_services.subheading")}
+          </p>
+        </header>
+
+        <section class="mb-16">
+          <div class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">
+              {t("page_services.capabilitiesTitle")}
+            </h2>
+            <p class="text-neutral-400">{t("page_services.capabilitiesDesc")}</p>
+          </div>
+
+          <RLGrid cols={2} class="gap-6">
+            <For each={servicesList()}>
+              {(service) => (
+                <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-8 hover:border-primary-500/50 transition-colors flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center p-3 rounded-xl bg-primary-500/10 text-primary-400 mb-6 text-2xl">
+                      <span class={service.icon} />
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">{service.title}</h3>
+                    <p class="text-neutral-300 leading-relaxed">{service.description}</p>
+                  </div>
+                </div>
+              )}
+            </For>
+          </RLGrid>
+        </section>
+
+        <section class="rounded-3xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 p-8 sm:p-12 text-center">
+          <h2 class="text-3xl font-extrabold text-white mb-4">{t("page_services.ctaTitle")}</h2>
+          <p class="text-lg text-neutral-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+            {t("page_services.ctaDesc")}
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <RLButton
+              label={t("page_services.ctaContact") || "Get in Touch"}
+              href={getRelativeLocaleUrl("/contact")}
+              color="primary"
+              variant="solid"
+              size="lg"
+            />
+            <RLButton
+              label={t("page_services.ctaProjects") || "View Projects"}
+              href={getRelativeLocaleUrl("/projects")}
+              color="neutral"
+              variant="outline"
+              size="lg"
+              trailingIcon="i-lucide-arrow-right"
+            />
+          </div>
+        </section>
+      </RLContainer>
+    </AppLayout>
+  )
+}
+
+export default ServicesPage
