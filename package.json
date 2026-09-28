@@ -34,15 +34,14 @@
   },
   "scripts": {
     "prepare": "vp config",
-    "generate-types": "wrangler types",
+    "generate-types": "cf workers types",
     "dev": "vp dev",
     "build": "vp build",
-    "preview": "vp build && wrangler dev",
-    "profile": "vp build && wrangler check startup",
+    "preview": "vp preview",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "wrangler d1 migrations apply marcelocfilho-dot-com --local",
-    "db:migrate:remote": "wrangler d1 migrations apply marcelocfilho-dot-com --remote",
-    "check": "pnpm audit && wrangler types && vp check --fix"
+    "db:migrate": "cf d1 migrations apply marcelocfilho-dot-com --dir ./drizzle --local",
+    "db:migrate:remote": "cf d1 migrations apply marcelocfilho-dot-com --dir ./drizzle",
+    "check": "pnpm audit && cf workers types && vp check --fix"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "1.60.1",
@@ -60,7 +59,6 @@
     "drizzle-orm": "0.45.3",
     "hono": "4.13.8",
     "solid-js": "2.0.0-rc.9",
-    "wrangler": "4.140.0",
     "zod": "4.6.5"
   },
   "devDependencies": {
@@ -68,6 +66,7 @@
     "@iconify-json/lucide": "1.2.135",
     "@rimelight/config": "0.0.29",
     "@types/node": "26.6.2",
+    "cf": "1.0.0-beta.2",
     "drizzle-kit": "0.31.11",
     "filesystem-routing": "0.4.0",
     "typescript": "7.0.2",
