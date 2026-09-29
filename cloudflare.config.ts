@@ -22,7 +22,6 @@ const config = defineConfig({
     env: {
       "CONSTRUCTION_MODE": bindings.text("true"),
       "DB": bindings.d1({
-        name: "marcelocfilho-dot-com",
         id: "0f7abeb7-7943-4916-8975-a5284bdff812",
         dev: {
           remote: true
