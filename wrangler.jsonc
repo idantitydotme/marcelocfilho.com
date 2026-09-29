@@ -1,0 +1,76 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "marcelocfilho-dot-com",
+  "main": "./src/fetch.ts",
+  "compatibility_date": "2026-08-27",
+  "cache": {
+    "enabled": true
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
+  //  "routes": [
+  //    {
+  //      "pattern": "marcelocfilho.com",
+  //      "custom_domain": true
+  //    },
+  //    {
+  //      "pattern": "www.marcelocfilho.com",
+  //      "custom_domain": true
+  //    }
+  //  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "r2_buckets": [
+    {
+      "binding": "BLOB",
+      "bucket_name": "marcelocfilho-dot-com",
+      "remote": true
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "marcelocfilho-dot-com_translations",
+      "id": "c06d6e52f8d840ac976783a7a6f7ef4a",
+      "remote": true
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "marcelocfilho-dot-com",
+      "database_id": "0f7abeb7-7943-4916-8975-a5284bdff812",
+      "migrations_dir": "./drizzle",
+      "remote": true
+    }
+  ],
+  "ratelimits": [
+    {
+      "namespace_id": "1001",
+      "name": "MY_RATE_LIMITER",
+      "simple": {
+        "limit": 100,
+        "period": 60
+      }
+    }
+  ],
+  // "triggers": {
+  //   "crons": ["* * * * *"]
+  // },
+  "vars": {
+    "CONSTRUCTION_MODE": "true"
+  },
+  "secrets": {
+    "required": ["TURNSTILE_SITE_KEY", "TURNSTILE_SECRET_KEY", "CONSTRUCTION_PASSPHRASE"]
+  }
+}
