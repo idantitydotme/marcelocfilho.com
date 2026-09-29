@@ -8,13 +8,12 @@ import { seo } from "@rimelight/seo/plugin"
 import { security } from "@rimelight/security/plugin"
 import { auth } from "@rimelight/auth/plugin"
 import { i18n } from "@rimelight/i18n/plugin"
-import { rimelightSolidConfig } from "@rimelight/config/solid"
 import en from "./src/i18n/en.json"
 import pt from "./src/i18n/pt.json"
 
-const site = rimelightSolidConfig({
+const securityOptions = {
   domain: "marcelocfilho.com"
-})
+}
 
 export default defineConfig({
   ...rimelightConfig(),
@@ -82,7 +81,7 @@ export default defineConfig({
       ]
     }),
 
-    security(site.securityOptions ?? {}),
+    security(securityOptions),
 
     auth(),
 
