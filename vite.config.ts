@@ -22,6 +22,9 @@ export default defineConfig({
     cloudflare({
       viteEnvironment: {
         name: "ssr"
+      },
+      experimental: {
+        newConfig: true
       }
     }),
 
