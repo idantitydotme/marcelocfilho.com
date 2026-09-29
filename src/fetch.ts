@@ -5,6 +5,7 @@ import { auth } from "@rimelight/auth/middleware"
 import { i18n } from "@rimelight/i18n/middleware"
 import { getRelativeLocaleUrl } from "@rimelight/i18n"
 import api from "#api"
+
 const app = new Hono<{ Bindings: Env }>()
 
 app.use(security())

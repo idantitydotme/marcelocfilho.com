@@ -11,10 +11,6 @@ import { i18n } from "@rimelight/i18n/plugin"
 import en from "./src/i18n/en.json"
 import pt from "./src/i18n/pt.json"
 
-const securityOptions = {
-  domain: "marcelocfilho.com"
-}
-
 export default defineConfig({
   ...rimelightConfig(),
   plugins: [
@@ -81,7 +77,7 @@ export default defineConfig({
       ]
     }),
 
-    security(securityOptions),
+    security({ domain: "marcelocfilho.com" }),
 
     auth(),
 
