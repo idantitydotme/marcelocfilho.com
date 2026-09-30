@@ -1,53 +1,53 @@
-import { type Component, Show } from "solid-js"
-import { useParams } from "@solidjs/router"
-import { createAsyncData } from "#utils/async"
-import AppLayout from "#layouts/AppLayout"
-import PageRenderer from "#components/cms/PageRenderer"
-import { RLContainer, RLDate } from "@rimelight/ui"
-import { t, getLocale } from "@rimelight/i18n"
+import { type Component, Show } from "solid-js";
+import { useParams } from "@solidjs/router";
+import { createAsyncData } from "#utils/async";
+import AppLayout from "#layouts/AppLayout";
+import PageRenderer from "#components/cms/PageRenderer";
+import { RLContainer, RLDate } from "@rimelight/ui";
+import { t, getLocale } from "@rimelight/i18n";
 
 function getLocalizedText(val: unknown, locale: string): string {
   if (typeof val === "object" && val !== null) {
-    const record = val as Record<string, string>
-    return record[locale] || record["en"] || ""
+    const record = val as Record<string, string>;
+    return record[locale] || record["en"] || "";
   }
-  return typeof val === "string" ? val : ""
+  return typeof val === "string" ? val : "";
 }
 
 export const LegalDocPage: Component = () => {
-  const params = useParams<{ locale: string; slug: string }>()
-  const activeLocale = () => getLocale()
+  const params = useParams<{ locale: string; slug: string }>();
+  const activeLocale = () => getLocale();
 
   const pageData = createAsyncData(
     () => params["slug"],
     async (slug) => {
-      if (!slug) return null
+      if (!slug) return null;
       try {
-        const res = await fetch("/api/cms/pages")
-        if (!res.ok) return null
-        const data = (await res.json()) as any
-        const pagesList = (data.pages || []) as any[]
-        const found = pagesList.find((p) => p.slug === slug && p.type === "legal")
-        return found || null
+        const res = await fetch("/api/cms/pages");
+        if (!res.ok) return null;
+        const data = (await res.json()) as any;
+        const pagesList = (data.pages || []) as any[];
+        const found = pagesList.find((p) => p.slug === slug && p.type === "legal");
+        return found || null;
       } catch {
-        return null
+        return null;
       }
-    }
-  )
+    },
+  );
 
   const title = () =>
     pageData()
       ? getLocalizedText(pageData()!.title, activeLocale()) || "Legal Document"
-      : "Legal Document"
+      : "Legal Document";
   const description = () =>
-    pageData() ? getLocalizedText(pageData()!.description, activeLocale()) || "" : ""
+    pageData() ? getLocalizedText(pageData()!.description, activeLocale()) || "" : "";
   const content = () => {
-    const p = pageData()
-    if (!p) return {}
-    return typeof p.content === "string" ? JSON.parse(p.content) : p.content || {}
-  }
-  const pubDate = () => pageData()?.postedAt || pageData()?.createdAt
-  const updatedDate = () => pageData()?.updatedAt
+    const p = pageData();
+    if (!p) return {};
+    return typeof p.content === "string" ? JSON.parse(p.content) : p.content || {};
+  };
+  const pubDate = () => pageData()?.postedAt || pageData()?.createdAt;
+  const updatedDate = () => pageData()?.updatedAt;
 
   return (
     <AppLayout title={title()} description={description()}>
@@ -75,7 +75,7 @@ export const LegalDocPage: Component = () => {
         </Show>
       </RLContainer>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default LegalDocPage
+export default LegalDocPage;

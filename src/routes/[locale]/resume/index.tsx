@@ -1,7 +1,7 @@
-import { type Component, For } from "solid-js"
-import AppLayout from "#layouts/AppLayout"
-import { RLContainer, RLButton } from "@rimelight/ui"
-import { t } from "@rimelight/i18n"
+import { type Component, For } from "solid-js";
+import AppLayout from "#layouts/AppLayout";
+import { RLContainer, RLButton } from "@rimelight/ui";
+import { t } from "@rimelight/i18n";
 
 export const ResumePage: Component = () => {
   const experiences = () => [
@@ -12,28 +12,28 @@ export const ResumePage: Component = () => {
       bullets: [
         t("page_resume.exp1Bullet1"),
         t("page_resume.exp1Bullet2"),
-        t("page_resume.exp1Bullet3")
-      ].filter(Boolean)
+        t("page_resume.exp1Bullet3"),
+      ].filter(Boolean),
     },
     {
       role: t("page_resume.exp2Role"),
       company: t("page_resume.exp2Company"),
       period: t("page_resume.exp2Period"),
-      bullets: [t("page_resume.exp2Bullet1"), t("page_resume.exp2Bullet2")].filter(Boolean)
+      bullets: [t("page_resume.exp2Bullet1"), t("page_resume.exp2Bullet2")].filter(Boolean),
     },
     {
       role: t("page_resume.exp3Role"),
       company: t("page_resume.exp3Company"),
       period: t("page_resume.exp3Period"),
-      bullets: [t("page_resume.exp3Bullet1"), t("page_resume.exp3Bullet2")].filter(Boolean)
-    }
-  ]
+      bullets: [t("page_resume.exp3Bullet1"), t("page_resume.exp3Bullet2")].filter(Boolean),
+    },
+  ];
 
   const tools = () => [
     { name: "Reaper", category: t("page_resume.audioProduction"), icon: "i-lucide-audio-waveform" },
     { name: "Pro Tools", category: t("page_resume.audioProduction"), icon: "i-lucide-disc" },
-    { name: "DaVinci Resolve", category: t("page_resume.videoEditing"), icon: "i-lucide-video" }
-  ]
+    { name: "DaVinci Resolve", category: t("page_resume.videoEditing"), icon: "i-lucide-video" },
+  ];
 
   return (
     <AppLayout title={t("page_resume.title")} description={t("page_resume.description")}>
@@ -173,7 +173,7 @@ export const ResumePage: Component = () => {
         </div>
       </RLContainer>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default ResumePage
+export default ResumePage;

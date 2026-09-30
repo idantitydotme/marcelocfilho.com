@@ -1,7 +1,7 @@
-import type { Component } from "solid-js"
-import AppLayout from "#layouts/AppLayout"
-import { RLContainer, RLButton } from "@rimelight/ui"
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n"
+import type { Component } from "solid-js";
+import AppLayout from "#layouts/AppLayout";
+import { RLContainer, RLButton } from "@rimelight/ui";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 
 export const AboutPage: Component = () => {
   return (
@@ -57,7 +57,7 @@ export const AboutPage: Component = () => {
         </div>
       </RLContainer>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

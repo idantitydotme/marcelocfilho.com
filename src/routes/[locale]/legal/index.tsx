@@ -1,35 +1,35 @@
-import { type Component, For } from "solid-js"
-import { createAsyncData } from "#utils/async"
-import AppLayout from "#layouts/AppLayout"
-import { RLContainer } from "@rimelight/ui"
-import { t, getRelativeLocaleUrl, getLocale } from "@rimelight/i18n"
+import { type Component, For } from "solid-js";
+import { createAsyncData } from "#utils/async";
+import AppLayout from "#layouts/AppLayout";
+import { RLContainer } from "@rimelight/ui";
+import { t, getRelativeLocaleUrl, getLocale } from "@rimelight/i18n";
 
 function getLocalizedText(val: unknown, locale: string): string {
   if (typeof val === "object" && val !== null) {
-    const record = val as Record<string, string>
-    return record[locale] || record["en"] || ""
+    const record = val as Record<string, string>;
+    return record[locale] || record["en"] || "";
   }
-  return typeof val === "string" ? val : ""
+  return typeof val === "string" ? val : "";
 }
 
 export const LegalIndexPage: Component = () => {
-  const activeLocale = () => getLocale()
+  const activeLocale = () => getLocale();
 
   const legalPages = createAsyncData(
     () => true,
     async () => {
       try {
-        const res = await fetch("/api/cms/pages")
-        if (!res.ok) return []
-        const data = (await res.json()) as any
-        const pagesList = (data.pages || []) as any[]
-        return pagesList.filter((page) => page.type === "legal")
+        const res = await fetch("/api/cms/pages");
+        if (!res.ok) return [];
+        const data = (await res.json()) as any;
+        const pagesList = (data.pages || []) as any[];
+        return pagesList.filter((page) => page.type === "legal");
       } catch {
-        return []
+        return [];
       }
     },
-    []
-  )
+    [],
+  );
 
   return (
     <AppLayout title={t("legal.title")} description={t("legal.description")}>
@@ -39,9 +39,9 @@ export const LegalIndexPage: Component = () => {
           <ul class="legal-list flex flex-col gap-6">
             <For each={legalPages()}>
               {(doc) => {
-                const title = getLocalizedText(doc.title, activeLocale())
-                const description = getLocalizedText(doc.description, activeLocale())
-                const pubDate = doc.postedAt || doc.createdAt
+                const title = getLocalizedText(doc.title, activeLocale());
+                const description = getLocalizedText(doc.description, activeLocale());
+                const pubDate = doc.postedAt || doc.createdAt;
                 return (
                   <li class="legal-item border-b border-neutral-800 pb-6 last:border-b-0">
                     <h3 class="text-xl font-bold text-white mb-2">
@@ -58,14 +58,14 @@ export const LegalIndexPage: Component = () => {
                       {pubDate ? new Date(pubDate).toLocaleDateString() : ""}
                     </span>
                   </li>
-                )
+                );
               }}
             </For>
           </ul>
         </section>
       </RLContainer>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default LegalIndexPage
+export default LegalIndexPage;

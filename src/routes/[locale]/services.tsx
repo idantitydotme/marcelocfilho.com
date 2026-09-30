@@ -1,32 +1,32 @@
-import type { Component } from "solid-js"
-import { For } from "solid-js"
-import AppLayout from "#layouts/AppLayout"
-import { RLContainer, RLGrid, RLButton } from "@rimelight/ui"
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n"
+import type { Component } from "solid-js";
+import { For } from "solid-js";
+import AppLayout from "#layouts/AppLayout";
+import { RLContainer, RLGrid, RLButton } from "@rimelight/ui";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 
 export const ServicesPage: Component = () => {
   const servicesList = () => [
     {
       icon: "i-lucide-volume-2",
       title: t("page_services.soundDesignTitle"),
-      description: t("page_services.soundDesignDesc")
+      description: t("page_services.soundDesignDesc"),
     },
     {
       icon: "i-lucide-footprints",
       title: t("page_services.foleyArtTitle"),
-      description: t("page_services.foleyArtDesc")
+      description: t("page_services.foleyArtDesc"),
     },
     {
       icon: "i-lucide-music",
       title: t("page_services.musicCompositionTitle"),
-      description: t("page_services.musicCompositionDesc")
+      description: t("page_services.musicCompositionDesc"),
     },
     {
       icon: "i-lucide-sliders",
       title: t("page_services.mixingMasteringTitle"),
-      description: t("page_services.mixingMasteringDesc")
-    }
-  ]
+      description: t("page_services.mixingMasteringDesc"),
+    },
+  ];
 
   return (
     <AppLayout title={t("page_services.title")} description={t("page_services.description")}>
@@ -90,7 +90,7 @@ export const ServicesPage: Component = () => {
         </section>
       </RLContainer>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default ServicesPage
+export default ServicesPage;

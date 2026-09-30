@@ -1,8 +1,8 @@
-import type { Component } from "solid-js"
-import { For } from "solid-js"
-import AppLayout from "#layouts/AppLayout"
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n"
-import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui"
+import type { Component } from "solid-js";
+import { For } from "solid-js";
+import AppLayout from "#layouts/AppLayout";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
 
 export const IndexPage: Component = () => {
   const heroLinks = () => [
@@ -10,23 +10,23 @@ export const IndexPage: Component = () => {
       label: t("playground.heroTalk") || "Let's Talk",
       href: getRelativeLocaleUrl("/contact"),
       color: "primary",
-      variant: "solid"
+      variant: "solid",
     },
     {
       label: t("playground.heroProjects") || "View Projects",
       href: getRelativeLocaleUrl("/projects"),
       color: "primary",
       variant: "outline",
-      trailingIcon: "i-lucide-arrow-right"
-    }
-  ]
+      trailingIcon: "i-lucide-arrow-right",
+    },
+  ];
 
   const ctaLinks = () => [
     {
       label: t("playground.ctaContact") || "Get in Touch",
       href: getRelativeLocaleUrl("/contact"),
       color: "primary",
-      variant: "solid"
+      variant: "solid",
     },
     {
       label: t("playground.ctaResume") || "Download CV",
@@ -34,39 +34,39 @@ export const IndexPage: Component = () => {
       target: "_blank",
       color: "neutral",
       variant: "outline",
-      trailingIcon: "i-lucide-download"
-    }
-  ]
+      trailingIcon: "i-lucide-download",
+    },
+  ];
 
   const faqItems = () => [
     { q: t("playground.faq1_q"), a: t("playground.faq1_a") },
     { q: t("playground.faq2_q"), a: t("playground.faq2_a") },
     { q: t("playground.faq3_q"), a: t("playground.faq3_a") },
-    { q: t("playground.faq4_q"), a: t("playground.faq4_a") }
-  ]
+    { q: t("playground.faq4_q"), a: t("playground.faq4_a") },
+  ];
 
   const servicesPreview = [
     {
       icon: "i-lucide-volume-2",
       title: "Sound Design",
-      description: "Immersive soundscapes and custom SFX for games, film, and multimedia."
+      description: "Immersive soundscapes and custom SFX for games, film, and multimedia.",
     },
     {
       icon: "i-lucide-footprints",
       title: "Foley Art",
-      description: "Custom organic Foley recording and physical interaction textures."
+      description: "Custom organic Foley recording and physical interaction textures.",
     },
     {
       icon: "i-lucide-music",
       title: "Music Composition",
-      description: "Original soundtracks, adaptive themes, and emotive scores."
+      description: "Original soundtracks, adaptive themes, and emotive scores.",
     },
     {
       icon: "i-lucide-sliders",
       title: "Mixing & Mastering",
-      description: "Industry-standard balance, clarity, and spatial loudness optimization."
-    }
-  ]
+      description: "Industry-standard balance, clarity, and spatial loudness optimization.",
+    },
+  ];
 
   return (
     <AppLayout title="Marcelo Caldart Filho" description="Sound Designer & Musician">
@@ -172,7 +172,7 @@ export const IndexPage: Component = () => {
         links={ctaLinks() as any}
       />
     </AppLayout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

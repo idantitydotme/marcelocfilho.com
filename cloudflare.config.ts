@@ -1,4 +1,4 @@
-import { bindings, defineConfig, type InferEnv } from "cf/config"
+import { bindings, defineConfig, type InferEnv } from "cf/config";
 
 const config = defineConfig({
   worker: {
@@ -6,51 +6,51 @@ const config = defineConfig({
     compatibilityDate: "2026-08-27",
     entrypoint: "./src/fetch.ts",
     cache: {
-      enabled: true
+      enabled: true,
     },
     observability: {
       enabled: true,
       logs: {
         enabled: true,
         headSamplingRate: 1,
-        invocationLogs: true
+        invocationLogs: true,
       },
       traces: {
-        enabled: true
-      }
+        enabled: true,
+      },
     },
     env: {
-      "CONSTRUCTION_MODE": bindings.text("true"),
-      "DB": bindings.d1({
+      CONSTRUCTION_MODE: bindings.text("true"),
+      DB: bindings.d1({
         id: "0f7abeb7-7943-4916-8975-a5284bdff812",
         dev: {
-          remote: true
-        }
+          remote: true,
+        },
       }),
       "marcelocfilho-dot-com_translations": bindings.kv({
         id: "c06d6e52f8d840ac976783a7a6f7ef4a",
         dev: {
-          remote: true
-        }
+          remote: true,
+        },
       }),
-      "BLOB": bindings.r2({
+      BLOB: bindings.r2({
         name: "marcelocfilho-dot-com",
         dev: {
-          remote: true
-        }
+          remote: true,
+        },
       }),
-      "MY_RATE_LIMITER": bindings.rateLimit({
+      MY_RATE_LIMITER: bindings.rateLimit({
         namespace: "1001",
         simple: {
           limit: 100,
-          period: 60
-        }
+          period: 60,
+        },
       }),
-      "ASSETS": bindings.assets(),
-      "CONSTRUCTION_PASSPHRASE": bindings.secret()
-    }
-  }
-})
+      ASSETS: bindings.assets(),
+      CONSTRUCTION_PASSPHRASE: bindings.secret(),
+    },
+  },
+});
 
-export type Env = InferEnv<typeof config>
-export default config
+export type Env = InferEnv<typeof config>;
+export default config;

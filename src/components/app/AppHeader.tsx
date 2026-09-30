@@ -1,4 +1,4 @@
-import { type Component, For, Show } from "solid-js"
+import { type Component, For, Show } from "solid-js";
 import {
   RLHeader,
   RLLogo,
@@ -7,56 +7,56 @@ import {
   RLSlideover,
   RLAvatar,
   RLPopover,
-  type RLButtonProps
-} from "@rimelight/ui"
-import type { NavigationMenuItem } from "@rimelight/ui/components/navigation-menu/navigation-menu.ts"
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n"
+  type RLButtonProps,
+} from "@rimelight/ui";
+import type { NavigationMenuItem } from "@rimelight/ui/components/navigation-menu/navigation-menu.ts";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 
 export interface AppHeaderProps {
-  session?: any
-  stackIndex?: number
+  session?: any;
+  stackIndex?: number;
 }
 
 export const AppHeader: Component<AppHeaderProps> = (props) => {
   const leftLinks = (): NavigationMenuItem[] => [
     {
       label: t("app_header.left-links_projects_label") || "Projects",
-      to: getRelativeLocaleUrl("/projects")
+      to: getRelativeLocaleUrl("/projects"),
     },
     {
       label: t("app_header.left-links_services_label") || "Services",
-      to: getRelativeLocaleUrl("/services")
+      to: getRelativeLocaleUrl("/services"),
     },
     {
       label: t("app_header.left-links_about_label") || "About",
-      to: getRelativeLocaleUrl("/about")
+      to: getRelativeLocaleUrl("/about"),
     },
     {
       label: t("app_header.left-links_resume_label") || "Resume",
-      to: getRelativeLocaleUrl("/resume")
+      to: getRelativeLocaleUrl("/resume"),
     },
     {
       label: t("app_header.left-links_contact_label") || "Contact",
-      to: getRelativeLocaleUrl("/contact")
+      to: getRelativeLocaleUrl("/contact"),
     },
     {
       label: t("app_header.left-links_blog_label") || "Blog",
-      to: getRelativeLocaleUrl("/blog")
-    }
-  ]
+      to: getRelativeLocaleUrl("/blog"),
+    },
+  ];
 
   const socials = (): RLButtonProps[] => [
     {
       variant: "ghost",
       leadingIcon: "i-logos-soundcloud-icon?mask text-white group-hover:text-primary-500",
-      href: "https://www.soundcloud.com/marcelo-filho-32565359"
+      href: "https://www.soundcloud.com/marcelo-filho-32565359",
     },
     {
       variant: "ghost",
       leadingIcon: "i-logos-linkedin-icon?mask text-white group-hover:text-primary-500",
-      href: "https://www.linkedin.com/marcelocfilho"
-    }
-  ]
+      href: "https://www.linkedin.com/marcelocfilho",
+    },
+  ];
 
   return (
     <RLHeader
@@ -74,7 +74,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
               variant="link"
               theme="flat"
               ui={{
-                link: "text-white transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400"
+                link: "text-white transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400",
               }}
             />
           </div>
@@ -99,7 +99,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                 orientation="vertical"
                 variant="link"
                 ui={{
-                  link: "text-black dark:text-white flex justify-start items-center w-full text-left py-2 text-lg transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400"
+                  link: "text-black dark:text-white flex justify-start items-center w-full text-left py-2 text-lg transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400",
                 }}
               />
             </RLSlideover>
@@ -172,7 +172,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
         </div>
       }
     />
-  )
-}
+  );
+};
 
-export default AppHeader
+export default AppHeader;

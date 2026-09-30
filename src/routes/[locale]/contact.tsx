@@ -1,22 +1,22 @@
-import type { Component } from "solid-js"
-import { For } from "solid-js"
-import AppLayout from "#layouts/AppLayout"
-import { RLContainer, RLButton } from "@rimelight/ui"
-import { t } from "@rimelight/i18n"
+import type { Component } from "solid-js";
+import { For } from "solid-js";
+import AppLayout from "#layouts/AppLayout";
+import { RLContainer, RLButton } from "@rimelight/ui";
+import { t } from "@rimelight/i18n";
 
 export const ContactPage: Component = () => {
   const socials = [
     {
       label: "SoundCloud",
       icon: "i-logos-soundcloud-icon",
-      to: "https://www.soundcloud.com/marcelo-filho-32565359"
+      to: "https://www.soundcloud.com/marcelo-filho-32565359",
     },
     {
       label: "LinkedIn",
       icon: "i-logos-linkedin-icon",
-      to: "https://www.linkedin.com/marcelocfilho"
-    }
-  ]
+      to: "https://www.linkedin.com/marcelocfilho",
+    },
+  ];
 
   return (
     <AppLayout title={t("page_contact.title")} description={t("page_contact.description")}>
@@ -159,7 +159,7 @@ export const ContactPage: Component = () => {
         </div>
       </RLContainer>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;
