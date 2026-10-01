@@ -37,6 +37,7 @@
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
+    "deploy": "vp build && wrangler deploy",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "cf d1 migrations apply marcelocfilho-dot-com --dir ./drizzle --local",
     "db:migrate:remote": "cf d1 migrations apply marcelocfilho-dot-com --dir ./drizzle",
@@ -70,7 +71,8 @@
     "filesystem-routing": "0.4.0",
     "typescript": "7.0.2",
     "unocss": "66.10.5",
-    "vite-plus": "1.0.0"
+    "vite-plus": "1.0.0",
+    "wrangler": "4.145.0"
   },
   "engines": {
     "node": ">=26.6.0"
