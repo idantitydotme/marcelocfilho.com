@@ -1,4 +1,4 @@
-import { bindings, defineConfig, type InferEnv } from "cf/config";
+import { bindings, defineConfig, triggers, type InferEnv } from "cf/config";
 
 const config = defineConfig({
   worker: {
@@ -19,6 +19,10 @@ const config = defineConfig({
         enabled: true,
       },
     },
+    triggers: [
+      triggers.fetch({ pattern: "marcelocfilho.com/*", zone: "marcelocfilho.com" }),
+      triggers.fetch({ pattern: "www.marcelocfilho.com/*", zone: "marcelocfilho.com" }),
+    ],
     env: {
       CONSTRUCTION_MODE: bindings.text("true"),
       DB: bindings.d1({
