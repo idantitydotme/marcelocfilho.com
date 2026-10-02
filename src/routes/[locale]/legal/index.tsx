@@ -1,15 +1,7 @@
 import { type Component, For, createMemo } from "solid-js";
 import AppLayout from "#layouts/AppLayout";
 import { RLContainer } from "@rimelight/ui";
-import { t, getRelativeLocaleUrl, getLocale } from "@rimelight/i18n";
-
-function getLocalizedText(val: unknown, locale: string): string {
-  if (typeof val === "object" && val !== null) {
-    const record = val as Record<string, string>;
-    return record[locale] || record["en"] || "";
-  }
-  return typeof val === "string" ? val : "";
-}
+import { t, getRelativeLocaleUrl, getLocale, getLocalizedText } from "@rimelight/i18n";
 
 export const LegalIndexPage: Component = () => {
   const activeLocale = () => getLocale();
