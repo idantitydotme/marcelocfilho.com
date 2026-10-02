@@ -86,7 +86,11 @@ export default defineConfig({
 
     security({ domain: "marcelocfilho.com" }),
 
-    auth(),
+    auth({
+      roleGuards: {
+        "/admin": ["admin", "owner"],
+      },
+    }),
 
     i18n({
       locales: ["en", "pt"],
