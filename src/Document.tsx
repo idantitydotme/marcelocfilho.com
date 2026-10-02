@@ -8,11 +8,7 @@ import "virtual:uno.css";
 import "./styles/global.css";
 
 export default function Document(props: ParentProps) {
-  useHead([
-    ...createSeoHead().tags,
-    ...createSecurityHead().tags,
-    ...createUiHead().tags,
-  ]);
+  useHead([...createSeoHead().tags, ...createSecurityHead().tags, ...createUiHead().tags]);
 
   return (
     <html lang={getHtmlLang()}>
