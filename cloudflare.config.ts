@@ -20,6 +20,8 @@ export default defineConfig({
     ],
     env: {
       CONSTRUCTION_MODE: bindings.text("true"),
+      EMAIL_DOMAIN: bindings.text("marcelocfilho.com"),
+      CONTACT_OWNER_EMAIL: bindings.text("marcelocfilho96@gmail.com"),
       DB: bindings.d1({
         id: "0f7abeb7-7943-4916-8975-a5284bdff812",
         dev: {
@@ -34,6 +36,11 @@ export default defineConfig({
       }),
       BLOB: bindings.r2({
         name: "marcelocfilho-dot-com",
+        dev: {
+          remote: true,
+        },
+      }),
+      EMAIL: bindings.sendEmail({
         dev: {
           remote: true,
         },

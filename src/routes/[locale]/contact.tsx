@@ -1,10 +1,18 @@
 import type { Component } from "solid-js";
-import { For } from "solid-js";
+import { For, Show, createSignal } from "solid-js";
 import AppLayout from "#layouts/AppLayout";
 import { RLContainer, RLButton } from "@rimelight/ui";
+import Turnstile from "#components/Turnstile";
 import { t } from "@rimelight/i18n";
+import { api } from "#api/client";
 
 export const ContactPage: Component = () => {
+  const [contactStatus, setContactStatus] = createSignal<{ text: string; error?: boolean } | null>(
+    null,
+  );
+
+  let contactFormRef!: HTMLFormElement;
+
   const socials = [
     {
       label: "SoundCloud",
@@ -17,6 +25,39 @@ export const ContactPage: Component = () => {
       to: "https://www.linkedin.com/marcelocfilho",
     },
   ];
+
+  const handleContactSubmit = async (e: Event) => {
+    e.preventDefault();
+    if (!contactFormRef) return;
+
+    setContactStatus({ text: "Sending message..." });
+
+    try {
+      const res = await api.contact.$post({
+        form: new FormData(contactFormRef) as any,
+      });
+      const result = await res.json();
+
+      if (!res.ok || !result.success) {
+        const errorMsg =
+          !result.success && "error" in result
+            ? (result as any).error
+            : "Please check form fields and try again.";
+        setContactStatus({
+          text: errorMsg || "Please check form fields and try again.",
+          error: true,
+        });
+        return;
+      }
+
+      setContactStatus({ text: "Message sent successfully! ✅", error: false });
+      contactFormRef.reset();
+      // @ts-ignore
+      window.turnstile?.reset?.();
+    } catch {
+      setContactStatus({ text: "Failed to send message. Please try again.", error: true });
+    }
+  };
 
   return (
     <AppLayout title={t("page_contact.title")} description={t("page_contact.description")}>
@@ -95,9 +136,8 @@ export const ContactPage: Component = () => {
           <div class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/70">
             <h2 class="text-2xl font-bold text-white mb-6">{t("page_contact.formTitle")}</h2>
             <form
-              action="mailto:marcelocfilho96@gmail.com"
-              method="get"
-              enctype="text/plain"
+              ref={(el) => (contactFormRef = el)}
+              onSubmit={handleContactSubmit}
               class="flex flex-col gap-4"
             >
               <div>
@@ -106,7 +146,7 @@ export const ContactPage: Component = () => {
                 </label>
                 <input
                   id="contact-name"
-                  name="subject"
+                  name="name"
                   type="text"
                   required
                   placeholder={t("page_contact.namePlaceholder")}
@@ -123,6 +163,7 @@ export const ContactPage: Component = () => {
                 </label>
                 <input
                   id="contact-email"
+                  name="email"
                   type="email"
                   required
                   placeholder={t("page_contact.emailPlaceholder")}
@@ -139,13 +180,15 @@ export const ContactPage: Component = () => {
                 </label>
                 <textarea
                   id="contact-message"
-                  name="body"
+                  name="message"
                   rows={4}
                   required
                   placeholder={t("page_contact.messagePlaceholder")}
                   class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
                 />
               </div>
+
+              <Turnstile />
 
               <button
                 type="submit"
@@ -154,6 +197,23 @@ export const ContactPage: Component = () => {
                 <span>{t("page_contact.submitButton")}</span>
                 <span class="i-lucide-send" />
               </button>
+
+              <Show when={contactStatus()}>
+                {(status) => (
+                  <p
+                    class={`text-sm min-h-[1.5rem] font-medium ${
+                      status().error
+                        ? "text-red-400"
+                        : status().text.includes("✅")
+                          ? "text-green-500"
+                          : "text-neutral-400"
+                    }`}
+                    role="status"
+                  >
+                    {status().text}
+                  </p>
+                )}
+              </Show>
             </form>
           </div>
         </div>
