@@ -1,223 +1,125 @@
-import type { Component } from "solid-js";
-import { For, Show, createSignal } from "solid-js";
+import { type Component, createSignal, Show } from "solid-js";
 import AppLayout from "#layouts/AppLayout";
-import { RLContainer, RLButton } from "@rimelight/ui";
+import { RLPageSection, RLCard, RLButton } from "@rimelight/ui";
 import Turnstile from "#components/Turnstile";
 import { t } from "@rimelight/i18n";
 import { api } from "#api/client";
 
+const inputClass =
+  "w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-default text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition";
+
+const Field: Component<{ label: string; children: any }> = (props) => (
+  <label class="flex flex-col gap-1 text-sm font-medium text-[var(--rl-text-muted)]">
+    {props.label}
+    {props.children}
+  </label>
+);
+
+type Status = { text: string; tone: "muted" | "error" | "success" };
+const toneClass = {
+  muted: "text-neutral-500",
+  error: "text-red-500",
+  success: "text-green-600 dark:text-green-400",
+};
+
+type ContactResponse = { success: boolean; error?: string };
+
 export const ContactPage: Component = () => {
-  const [contactStatus, setContactStatus] = createSignal<{ text: string; error?: boolean } | null>(
-    null,
-  );
+  const [status, setStatus] = createSignal<Status>();
 
-  let contactFormRef!: HTMLFormElement;
-
-  const socials = [
-    {
-      label: "SoundCloud",
-      icon: "i-logos-soundcloud-icon",
-      to: "https://www.soundcloud.com/marcelo-filho-32565359",
-    },
-    {
-      label: "LinkedIn",
-      icon: "i-logos-linkedin-icon",
-      to: "https://www.linkedin.com/marcelocfilho",
-    },
-  ];
-
-  const handleContactSubmit = async (e: Event) => {
+  const onSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
-    if (!contactFormRef) return;
+    const form = e.currentTarget as HTMLFormElement;
+    setStatus({ text: "Sending message...", tone: "muted" });
 
-    setContactStatus({ text: "Sending message..." });
+    const result: ContactResponse = await api.contact
+      .$post({ form: new FormData(form) as any })
+      .then((res) => res.json() as Promise<ContactResponse>)
+      .catch(() => ({ success: false }));
 
-    try {
-      const res = await api.contact.$post({
-        form: new FormData(contactFormRef) as any,
+    if (!result.success) {
+      setStatus({
+        text: result.error || "Failed to send message. Please try again.",
+        tone: "error",
       });
-      const result = await res.json();
-
-      if (!res.ok || !result.success) {
-        const errorMsg =
-          !result.success && "error" in result
-            ? (result as any).error
-            : "Please check form fields and try again.";
-        setContactStatus({
-          text: errorMsg || "Please check form fields and try again.",
-          error: true,
-        });
-        return;
-      }
-
-      setContactStatus({ text: "Message sent successfully! ✅", error: false });
-      contactFormRef.reset();
-      // @ts-ignore
-      window.turnstile?.reset?.();
-    } catch {
-      setContactStatus({ text: "Failed to send message. Please try again.", error: true });
+      return;
     }
+
+    setStatus({ text: "Message sent successfully! ✅", tone: "success" });
+    form.reset();
+    (window as any).turnstile?.reset?.();
   };
 
   return (
     <AppLayout title={t("page_contact.title")} description={t("page_contact.description")}>
-      <RLContainer class="py-12 sm:py-16 max-w-4xl">
-        <header class="mb-12 border-b border-neutral-800 pb-8 text-center max-w-2xl mx-auto">
-          <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            {t("page_contact.heading")}
-          </h1>
-          <p class="text-lg text-neutral-400 leading-relaxed">{t("page_contact.subheading")}</p>
-        </header>
+      <RLPageSection
+        variant="hero"
+        reverse={true}
+        orientation="horizontal"
+        title={t("page_contact.hero_title")}
+        description={t("page_contact.hero_description")}
+      >
+        <RLCard class="p-6 md:p-8 w-full">
+          <form onSubmit={onSubmit} class="flex flex-col gap-4">
+            <Field label={t("page_contact.contact_form_name_label")}>
+              <input
+                name="name"
+                required
+                class={inputClass}
+                placeholder={t("page_contact.contact_form_placeholder_name")}
+              />
+            </Field>
+            <Field label={t("page_contact.contact_form_email_label")}>
+              <input
+                name="email"
+                type="email"
+                required
+                class={inputClass}
+                placeholder={t("page_contact.contact_form_placeholder_email")}
+              />
+            </Field>
+            <Field label={t("page_contact.contact_form_subject_label")}>
+              <input
+                name="subject"
+                class={inputClass}
+                placeholder={t("page_contact.contact_form_placeholder_subject")}
+              />
+            </Field>
+            <Field label={t("page_contact.contact_form_message_label")}>
+              <textarea
+                name="message"
+                rows={5}
+                required
+                class={`${inputClass} resize-y min-h-[120px]`}
+                placeholder={t("page_contact.contact_form_placeholder_message")}
+              />
+            </Field>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Direct Contact Methods */}
-          <div class="flex flex-col gap-6">
-            <h2 class="text-2xl font-bold text-white mb-2">{t("page_contact.directChannels")}</h2>
+            <Turnstile />
 
-            <a
-              href="mailto:marcelocfilho96@gmail.com"
-              class="group flex items-start gap-4 p-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 hover:border-primary-500/50 hover:bg-neutral-900 transition-all text-decoration-none"
-            >
-              <div class="p-3 rounded-xl bg-primary-500/10 text-primary-400 text-2xl group-hover:scale-110 transition-transform">
-                <span class="i-lucide-mail" />
-              </div>
-              <div>
-                <div class="text-sm font-semibold text-neutral-400 uppercase tracking-wider">
-                  {t("page_contact.emailLabel")}
-                </div>
-                <div class="text-lg font-bold text-white group-hover:text-primary-400 transition-colors">
-                  {t("page_contact.emailValue")}
-                </div>
-              </div>
-            </a>
+            <RLButton
+              type="submit"
+              color="primary"
+              variant="solid"
+              block={true}
+              leadingIcon="i-lucide-send"
+              label={t("page_contact.contact_form_send_button")}
+              class="mt-2"
+            />
 
-            <a
-              href="https://wa.me/5541999862882"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-start gap-4 p-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 hover:border-green-500/50 hover:bg-neutral-900 transition-all text-decoration-none"
-            >
-              <div class="p-3 rounded-xl bg-green-500/10 text-green-400 text-2xl group-hover:scale-110 transition-transform">
-                <span class="i-lucide-message-circle" />
-              </div>
-              <div>
-                <div class="text-sm font-semibold text-neutral-400 uppercase tracking-wider">
-                  {t("page_contact.whatsappLabel")}
-                </div>
-                <div class="text-lg font-bold text-white group-hover:text-green-400 transition-colors">
-                  {t("page_contact.whatsappValue")}
-                </div>
-              </div>
-            </a>
-
-            <div class="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40">
-              <div class="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-4">
-                {t("page_contact.socialsLabel")}
-              </div>
-              <div class="flex flex-wrap gap-3">
-                <For each={socials}>
-                  {(social) => (
-                    <RLButton
-                      href={social.to}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      color="neutral"
-                      variant="outline"
-                      label={social.label}
-                      leadingIcon={`${social.icon}?mask`}
-                    />
-                  )}
-                </For>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Message Form */}
-          <div class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/70">
-            <h2 class="text-2xl font-bold text-white mb-6">{t("page_contact.formTitle")}</h2>
-            <form
-              ref={(el) => (contactFormRef = el)}
-              onSubmit={handleContactSubmit}
-              class="flex flex-col gap-4"
-            >
-              <div>
-                <label for="contact-name" class="block text-sm font-medium text-neutral-300 mb-1.5">
-                  {t("page_contact.nameLabel")}
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder={t("page_contact.namePlaceholder")}
-                  class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  for="contact-email"
-                  class="block text-sm font-medium text-neutral-300 mb-1.5"
+            <Show when={status()}>
+              {(s) => (
+                <p
+                  class={`text-sm min-h-[1.5rem] mt-2 font-medium ${toneClass[s().tone]}`}
+                  role="status"
                 >
-                  {t("page_contact.emailFieldLabel")}
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder={t("page_contact.emailPlaceholder")}
-                  class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  for="contact-message"
-                  class="block text-sm font-medium text-neutral-300 mb-1.5"
-                >
-                  {t("page_contact.messageLabel")}
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder={t("page_contact.messagePlaceholder")}
-                  class="w-full px-4 py-2.5 rounded-xl border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
-                />
-              </div>
-
-              <Turnstile />
-
-              <button
-                type="submit"
-                class="mt-2 w-full py-3 px-6 rounded-xl font-semibold text-white bg-primary-600 hover:bg-primary-500 active:bg-primary-700 transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer border-none"
-              >
-                <span>{t("page_contact.submitButton")}</span>
-                <span class="i-lucide-send" />
-              </button>
-
-              <Show when={contactStatus()}>
-                {(status) => (
-                  <p
-                    class={`text-sm min-h-[1.5rem] font-medium ${
-                      status().error
-                        ? "text-red-400"
-                        : status().text.includes("✅")
-                          ? "text-green-500"
-                          : "text-neutral-400"
-                    }`}
-                    role="status"
-                  >
-                    {status().text}
-                  </p>
-                )}
-              </Show>
-            </form>
-          </div>
-        </div>
-      </RLContainer>
+                  {s().text}
+                </p>
+              )}
+            </Show>
+          </form>
+        </RLCard>
+      </RLPageSection>
     </AppLayout>
   );
 };
