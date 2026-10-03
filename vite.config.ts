@@ -1,12 +1,12 @@
 import { defineConfig } from "vite-plus";
-import { fileRoutes } from "filesystem-routing/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 import solid from "@solidjs/vite-plugin";
-import { ui } from "@rimelight/ui/plugin";
+import { fileRoutes } from "filesystem-routing/vite";
 import { seo } from "@rimelight/seo/plugin";
 import { security } from "@rimelight/security/plugin";
 import { auth } from "@rimelight/auth/plugin";
 import { i18n } from "@rimelight/i18n/plugin";
+import { ui } from "@rimelight/ui/plugin";
 import en from "./src/i18n/en.json";
 import pt from "./src/i18n/pt.json";
 
@@ -35,22 +35,7 @@ export default defineConfig({
       ssr: true,
     }),
 
-    fileRoutes({ types: true }),
-
-    ui({
-      logos: {
-        logomark: {
-          color: "https://cdn.marcelocfilho.com/logos/logomark_color.svg",
-          white: "https://cdn.marcelocfilho.com/logos/logomark_white.svg",
-          black: "https://cdn.marcelocfilho.com/logos/logomark_black.svg",
-        },
-        logotype: {
-          color: "https://cdn.marcelocfilho.com/logos/logotype_color.svg",
-          white: "https://cdn.marcelocfilho.com/logos/logotype_white.svg",
-          black: "https://cdn.marcelocfilho.com/logos/logotype_black.svg",
-        },
-      },
-    }),
+    fileRoutes({ types: ".cloudflare/types/file-routes.d.ts" }),
 
     seo({
       id: "marcelocfilho.com",
@@ -93,6 +78,21 @@ export default defineConfig({
       locales: ["en", "pt"],
       defaultLocale: "en",
       translations: { en, pt },
+    }),
+
+    ui({
+      logos: {
+        logomark: {
+          color: "https://cdn.marcelocfilho.com/logos/logomark_color.svg",
+          white: "https://cdn.marcelocfilho.com/logos/logomark_white.svg",
+          black: "https://cdn.marcelocfilho.com/logos/logomark_black.svg",
+        },
+        logotype: {
+          color: "https://cdn.marcelocfilho.com/logos/logotype_color.svg",
+          white: "https://cdn.marcelocfilho.com/logos/logotype_white.svg",
+          black: "https://cdn.marcelocfilho.com/logos/logotype_black.svg",
+        },
+      },
     }),
   ],
 });
