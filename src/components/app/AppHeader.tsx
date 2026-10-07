@@ -9,7 +9,6 @@ import {
   RLPopover,
   type RLButtonProps,
 } from "@rimelight/ui";
-import type { NavigationMenuItem } from "@rimelight/ui/components/navigation-menu/navigation-menu.ts";
 import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 
 export interface AppHeaderProps {
@@ -18,7 +17,7 @@ export interface AppHeaderProps {
 }
 
 export const AppHeader: Component<AppHeaderProps> = (props) => {
-  const leftLinks = (): NavigationMenuItem[] => [
+  const leftLinks = () => [
     {
       label: t("app_header.left-links_projects_label") || "Projects",
       to: getRelativeLocaleUrl("/projects"),
