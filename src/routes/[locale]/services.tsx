@@ -2,7 +2,7 @@ import type { Component } from "solid-js";
 import { For } from "solid-js";
 import AppLayout from "#layouts/AppLayout";
 import { RLContainer, RLGrid, RLButton } from "@rimelight/ui";
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getLocaleUrl } from "@rimelight/i18n";
 
 export const ServicesPage: Component = () => {
   const servicesList = () => [
@@ -73,14 +73,14 @@ export const ServicesPage: Component = () => {
           <div class="flex flex-wrap justify-center gap-4">
             <RLButton
               label={t("page_services.ctaContact") || "Get in Touch"}
-              href={getRelativeLocaleUrl("/contact")}
+              href={getLocaleUrl("/contact")}
               color="primary"
               variant="solid"
               size="lg"
             />
             <RLButton
               label={t("page_services.ctaProjects") || "View Projects"}
-              href={getRelativeLocaleUrl("/projects")}
+              href={getLocaleUrl("/projects")}
               color="neutral"
               variant="outline"
               size="lg"

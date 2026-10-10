@@ -9,7 +9,7 @@ import {
   type RLButtonProps,
   type RLLinkGroupProps,
 } from "@rimelight/ui";
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getLocaleUrl } from "@rimelight/i18n";
 
 export const AppFooter: Component = () => {
   const columns = (): RLLinkGroupProps[] => [
@@ -18,23 +18,23 @@ export const AppFooter: Component = () => {
       links: [
         {
           label: t("app_footer.links_projects") || "Projects",
-          href: getRelativeLocaleUrl("/projects"),
+          href: getLocaleUrl("/projects"),
         },
         {
           label: t("app_footer.links_services") || "Services",
-          href: getRelativeLocaleUrl("/services"),
+          href: getLocaleUrl("/services"),
         },
         {
           label: t("app_footer.links_about") || "About",
-          href: getRelativeLocaleUrl("/about"),
+          href: getLocaleUrl("/about"),
         },
         {
           label: t("app_footer.links_resume") || "Resume",
-          href: getRelativeLocaleUrl("/resume"),
+          href: getLocaleUrl("/resume"),
         },
         {
           label: t("app_footer.links_contact") || "Contact",
-          href: getRelativeLocaleUrl("/contact"),
+          href: getLocaleUrl("/contact"),
         },
       ],
     },
@@ -47,11 +47,11 @@ export const AppFooter: Component = () => {
         },
         {
           label: t("app_footer.links_legal_privacy-policy") || "Privacy Policy",
-          href: getRelativeLocaleUrl("/legal/privacy-policy"),
+          href: getLocaleUrl("/legal/privacy-policy"),
         },
         {
           label: t("app_footer.links_legal_other-documents") || "Legal Documents",
-          href: getRelativeLocaleUrl("/legal"),
+          href: getLocaleUrl("/legal"),
         },
       ],
     },
@@ -69,8 +69,8 @@ export const AppFooter: Component = () => {
   ];
 
   const targetLanguages = () => [
-    { code: "en", label: "English", href: getRelativeLocaleUrl("/en") },
-    { code: "pt", label: "Português", href: getRelativeLocaleUrl("/pt") },
+    { code: "en", label: "English", href: getLocaleUrl("/en") },
+    { code: "pt", label: "Português", href: getLocaleUrl("/pt") },
   ];
 
   return (

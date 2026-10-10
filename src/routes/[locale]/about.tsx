@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import AppLayout from "#layouts/AppLayout";
 import { RLContainer, RLButton } from "@rimelight/ui";
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getLocaleUrl } from "@rimelight/i18n";
 
 export const AboutPage: Component = () => {
   return (
@@ -40,14 +40,14 @@ export const AboutPage: Component = () => {
           <section class="border-t border-neutral-800 pt-10 flex flex-wrap gap-4 items-center">
             <RLButton
               label={t("page_about.ctaTalk") || "Let's Talk"}
-              href={getRelativeLocaleUrl("/contact")}
+              href={getLocaleUrl("/contact")}
               color="primary"
               variant="solid"
               size="lg"
             />
             <RLButton
               label={t("page_about.ctaProjects") || "Browse Projects"}
-              href={getRelativeLocaleUrl("/projects")}
+              href={getLocaleUrl("/projects")}
               color="neutral"
               variant="outline"
               size="lg"

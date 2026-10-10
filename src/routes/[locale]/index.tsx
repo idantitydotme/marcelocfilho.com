@@ -1,20 +1,20 @@
 import type { Component } from "solid-js";
 import { For } from "solid-js";
 import AppLayout from "#layouts/AppLayout";
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { t, getLocaleUrl } from "@rimelight/i18n";
 import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
 
 export const IndexPage: Component = () => {
   const heroLinks = () => [
     {
       label: t("playground.heroTalk") || "Let's Talk",
-      href: getRelativeLocaleUrl("/contact"),
+      href: getLocaleUrl("/contact"),
       color: "primary",
       variant: "solid",
     },
     {
       label: t("playground.heroProjects") || "View Projects",
-      href: getRelativeLocaleUrl("/projects"),
+      href: getLocaleUrl("/projects"),
       color: "primary",
       variant: "outline",
       trailingIcon: "i-lucide-arrow-right",
@@ -24,7 +24,7 @@ export const IndexPage: Component = () => {
   const ctaLinks = () => [
     {
       label: t("playground.ctaContact") || "Get in Touch",
-      href: getRelativeLocaleUrl("/contact"),
+      href: getLocaleUrl("/contact"),
       color: "primary",
       variant: "solid",
     },
@@ -92,13 +92,13 @@ export const IndexPage: Component = () => {
             <div class="flex flex-wrap gap-4">
               <RLButton
                 label={t("playground.aboutLearnMore") || "Learn More"}
-                href={getRelativeLocaleUrl("/about")}
+                href={getLocaleUrl("/about")}
                 color="primary"
                 variant="solid"
               />
               <RLButton
                 label={t("playground.aboutResume") || "Resume"}
-                href={getRelativeLocaleUrl("/resume")}
+                href={getLocaleUrl("/resume")}
                 color="neutral"
                 variant="outline"
               />
@@ -131,7 +131,7 @@ export const IndexPage: Component = () => {
           <div class="flex justify-center mt-4">
             <RLButton
               label={t("playground.servicesViewAll") || "View All Services"}
-              href={getRelativeLocaleUrl("/services")}
+              href={getLocaleUrl("/services")}
               color="primary"
               variant="link"
               trailingIcon="i-lucide-arrow-right"
