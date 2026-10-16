@@ -27,6 +27,7 @@ export default defineConfig({
       exclude: ["src/fetch.ts"],
       start: true,
       ssr: true,
+      serverFunctions: true,
     }),
 
     fileRoutes({ types: ".cloudflare/types/file-routes.d.ts" }),
