@@ -28,12 +28,6 @@ export default defineConfig({
           remote: true,
         },
       }),
-      "marcelocfilho-dot-com_translations": bindings.kv({
-        id: "c06d6e52f8d840ac976783a7a6f7ef4a",
-        dev: {
-          remote: true,
-        },
-      }),
       BLOB: bindings.r2({
         name: "marcelocfilho-dot-com",
         dev: {
