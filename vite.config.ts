@@ -63,16 +63,9 @@ export default defineConfig({
 
     security({
       domain: "marcelocfilho.com",
-      ratelimit: {
-        routes: ["/auth/sign-in", "/auth/sign-up", "/api/upload", "/api/chat", "/api/contact"],
-      },
     }),
 
-    auth({
-      roleGuards: {
-        "/admin": ["admin", "owner"],
-      },
-    }),
+    auth(),
 
     i18n({
       defaultLocale: "pt",
