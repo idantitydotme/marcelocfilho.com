@@ -6,13 +6,13 @@ import { t } from "@rimelight/i18n";
 export const Error500Page: Component<{ error?: unknown }> = (props) => {
   return (
     <AppLayout
-      title={t("errors.serverError") || "Internal Server Error"}
+      title={t("errors.server-error") || "Internal Server Error"}
       description={t("errors.serverErrorDesc") || "An unexpected error occurred on the server."}
       noindex={true}
     >
       <AppError
         code={500}
-        title={t("errors.serverError") || "Internal Server Error"}
+        title={t("errors.server-error") || "Internal Server Error"}
         description={
           props.error instanceof Error
             ? props.error.message

@@ -42,7 +42,7 @@ export const LegalIndexPage: Component = () => {
                     </h3>
                     <p class="text-neutral-400 mb-2 text-sm">{description}</p>
                     <span class="date text-xs text-neutral-500">
-                      {t("legal.lastUpdated")}{" "}
+                      {t("legal.last-updated")}{" "}
                       {pubDate ? new Date(pubDate).toLocaleDateString() : ""}
                     </span>
                   </li>

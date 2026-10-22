@@ -7,13 +7,13 @@ import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight
 export const IndexPage: Component = () => {
   const heroLinks = () => [
     {
-      label: t("playground.heroTalk") || "Let's Talk",
+      label: t("playground.hero-talk") || "Let's Talk",
       href: getLocaleUrl("/contact"),
       color: "primary",
       variant: "solid",
     },
     {
-      label: t("playground.heroProjects") || "View Projects",
+      label: t("playground.hero-projects") || "View Projects",
       href: getLocaleUrl("/projects"),
       color: "primary",
       variant: "outline",
@@ -23,13 +23,13 @@ export const IndexPage: Component = () => {
 
   const ctaLinks = () => [
     {
-      label: t("playground.ctaContact") || "Get in Touch",
+      label: t("playground.cta-contact") || "Get in Touch",
       href: getLocaleUrl("/contact"),
       color: "primary",
       variant: "solid",
     },
     {
-      label: t("playground.ctaResume") || "Download CV",
+      label: t("playground.cta-resume") || "Download CV",
       href: "https://pub-d59ba6f09fc247e5b5215dbca8bb5841.r2.dev/Resume/Resume_Marcelo_C_Filho.pdf",
       target: "_blank",
       color: "neutral",
@@ -39,10 +39,10 @@ export const IndexPage: Component = () => {
   ];
 
   const faqItems = () => [
-    { q: t("playground.faq1_q"), a: t("playground.faq1_a") },
-    { q: t("playground.faq2_q"), a: t("playground.faq2_a") },
-    { q: t("playground.faq3_q"), a: t("playground.faq3_a") },
-    { q: t("playground.faq4_q"), a: t("playground.faq4_a") },
+    { q: t("playground.faq1.q"), a: t("playground.faq1.a") },
+    { q: t("playground.faq2.q"), a: t("playground.faq2.a") },
+    { q: t("playground.faq3.q"), a: t("playground.faq3.a") },
+    { q: t("playground.faq4.q"), a: t("playground.faq4.a") },
   ];
 
   const servicesPreview = [
@@ -74,8 +74,8 @@ export const IndexPage: Component = () => {
       <RLPageSection
         variant="hero"
         reverse={true}
-        title={t("playground.heroTitle")}
-        description={`${t("playground.heroSubtitle")} — ${t("playground.heroDesc")}`}
+        title={t("playground.hero-title")}
+        description={`${t("playground.hero-subtitle")} — ${t("playground.hero-desc")}`}
         links={heroLinks() as any}
       >
         <RLLogo class="pointer-events-none h-64 w-auto drop-shadow-2xl" variant="logomark" />
@@ -86,18 +86,20 @@ export const IndexPage: Component = () => {
         <div class="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-8 sm:p-12">
           <div class="max-w-3xl">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              {t("playground.aboutTitle")}
+              {t("playground.about-title")}
             </h2>
-            <p class="text-lg text-neutral-300 leading-relaxed mb-8">{t("playground.aboutDesc")}</p>
+            <p class="text-lg text-neutral-300 leading-relaxed mb-8">
+              {t("playground.about-desc")}
+            </p>
             <div class="flex flex-wrap gap-4">
               <RLButton
-                label={t("playground.aboutLearnMore") || "Learn More"}
+                label={t("playground.about-learn-more") || "Learn More"}
                 href={getLocaleUrl("/about")}
                 color="primary"
                 variant="solid"
               />
               <RLButton
-                label={t("playground.aboutResume") || "Resume"}
+                label={t("playground.about-resume") || "Resume"}
                 href={getLocaleUrl("/resume")}
                 color="neutral"
                 variant="outline"
@@ -110,8 +112,8 @@ export const IndexPage: Component = () => {
       {/* Services Capabilities Section */}
       <RLPageSection
         orientation="vertical"
-        title={t("playground.servicesTitle")}
-        description={t("playground.servicesDesc")}
+        title={t("playground.services-title")}
+        description={t("playground.services-desc")}
       >
         <div class="flex flex-col gap-xl">
           <RLGrid cols={2} class="gap-6">
@@ -130,7 +132,7 @@ export const IndexPage: Component = () => {
 
           <div class="flex justify-center mt-4">
             <RLButton
-              label={t("playground.servicesViewAll") || "View All Services"}
+              label={t("playground.services-view-all") || "View All Services"}
               href={getLocaleUrl("/services")}
               color="primary"
               variant="link"
@@ -144,9 +146,9 @@ export const IndexPage: Component = () => {
       <RLContainer class="py-12 sm:py-16 max-w-4xl">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-            {t("playground.faqTitle")}
+            {t("playground.faq-title")}
           </h2>
-          <p class="text-lg text-neutral-400 max-w-2xl mx-auto">{t("playground.faqDesc")}</p>
+          <p class="text-lg text-neutral-400 max-w-2xl mx-auto">{t("playground.faq-desc")}</p>
         </div>
 
         <div class="space-y-4">
@@ -167,8 +169,8 @@ export const IndexPage: Component = () => {
       <RLPageSection
         variant="cta"
         ctaVariant="solid"
-        title={t("playground.ctaTitle")}
-        description={t("playground.ctaDesc")}
+        title={t("playground.cta-title")}
+        description={t("playground.cta-desc")}
         links={ctaLinks() as any}
       />
     </AppLayout>

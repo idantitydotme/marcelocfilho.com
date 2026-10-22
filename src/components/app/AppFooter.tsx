@@ -14,43 +14,43 @@ import { t, getLocaleUrl } from "@rimelight/i18n";
 export const AppFooter: Component = () => {
   const columns = (): RLLinkGroupProps[] => [
     {
-      label: t("app_footer.links_navigation_label") || "Navigation",
+      label: t("app.footer.links.navigation.label") || "Navigation",
       links: [
         {
-          label: t("app_footer.links_projects") || "Projects",
+          label: t("app.footer.links.projects") || "Projects",
           href: getLocaleUrl("/projects"),
         },
         {
-          label: t("app_footer.links_services") || "Services",
+          label: t("app.footer.links.services") || "Services",
           href: getLocaleUrl("/services"),
         },
         {
-          label: t("app_footer.links_about") || "About",
+          label: t("app.footer.links.about") || "About",
           href: getLocaleUrl("/about"),
         },
         {
-          label: t("app_footer.links_resume") || "Resume",
+          label: t("app.footer.links.resume") || "Resume",
           href: getLocaleUrl("/resume"),
         },
         {
-          label: t("app_footer.links_contact") || "Contact",
+          label: t("app.footer.links.contact") || "Contact",
           href: getLocaleUrl("/contact"),
         },
       ],
     },
     {
-      label: t("app_footer.links_legal_label") || "Legal",
+      label: t("app.footer.links.legal.label") || "Legal",
       links: [
         {
-          label: t("app_footer.links_resources_cv") || "Download CV",
+          label: t("app.footer.links.resources.cv") || "Download CV",
           href: "https://pub-d59ba6f09fc247e5b5215dbca8bb5841.r2.dev/Resume/Resume_Marcelo_C_Filho.pdf",
         },
         {
-          label: t("app_footer.links_legal_privacy-policy") || "Privacy Policy",
+          label: t("app.footer.links.legal.privacy-policy") || "Privacy Policy",
           href: getLocaleUrl("/legal/privacy-policy"),
         },
         {
-          label: t("app_footer.links_legal_other-documents") || "Legal Documents",
+          label: t("app.footer.links.legal.other-documents") || "Legal Documents",
           href: getLocaleUrl("/legal"),
         },
       ],
@@ -83,7 +83,7 @@ export const AppFooter: Component = () => {
           <RLLogo variant="logotype" class="h-6 w-auto" />
           <div>
             <p class="text-sm text-neutral-400">
-              {t("app_footer.tagline") || "Sound Designer & Musician"}
+              {t("app.footer.tagline") || "Sound Designer & Musician"}
             </p>
             <span class="text-sm text-neutral-500">
               © {new Date().getFullYear()} Marcelo Caldart Filho

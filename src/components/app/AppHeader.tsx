@@ -19,27 +19,27 @@ export interface AppHeaderProps {
 export const AppHeader: Component<AppHeaderProps> = (props) => {
   const leftLinks = () => [
     {
-      label: t("app_header.left-links_projects_label") || "Projects",
+      label: t("app.header.left-links.projects.label") || "Projects",
       to: getLocaleUrl("/projects"),
     },
     {
-      label: t("app_header.left-links_services_label") || "Services",
+      label: t("app.header.left-links.services.label") || "Services",
       to: getLocaleUrl("/services"),
     },
     {
-      label: t("app_header.left-links_about_label") || "About",
+      label: t("app.header.left-links.about.label") || "About",
       to: getLocaleUrl("/about"),
     },
     {
-      label: t("app_header.left-links_resume_label") || "Resume",
+      label: t("app.header.left-links.resume.label") || "Resume",
       to: getLocaleUrl("/resume"),
     },
     {
-      label: t("app_header.left-links_contact_label") || "Contact",
+      label: t("app.header.left-links.contact.label") || "Contact",
       to: getLocaleUrl("/contact"),
     },
     {
-      label: t("app_header.left-links_blog_label") || "Blog",
+      label: t("app.header.left-links.blog.label") || "Blog",
       to: getLocaleUrl("/blog"),
     },
   ];

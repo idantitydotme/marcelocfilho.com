@@ -26,9 +26,9 @@ export const BlogIndexPage: Component = () => {
   );
 
   const categoryMessages = () => ({
-    "project-updates": t("blog.categories_project-updates"),
-    "personal-stories": t("blog.categories_personal-stories"),
-    other: t("blog.categories_other"),
+    "project-updates": t("blog.categories.project-updates"),
+    "personal-stories": t("blog.categories.personal-stories"),
+    other: t("blog.categories.other"),
   });
 
   const badgeColorMap: Record<string, "info" | "primary" | "success"> = {
