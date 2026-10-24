@@ -2,7 +2,7 @@ import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
 import { type Component, Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
-import PageRenderer from "#components/cms/PageRenderer";
+import { PageRenderer } from "@rimelight/cms/solid";
 import { RLContainer, RLDate } from "@rimelight/ui";
 import { t, getCurrentLocale } from "@rimelight/i18n";
 
@@ -44,8 +44,8 @@ export const LegalDocPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLContainer class="py-16 max-w-3xl">
         <Show when={pageData()} fallback={<div class="p-8 text-center text-muted">Loading...</div>}>
           <article>
@@ -69,8 +69,7 @@ export const LegalDocPage: Component = () => {
           </article>
         </Show>
       </RLContainer>
-    
-</>
+    </>
   );
 };
 

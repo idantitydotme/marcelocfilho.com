@@ -2,7 +2,7 @@ import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
 import { type Component, Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
-import PageRenderer from "#components/cms/PageRenderer";
+import { PageRenderer } from "@rimelight/cms/solid";
 import { t, getCurrentLocale } from "@rimelight/i18n";
 
 export const ProjectPage: Component = () => {
@@ -50,8 +50,8 @@ export const ProjectPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         <Show when={pageData()} fallback={<div class="p-8 text-center text-muted">Loading...</div>}>
           <Show when={heroImage()}>
@@ -92,8 +92,7 @@ export const ProjectPage: Component = () => {
           </article>
         </Show>
       </div>
-    
-</>
+    </>
   );
 };
 
