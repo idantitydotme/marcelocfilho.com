@@ -75,8 +75,8 @@ export const IndexPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       {/* Hero Section */}
       <RLPageSection
         variant="hero"
@@ -180,8 +180,7 @@ export const IndexPage: Component = () => {
         description={t("playground.cta-desc")}
         links={ctaLinks() as any}
       />
-    
-</>
+    </>
   );
 };
 

@@ -63,8 +63,8 @@ export const BlogIndexPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLPageSection title={t("blog.title")} description={t("blog.description")}>
         <RLTabs
           items={tabsItems()}
@@ -104,8 +104,7 @@ export const BlogIndexPage: Component = () => {
           </RLGrid>
         </div>
       </RLPageSection>
-    
-</>
+    </>
   );
 };
 

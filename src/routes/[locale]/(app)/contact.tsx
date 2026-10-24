@@ -57,8 +57,8 @@ export const ContactPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLPageSection
         variant="hero"
         reverse={true}
@@ -127,8 +127,7 @@ export const ContactPage: Component = () => {
           </form>
         </RLCard>
       </RLPageSection>
-    
-</>
+    </>
   );
 };
 

@@ -14,8 +14,8 @@ export const Error404Page: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <AppError
         code={404}
         title={t("errors.not-found") || "Page Not Found"}
@@ -33,8 +33,7 @@ export const Error404Page: Component = () => {
           },
         ]}
       />
-    
-</>
+    </>
   );
 };
 

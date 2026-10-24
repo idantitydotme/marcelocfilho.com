@@ -42,8 +42,8 @@ export const ResumePage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLContainer class="py-12 sm:py-16 max-w-4xl">
         {/* Header */}
         <header class="mb-12 border-b border-neutral-800 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -179,8 +179,7 @@ export const ResumePage: Component = () => {
           </section>
         </div>
       </RLContainer>
-    
-</>
+    </>
   );
 };
 

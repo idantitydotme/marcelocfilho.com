@@ -35,8 +35,8 @@ export const ServicesPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLContainer class="py-12 sm:py-16 max-w-5xl">
         <header class="mb-12 border-b border-neutral-800 pb-8 text-center max-w-3xl mx-auto">
           <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
@@ -96,8 +96,7 @@ export const ServicesPage: Component = () => {
           </div>
         </section>
       </RLContainer>
-    
-</>
+    </>
   );
 };
 

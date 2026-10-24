@@ -60,8 +60,8 @@ export const ProjectsIndexPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLPageSection title={t("projects.title")} description={t("projects.description")}>
         <RLTabs
           items={tabsItems()}
@@ -101,8 +101,7 @@ export const ProjectsIndexPage: Component = () => {
           </RLGrid>
         </div>
       </RLPageSection>
-    
-</>
+    </>
   );
 };
 

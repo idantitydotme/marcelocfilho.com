@@ -26,8 +26,8 @@ export const LegalIndexPage: Component = () => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <RLContainer class="py-16 max-w-3xl">
         <section class="legal-section">
           <h1 class="text-3xl font-extrabold text-white mb-8">{t("legal.heading")}</h1>
@@ -59,8 +59,7 @@ export const LegalIndexPage: Component = () => {
           </ul>
         </section>
       </RLContainer>
-    
-</>
+    </>
   );
 };
 

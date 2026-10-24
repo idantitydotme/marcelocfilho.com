@@ -13,8 +13,8 @@ export const Error500Page: Component<{ error?: unknown }> = (props) => {
     }),
   );
 
-  return (<>
-
+  return (
+    <>
       <AppError
         code={500}
         title={t("errors.server-error") || "Internal Server Error"}
@@ -33,8 +33,7 @@ export const Error500Page: Component<{ error?: unknown }> = (props) => {
           },
         ]}
       />
-    
-</>
+    </>
   );
 };
 
