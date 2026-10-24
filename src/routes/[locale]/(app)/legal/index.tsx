@@ -1,5 +1,6 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import { type Component, For, createMemo } from "solid-js";
-import AppLayout from "#layouts/AppLayout";
 import { RLContainer } from "@rimelight/ui";
 import { t, getLocaleUrl } from "@rimelight/i18n";
 
@@ -18,9 +19,15 @@ export const LegalIndexPage: Component = () => {
     },
     { loadingValue: [] },
   );
+  useHead(() =>
+    createSeoHead({
+      title: t("legal.title"),
+      description: t("legal.description"),
+    }),
+  );
 
-  return (
-    <AppLayout title={t("legal.title")} description={t("legal.description")}>
+  return (<>
+
       <RLContainer class="py-16 max-w-3xl">
         <section class="legal-section">
           <h1 class="text-3xl font-extrabold text-white mb-8">{t("legal.heading")}</h1>
@@ -52,7 +59,8 @@ export const LegalIndexPage: Component = () => {
           </ul>
         </section>
       </RLContainer>
-    </AppLayout>
+    
+</>
   );
 };
 

@@ -1,15 +1,20 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import type { Component } from "solid-js";
-import AppLayout from "#layouts/AppLayout";
 import AppError from "#components/app/AppError";
 import { t } from "@rimelight/i18n";
 
 export const Error500Page: Component<{ error?: unknown }> = (props) => {
-  return (
-    <AppLayout
-      title={t("errors.server-error") || "Internal Server Error"}
-      description={t("errors.serverErrorDesc") || "An unexpected error occurred on the server."}
-      noindex={true}
-    >
+  useHead(() =>
+    createSeoHead({
+      title: t("errors.server-error") || "Internal Server Error",
+      description: t("errors.serverErrorDesc") || "An unexpected error occurred on the server.",
+      noindex: true,
+    }),
+  );
+
+  return (<>
+
       <AppError
         code={500}
         title={t("errors.server-error") || "Internal Server Error"}
@@ -28,7 +33,8 @@ export const Error500Page: Component<{ error?: unknown }> = (props) => {
           },
         ]}
       />
-    </AppLayout>
+    
+</>
   );
 };
 

@@ -1,11 +1,19 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import type { Component } from "solid-js";
-import AppLayout from "#layouts/AppLayout";
 import { RLContainer, RLButton } from "@rimelight/ui";
 import { t, getLocaleUrl } from "@rimelight/i18n";
 
 export const AboutPage: Component = () => {
-  return (
-    <AppLayout title={t("page.about.title")} description={t("page.about.description")}>
+  useHead(() =>
+    createSeoHead({
+      title: t("page.about.title"),
+      description: t("page.about.description"),
+    }),
+  );
+
+  return (<>
+
       <RLContainer class="py-12 sm:py-16 max-w-4xl">
         <header class="mb-12 border-b border-neutral-800 pb-8">
           <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
@@ -56,7 +64,8 @@ export const AboutPage: Component = () => {
           </section>
         </div>
       </RLContainer>
-    </AppLayout>
+    
+</>
   );
 };
 

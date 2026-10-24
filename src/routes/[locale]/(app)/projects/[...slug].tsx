@@ -1,6 +1,7 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import { type Component, Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
-import AppLayout from "#layouts/AppLayout";
 import PageRenderer from "#components/cms/PageRenderer";
 import { t, getCurrentLocale } from "@rimelight/i18n";
 
@@ -42,9 +43,15 @@ export const ProjectPage: Component = () => {
   const heroImage = () => content().properties?.heroImage || (pageData() as any)?.banner?.src;
   const category = () => content().properties?.category;
   const postDate = () => pageData()?.postedAt || pageData()?.createdAt;
+  useHead(() =>
+    createSeoHead({
+      title: title(),
+      description: description(),
+    }),
+  );
 
-  return (
-    <AppLayout title={title()} description={description()}>
+  return (<>
+
       <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         <Show when={pageData()} fallback={<div class="p-8 text-center text-muted">Loading...</div>}>
           <Show when={heroImage()}>
@@ -85,7 +92,8 @@ export const ProjectPage: Component = () => {
           </article>
         </Show>
       </div>
-    </AppLayout>
+    
+</>
   );
 };
 

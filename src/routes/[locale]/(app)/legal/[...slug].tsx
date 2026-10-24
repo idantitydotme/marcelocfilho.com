@@ -1,6 +1,7 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import { type Component, Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
-import AppLayout from "#layouts/AppLayout";
 import PageRenderer from "#components/cms/PageRenderer";
 import { RLContainer, RLDate } from "@rimelight/ui";
 import { t, getCurrentLocale } from "@rimelight/i18n";
@@ -36,9 +37,15 @@ export const LegalDocPage: Component = () => {
   };
   const pubDate = () => pageData()?.postedAt || pageData()?.createdAt;
   const updatedDate = () => pageData()?.updatedAt;
+  useHead(() =>
+    createSeoHead({
+      title: title(),
+      description: description(),
+    }),
+  );
 
-  return (
-    <AppLayout title={title()} description={description()}>
+  return (<>
+
       <RLContainer class="py-16 max-w-3xl">
         <Show when={pageData()} fallback={<div class="p-8 text-center text-muted">Loading...</div>}>
           <article>
@@ -62,7 +69,8 @@ export const LegalDocPage: Component = () => {
           </article>
         </Show>
       </RLContainer>
-    </AppLayout>
+    
+</>
   );
 };
 

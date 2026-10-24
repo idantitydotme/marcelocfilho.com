@@ -1,6 +1,7 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import type { Component } from "solid-js";
 import { For } from "solid-js";
-import AppLayout from "#layouts/AppLayout";
 import { t, getLocaleUrl } from "@rimelight/i18n";
 import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
 
@@ -67,9 +68,15 @@ export const IndexPage: Component = () => {
       description: "Industry-standard balance, clarity, and spatial loudness optimization.",
     },
   ];
+  useHead(() =>
+    createSeoHead({
+      title: "Marcelo Caldart Filho",
+      description: "Sound Designer & Musician",
+    }),
+  );
 
-  return (
-    <AppLayout title="Marcelo Caldart Filho" description="Sound Designer & Musician">
+  return (<>
+
       {/* Hero Section */}
       <RLPageSection
         variant="hero"
@@ -173,7 +180,8 @@ export const IndexPage: Component = () => {
         description={t("playground.cta-desc")}
         links={ctaLinks() as any}
       />
-    </AppLayout>
+    
+</>
   );
 };
 

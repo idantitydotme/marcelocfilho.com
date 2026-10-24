@@ -1,5 +1,6 @@
+import { useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import { type Component, For } from "solid-js";
-import AppLayout from "#layouts/AppLayout";
 import { RLContainer, RLButton } from "@rimelight/ui";
 import { t } from "@rimelight/i18n";
 
@@ -34,9 +35,15 @@ export const ResumePage: Component = () => {
     { name: "Pro Tools", category: t("page_resume.audioProduction"), icon: "i-lucide-disc" },
     { name: "DaVinci Resolve", category: t("page_resume.videoEditing"), icon: "i-lucide-video" },
   ];
+  useHead(() =>
+    createSeoHead({
+      title: t("page_resume.title"),
+      description: t("page_resume.description"),
+    }),
+  );
 
-  return (
-    <AppLayout title={t("page_resume.title")} description={t("page_resume.description")}>
+  return (<>
+
       <RLContainer class="py-12 sm:py-16 max-w-4xl">
         {/* Header */}
         <header class="mb-12 border-b border-neutral-800 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -172,7 +179,8 @@ export const ResumePage: Component = () => {
           </section>
         </div>
       </RLContainer>
-    </AppLayout>
+    
+</>
   );
 };
 
