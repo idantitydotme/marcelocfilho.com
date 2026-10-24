@@ -47,6 +47,11 @@ export default defineConfig({
       },
       titleTemplate: "%s | Marcelo Caldart Filho",
       locales: { en: "en-US", pt: "pt-BR" },
+      og: {
+        routes: {
+          "*/blog/*": "./src/components/og/BlogOgCard.tsx",
+        },
+      },
       privatePathPrefixes: [
         "/dashboard",
         "/admin",
