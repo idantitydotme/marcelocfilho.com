@@ -2,20 +2,20 @@ import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
 import type { Component } from "solid-js";
 import { For } from "solid-js";
-import { t, getLocaleUrl } from "@rimelight/i18n";
+import { t } from "@rimelight/i18n";
 import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
 
 export const IndexPage: Component = () => {
   const heroLinks = () => [
     {
       label: t("playground.hero-talk") || "Let's Talk",
-      href: getLocaleUrl("/contact"),
+      href: "/contact",
       color: "primary",
       variant: "solid",
     },
     {
       label: t("playground.hero-projects") || "View Projects",
-      href: getLocaleUrl("/projects"),
+      href: "/projects",
       color: "primary",
       variant: "outline",
       trailingIcon: "i-lucide-arrow-right",
@@ -25,7 +25,7 @@ export const IndexPage: Component = () => {
   const ctaLinks = () => [
     {
       label: t("playground.cta-contact") || "Get in Touch",
-      href: getLocaleUrl("/contact"),
+      href: "/contact",
       color: "primary",
       variant: "solid",
     },
@@ -101,13 +101,13 @@ export const IndexPage: Component = () => {
             <div class="flex flex-wrap gap-4">
               <RLButton
                 label={t("playground.about-learn-more") || "Learn More"}
-                href={getLocaleUrl("/about")}
+                href="/about"
                 color="primary"
                 variant="solid"
               />
               <RLButton
                 label={t("playground.about-resume") || "Resume"}
-                href={getLocaleUrl("/resume")}
+                href="/resume"
                 color="neutral"
                 variant="outline"
               />
@@ -140,7 +140,7 @@ export const IndexPage: Component = () => {
           <div class="flex justify-center mt-4">
             <RLButton
               label={t("playground.services-view-all") || "View All Services"}
-              href={getLocaleUrl("/services")}
+              href="/services"
               color="primary"
               variant="link"
               trailingIcon="i-lucide-arrow-right"

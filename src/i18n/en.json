@@ -1,4 +1,4 @@
-{
+﻿{
   "app": {
     "header": {
       "left-links": {
@@ -64,7 +64,7 @@
           "other-documents": "Legal Overview"
         }
       },
-      "tagline": "Sound Designer & Musician"
+      "tagline": "Sound Designer \u0026 Musician"
     }
   },
   "page": {
@@ -98,21 +98,21 @@
     },
     "about": {
       "title": "About",
-      "description": "Sound designer, Foley artist, and Composer with a Bachelor's degree in Music.",
+      "description": "Sound designer, Foley artist, and Composer with a Bachelor\u0027s degree in Music.",
       "heading": "About Me",
-      "bio-p1": "Hi, I'm Marcelo Caldart Filho, a Sound Designer and Musician based in Curitiba, Brazil. For the past years, I've been immersed in the world of audio creation, focusing on building experiences that are not just functional, but genuinely immersive and engaging for players and viewers.",
-      "bio-p2": "My approach blends creative strategy with technical expertise, transforming concepts into purposeful sonic experiences. Whether I'm crafting pixel-perfect sound effects or composing atmospheric music, my focus is always on creating value for the project and its audience.",
+      "bio-p1": "Hi, I\u0027m Marcelo Caldart Filho, a Sound Designer and Musician based in Curitiba, Brazil. For the past years, I\u0027ve been immersed in the world of audio creation, focusing on building experiences that are not just functional, but genuinely immersive and engaging for players and viewers.",
+      "bio-p2": "My approach blends creative strategy with technical expertise, transforming concepts into purposeful sonic experiences. Whether I\u0027m crafting pixel-perfect sound effects or composing atmospheric music, my focus is always on creating value for the project and its audience.",
       "philosophy-heading": "My Philosophy",
-      "philosophy-p1": "My work is rooted in creativity and problem-solving. I believe great sound design starts with understanding the 'why' – the project's needs, motivations, and emotional core. I use specialized tools like Reaper and Pro Tools to ensure the sonic solutions I build are truly effective.",
+      "philosophy-p1": "My work is rooted in creativity and problem-solving. I believe great sound design starts with understanding the \u0027why\u0027 â€“ the project\u0027s needs, motivations, and emotional core. I use specialized tools like Reaper and Pro Tools to ensure the sonic solutions I build are truly effective.",
       "philosophy-p2": "I strive to create audio that feels effortless, where functionality and beauty work hand-in-hand. Whether it is a subtle ambient track or an action-packed Foley sequence, my focus is on delivering high-quality assets ready for integration.",
       "beyond-heading": "Beyond the Screen",
-      "beyond-p1": "When I'm not designing sounds or composing music, you might find me exploring Curitiba's cultural scene or contributing to creative projects.",
-      "cta-talk": "Let's Talk",
+      "beyond-p1": "When I\u0027m not designing sounds or composing music, you might find me exploring Curitiba\u0027s cultural scene or contributing to creative projects.",
+      "cta-talk": "Let\u0027s Talk",
       "cta-projects": "Browse Projects"
     },
     "services": {
       "title": "Services",
-      "description": "Professional audio services including Sound Design, Foley Art, Music Composition, and Mixing & Mastering.",
+      "description": "Professional audio services including Sound Design, Foley Art, Music Composition, and Mixing \u0026 Mastering.",
       "heading": "Audio Services",
       "subheading": "I provide high-quality sound design and music production services to bring your creative projects to life with immersive auditory depth.",
       "capabilities-title": "Capabilities",
@@ -122,11 +122,11 @@
       "foley-art-title": "Foley Art",
       "foley-art-desc": "Recording and performing custom sound effects to capture the authentic textures of physical interactions, enhancing the realism of your project.",
       "music-composition-title": "Music Composition",
-      "music-composition-desc": "Composing original soundtracks that resonate with your project's emotional core, whether it's an atmospheric background or an epic thematic score.",
-      "mixing-mastering-title": "Mixing & Mastering",
+      "music-composition-desc": "Composing original soundtracks that resonate with your project\u0027s emotional core, whether it\u0027s an atmospheric background or an epic thematic score.",
+      "mixing-mastering-title": "Mixing \u0026 Mastering",
       "mixing-mastering-desc": "Ensuring your audio is balanced, clear, and professional, optimized for various delivery platforms and industry standards.",
       "cta-title": "Ready to Start?",
-      "cta-desc": "Let's collaborate on your next big project. I'm currently available for freelance work and consulting.",
+      "cta-desc": "Let\u0027s collaborate on your next big project. I\u0027m currently available for freelance work and consulting.",
       "cta-contact": "Get in Touch",
       "cta-projects": "View Projects"
     },
@@ -164,38 +164,38 @@
     },
     "resume": {
       "title": "Resume",
-      "description": "Sound designer, Foley artist, and Composer with a Bachelor's degree in Music.",
-      "heading": "Resume & Credentials",
+      "description": "Sound designer, Foley artist, and Composer with a Bachelor\u0027s degree in Music.",
+      "heading": "Resume \u0026 Credentials",
       "download-cv": "Download CV (PDF)",
       "location": "Curitiba, Brazil",
       "availability": "Available for Projects",
       "about-section-title": "Profile",
-      "about-text": "Sound designer, Foley artist, and Composer with a Bachelor's degree in Music from UFPR. I offer audio productions for games, audiovisual projects, advertisements, and branding. My approach blends creative strategy with technical expertise, transforming concepts into purposeful sonic experiences.",
+      "about-text": "Sound designer, Foley artist, and Composer with a Bachelor\u0027s degree in Music from UFPR. I offer audio productions for games, audiovisual projects, advertisements, and branding. My approach blends creative strategy with technical expertise, transforming concepts into purposeful sonic experiences.",
       "experience-title": "Experience",
       "exp1-role": "Audio Designer",
       "exp1-company": "Freelance",
-      "exp1-period": "Feb 2017 – Present",
+      "exp1-period": "Feb 2017 â€“ Present",
       "exp1-bullet1": "Game audio, Digital sound, Sound design, Foley, and Music composition.",
       "exp1-bullet2": "Delivering high-quality audio assets for various multimedia projects.",
       "exp1-bullet3": "Collaborating with clients to define sonic identities.",
       "exp2-role": "Music Producer",
       "exp2-company": "Freelance",
-      "exp2-period": "Feb 2017 – Present",
+      "exp2-period": "Feb 2017 â€“ Present",
       "exp2-bullet1": "Studio recording, Mixing, and Mastering.",
       "exp2-bullet2": "Electronic music production and arrangement.",
       "exp3-role": "Production and Secretary Assistant",
-      "exp3-company": "Paideia Produções Artísticas",
-      "exp3-period": "Oct 2018 – Feb 2019",
+      "exp3-company": "Paideia ProduÃ§Ãµes ArtÃ­sticas",
+      "exp3-period": "Oct 2018 â€“ Feb 2019",
       "exp3-bullet1": "Worked on event production, including stage setup and administrative duties.",
       "exp3-bullet2": "Contributed to logistics, organization, and event execution.",
       "education-title": "Education",
       "edu1-degree": "Bachelor of Music, Music Production and Research",
-      "edu1-school": "Federal University of Paraná (UFPR)",
-      "edu1-period": "Jun 2021 – Dec 2025",
+      "edu1-school": "Federal University of ParanÃ¡ (UFPR)",
+      "edu1-period": "Jun 2021 â€“ Dec 2025",
       "certifications-title": "Certifications",
-      "cert1-name": "Music Production – Futuresonic (2017)",
-      "cert2-name": "Furniture Design Technician – IFPR (2013)",
-      "technologies-title": "DAWs & Technologies",
+      "cert1-name": "Music Production â€“ Futuresonic (2017)",
+      "cert2-name": "Furniture Design Technician â€“ IFPR (2013)",
+      "technologies-title": "DAWs \u0026 Technologies",
       "audio-production": "Audio Production",
       "video-editing": "Video Editing",
       "languages-title": "Languages",
@@ -209,13 +209,13 @@
     "hero-title": "Marcelo Caldart Filho",
     "hero-subtitle": "Sound Designer | Musician",
     "hero-desc": "I craft immersive audio experiences, sound effects, and music for games and audiovisual media. Based in Curitiba, Brazil.",
-    "hero-talk": "Let's Talk",
+    "hero-talk": "Let\u0027s Talk",
     "hero-projects": "View Projects",
     "about-title": "About Me",
-    "about-desc": "Sound designer, Foley artist, and Composer with a Bachelor's degree in Music from UFPR. I specialize in building immersive audio landscapes with creative depth and technical precision.",
+    "about-desc": "Sound designer, Foley artist, and Composer with a Bachelor\u0027s degree in Music from UFPR. I specialize in building immersive audio landscapes with creative depth and technical precision.",
     "about-learn-more": "Learn More",
     "about-resume": "Resume",
-    "services-title": "Capabilities & Services",
+    "services-title": "Capabilities \u0026 Services",
     "services-desc": "Core audio production services for games, films, and interactive media.",
     "services-view-all": "View All Services",
     "posts-title": "Latest Articles",
@@ -240,7 +240,7 @@
       "a": "I primarily work with Reaper and Pro Tools for DAW work, and DaVinci Resolve for video sync. My studio is equipped with professional-grade microphones and monitoring systems ensuring the highest fidelity."
     },
     "cta-title": "Ready to Build Something Amazing?",
-    "cta-desc": "I'm currently available for freelance projects and collaboration. Let's work together to bring your vision to life.",
+    "cta-desc": "I\u0027m currently available for freelance projects and collaboration. Let\u0027s work together to bring your vision to life.",
     "cta-contact": "Get in Touch",
     "cta-resume": "Download CV",
     "cta-start": "Get in Touch",
@@ -261,22 +261,15 @@
     "categories": {
       "website": "Audiovisual",
       "app": "Games",
-      "other": "Music & Sound"
+      "other": "Music \u0026 Sound"
     }
   },
   "legal": {
     "title": "Legal Documents",
-    "heading": "Legal & Terms",
+    "heading": "Legal \u0026 Terms",
     "description": "Terms of service and privacy policy.",
     "last-updated": "Last updated:",
     "last-updated-on": "Last updated on:"
-  },
-  "errors": {
-    "not-found": "Page Not Found",
-    "not-found-desc": "The page you are looking for does not exist.",
-    "go-home": "Go Home",
-    "server-error": "Server Error",
-    "unknown-error": "Unknown error"
   },
   "branding": {
     "title": "Branding",

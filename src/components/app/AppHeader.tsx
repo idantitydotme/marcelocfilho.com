@@ -7,7 +7,7 @@ import {
   RLSlideover,
   type RLButtonProps,
 } from "@rimelight/ui";
-import { t, getLocaleUrl } from "@rimelight/i18n";
+import { t } from "@rimelight/i18n";
 
 export interface AppHeaderProps {
   stackIndex?: number;
@@ -17,27 +17,27 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
   const leftLinks = () => [
     {
       label: t("app.header.left-links.projects.label") || "Projects",
-      to: getLocaleUrl("/projects"),
+      to: "/projects",
     },
     {
       label: t("app.header.left-links.services.label") || "Services",
-      to: getLocaleUrl("/services"),
+      to: "/services",
     },
     {
       label: t("app.header.left-links.about.label") || "About",
-      to: getLocaleUrl("/about"),
+      to: "/about",
     },
     {
       label: t("app.header.left-links.resume.label") || "Resume",
-      to: getLocaleUrl("/resume"),
+      to: "/resume",
     },
     {
       label: t("app.header.left-links.contact.label") || "Contact",
-      to: getLocaleUrl("/contact"),
+      to: "/contact",
     },
     {
       label: t("app.header.left-links.blog.label") || "Blog",
-      to: getLocaleUrl("/blog"),
+      to: "/blog",
     },
   ];
 

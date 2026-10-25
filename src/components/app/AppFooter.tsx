@@ -9,7 +9,7 @@ import {
   type RLButtonProps,
   type RLLinkGroupProps,
 } from "@rimelight/ui";
-import { t, getLocaleUrl } from "@rimelight/i18n";
+import { t } from "@rimelight/i18n";
 
 export const AppFooter: Component = () => {
   const columns = (): RLLinkGroupProps[] => [
@@ -18,23 +18,23 @@ export const AppFooter: Component = () => {
       links: [
         {
           label: t("app.footer.links.projects") || "Projects",
-          href: getLocaleUrl("/projects"),
+          href: "/projects",
         },
         {
           label: t("app.footer.links.services") || "Services",
-          href: getLocaleUrl("/services"),
+          href: "/services",
         },
         {
           label: t("app.footer.links.about") || "About",
-          href: getLocaleUrl("/about"),
+          href: "/about",
         },
         {
           label: t("app.footer.links.resume") || "Resume",
-          href: getLocaleUrl("/resume"),
+          href: "/resume",
         },
         {
           label: t("app.footer.links.contact") || "Contact",
-          href: getLocaleUrl("/contact"),
+          href: "/contact",
         },
       ],
     },
@@ -47,11 +47,11 @@ export const AppFooter: Component = () => {
         },
         {
           label: t("app.footer.links.legal.privacy-policy") || "Privacy Policy",
-          href: getLocaleUrl("/legal/privacy-policy"),
+          href: "/legal/privacy-policy",
         },
         {
           label: t("app.footer.links.legal.other-documents") || "Legal Documents",
-          href: getLocaleUrl("/legal"),
+          href: "/legal",
         },
       ],
     },
@@ -66,11 +66,6 @@ export const AppFooter: Component = () => {
       leadingIcon: "i-logos-linkedin-icon?mask text-white group-hover:text-primary-500",
       href: "https://www.linkedin.com/marcelocfilho",
     },
-  ];
-
-  const targetLanguages = () => [
-    { code: "en", label: "English", href: getLocaleUrl("/en") },
-    { code: "pt", label: "Português", href: getLocaleUrl("/pt") },
   ];
 
   return (
@@ -100,7 +95,7 @@ export const AppFooter: Component = () => {
         <div class="flex flex-col justify-between h-full gap-sm lg:items-end">
           <div class="flex flex-col gap-sm items-center lg:items-end">
             <RLThemeSelector class="min-w-44" />
-            <RLLocaleSelector locales={targetLanguages()} class="min-w-44" />
+            <RLLocaleSelector class="min-w-44" />
           </div>
           <div class="flex flex-row flex-wrap gap-sm justify-center lg:justify-end items-center lg:items-end">
             <For each={socials()}>

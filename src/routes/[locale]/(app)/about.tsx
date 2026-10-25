@@ -2,7 +2,7 @@ import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
 import type { Component } from "solid-js";
 import { RLContainer, RLButton } from "@rimelight/ui";
-import { t, getLocaleUrl } from "@rimelight/i18n";
+import { t } from "@rimelight/i18n";
 
 export const AboutPage: Component = () => {
   useHead(() =>
@@ -48,14 +48,14 @@ export const AboutPage: Component = () => {
           <section class="border-t border-neutral-800 pt-10 flex flex-wrap gap-4 items-center">
             <RLButton
               label={t("page.about.cta-talk") || "Let's Talk"}
-              href={getLocaleUrl("/contact")}
+              href="/contact"
               color="primary"
               variant="solid"
               size="lg"
             />
             <RLButton
               label={t("page.about.cta-projects") || "Browse Projects"}
-              href={getLocaleUrl("/projects")}
+              href="/projects"
               color="neutral"
               variant="outline"
               size="lg"
