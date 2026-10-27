@@ -46,24 +46,11 @@ export default defineConfig({
         colors: { themeColor: "#0ea5e9", backgroundColor: "#000000" },
       },
       titleTemplate: "%s | Marcelo Caldart Filho",
-      locales: { en: "en-US", pt: "pt-BR" },
       og: {
         routes: {
           "*/blog/*": "./src/components/og/BlogOgCard.tsx",
         },
       },
-      privatePathPrefixes: [
-        "/dashboard",
-        "/admin",
-        "/cms",
-        "/internal",
-        "/api",
-        "/dev",
-        "/og",
-        "/open-graph",
-        "/auth",
-        "/cdn-cgi",
-      ],
     }),
 
     security({
