@@ -1,11 +1,10 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import type { Component } from "solid-js";
 import { For } from "solid-js";
 import { t } from "@rimelight/i18n";
 import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
 
-export const IndexPage: Component = () => {
+export default function IndexPage() {
   const heroLinks = () => [
     {
       label: t("page.home.hero-talk"),
@@ -181,6 +180,4 @@ export const IndexPage: Component = () => {
       />
     </>
   );
-};
-
-export default IndexPage;
+}

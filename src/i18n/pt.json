@@ -170,45 +170,145 @@
         "title": "Currículo",
         "description": "Sound designer, Foley artist e Compositor formado em Música pela UFPR."
       },
-      "heading": "Currículo & Qualificações",
-      "download-cv": "Baixar Currículo (PDF)",
-      "location": "Curitiba, Brasil",
-      "availability": "Disponível para Projetos",
-      "about-section-title": "Perfil",
-      "about-text": "Sound designer, Foley artist e Compositor com Bacharelado em Música pela UFPR. Realizo produções de áudio para jogos, audiovisual, publicidade e branding. Minha abordagem une estratégia criativa e excelência técnica.",
-      "experience-title": "Experiência Profissional",
-      "exp1-role": "Designer de Áudio",
-      "exp1-company": "Freelancer",
-      "exp1-period": "Fev 2017 – Presente",
-      "exp1-bullet1": "Áudio para jogos, sound design digital, Foley e composição musical.",
-      "exp1-bullet2": "Entrega de assets de alta qualidade para projetos multimídia.",
-      "exp1-bullet3": "Colaboração com equipes para definição de identidades sonoras.",
-      "exp2-role": "Produtor Musical",
-      "exp2-company": "Freelancer",
-      "exp2-period": "Fev 2017 – Presente",
-      "exp2-bullet1": "Gravação em estúdio, mixagem e masterização.",
-      "exp2-bullet2": "Produção de música eletrônica e arranjos.",
-      "exp3-role": "Assistente de Produção e Secretaria",
-      "exp3-company": "Paideia Produções Artísticas",
-      "exp3-period": "Out 2018 – Fev 2019",
-      "exp3-bullet1": "Produção de eventos, montagem de palco e suporte administrativo.",
-      "exp3-bullet2": "Apoio em logística, organização e execução de eventos.",
-      "education-title": "Formação Acadêmica",
-      "edu1-degree": "Bacharelado em Música, Produção e Pesquisa Musical",
-      "edu1-school": "Universidade Federal do Paraná (UFPR)",
-      "edu1-period": "Jun 2021 – Dez 2025",
-      "certifications-title": "Certificações",
-      "cert1-name": "Produção Musical – Futuresonic (2017)",
-      "cert2-name": "Técnico em Design de Móveis – IFPR (2013)",
-      "technologies-title": "DAWs & Tecnologias",
-      "audio-production": "Produção de Áudio",
-      "video-editing": "Edição de Vídeo",
-      "languages-title": "Idiomas",
-      "lang-pt": "Português",
-      "lang-pt-level": "Nativo (100%)",
-      "lang-en": "Inglês",
-      "lang-en-level": "Profissional (65%)",
-      "role": "Designer de Som & Músico"
+      "hero": {
+        "title": "Currículo & Qualificações",
+        "description": "Designer de Som & Músico",
+        "action": {
+          "hire": "Entre em contato",
+          "download-cv": "Baixar Currículo (PDF)"
+        }
+      },
+      "sidebar": {
+        "name": "Marcelo Caldart Filho",
+        "title": "Designer de Som & Músico",
+        "location": "Curitiba, Brasil"
+      },
+      "aria": {
+        "sidebar": {
+          "profile": "Perfil"
+        },
+        "social": {
+          "linkedin": "LinkedIn",
+          "soundcloud": "SoundCloud"
+        }
+      },
+      "about": {
+        "heading": "Perfil",
+        "location": {
+          "label": "Localização"
+        }
+      },
+      "languages": {
+        "heading": "Idiomas"
+      },
+      "lang": {
+        "portuguese": "Português",
+        "english": "Inglês"
+      },
+      "level": {
+        "native": "Nativo",
+        "professional": "Profissional"
+      },
+      "skills": {
+        "heading": "Habilidades",
+        "sound-design": {
+          "title": "Sound Design",
+          "desc": "Áudio para jogos, sound design digital, Foley e composição musical."
+        },
+        "music-production": {
+          "title": "Produção Musical",
+          "desc": "Gravação em estúdio, mixagem e masterização, além de produção e arranjos de música eletrônica."
+        },
+        "branding": {
+          "title": "Audiovisual & Branding",
+          "desc": "Áudio para jogos, projetos audiovisuais, publicidade e branding."
+        }
+      },
+      "tech": {
+        "heading": "DAWs & Tecnologias",
+        "group": {
+          "audio": "Áudio e vídeo"
+        },
+        "cat": {
+          "audio-production": "Produção de Áudio",
+          "video-editing": "Edição de Vídeo"
+        }
+      },
+      "experience": {
+        "heading": "Experiência Profissional"
+      },
+      "exp": {
+        "summary": {
+          "label": "Resumo"
+        },
+        "responsibilities": {
+          "label": "Destaques"
+        }
+      },
+      "experiences": [
+        {
+          "role": "Designer de Áudio",
+          "company": "Freelancer",
+          "period": "Fev 2017 – Presente",
+          "responsibilities": [
+            "Áudio para jogos, sound design digital, Foley e composição musical.",
+            "Entrega de assets de alta qualidade para projetos multimídia.",
+            "Colaboração com equipes para definição de identidades sonoras."
+          ]
+        },
+        {
+          "role": "Produtor Musical",
+          "company": "Freelancer",
+          "period": "Fev 2017 – Presente",
+          "responsibilities": [
+            "Gravação em estúdio, mixagem e masterização.",
+            "Produção de música eletrônica e arranjos."
+          ]
+        },
+        {
+          "role": "Assistente de Produção e Secretaria",
+          "company": "Paideia Produções Artísticas",
+          "period": "Out 2018 – Fev 2019",
+          "responsibilities": [
+            "Produção de eventos, montagem de palco e suporte administrativo.",
+            "Apoio em logística, organização e execução de eventos."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bacharelado em Música, Produção e Pesquisa Musical",
+          "school": "Universidade Federal do Paraná (UFPR)",
+          "period": "Jun 2021 – Dez 2025"
+        }
+      ],
+      "headings": {
+        "education": "Formação Acadêmica",
+        "projects": "Projetos",
+        "certifications": "Certificações"
+      },
+      "projects": [],
+      "project": {
+        "view": {
+          "button": "Ver"
+        }
+      },
+      "period": {
+        "present": "Presente"
+      },
+      "certifications": [
+        {
+          "title": "Produção Musical",
+          "issuer": "Futuresonic (2017)"
+        },
+        {
+          "title": "Técnico em Design de Móveis",
+          "issuer": "IFPR (2013)"
+        }
+      ],
+      "labels": {
+        "credential-id": "ID"
+      }
     },
     "home": {
       "hero-title": "Marcelo Caldart Filho",

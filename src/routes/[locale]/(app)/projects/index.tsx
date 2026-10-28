@@ -1,6 +1,6 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import { type Component, For, createSignal, createMemo } from "solid-js";
+import { For, createSignal, createMemo } from "solid-js";
 import { t } from "@rimelight/i18n";
 import { RLPageSection, RLTabs, RLGrid, RLPost } from "@rimelight/ui";
 
@@ -8,7 +8,7 @@ function getPageTitle(title: unknown): string {
   return t.localize(title);
 }
 
-export const ProjectsIndexPage: Component = () => {
+export default function ProjectsIndexPage() {
   const [activeTab, setActiveTab] = createSignal("all");
 
   const projectPages = createMemo<any[]>(
@@ -106,6 +106,4 @@ export const ProjectsIndexPage: Component = () => {
       </RLPageSection>
     </>
   );
-};
-
-export default ProjectsIndexPage;
+}

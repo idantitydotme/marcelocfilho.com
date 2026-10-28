@@ -1,10 +1,9 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import type { Component } from "solid-js";
 import { RLContainer, RLButton } from "@rimelight/ui";
 import { t } from "@rimelight/i18n";
 
-export const AboutPage: Component = () => {
+export default function AboutPage() {
   useHead(() =>
     createSeoHead({
       title: t("page.about.meta.title"),
@@ -66,6 +65,4 @@ export const AboutPage: Component = () => {
       </RLContainer>
     </>
   );
-};
-
-export default AboutPage;
+}

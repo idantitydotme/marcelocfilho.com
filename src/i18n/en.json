@@ -170,45 +170,145 @@
         "title": "Resume",
         "description": "Sound designer, Foley artist, and Composer with a Bachelor's degree in Music."
       },
-      "heading": "Resume & Credentials",
-      "download-cv": "Download CV (PDF)",
-      "location": "Curitiba, Brazil",
-      "availability": "Available for Projects",
-      "about-section-title": "Profile",
-      "about-text": "Sound designer, Foley artist, and Composer with a Bachelor's degree in Music from UFPR. I offer audio productions for games, audiovisual projects, advertisements, and branding. My approach blends creative strategy with technical expertise, transforming concepts into purposeful sonic experiences.",
-      "experience-title": "Experience",
-      "exp1-role": "Audio Designer",
-      "exp1-company": "Freelance",
-      "exp1-period": "Feb 2017 – Present",
-      "exp1-bullet1": "Game audio, Digital sound, Sound design, Foley, and Music composition.",
-      "exp1-bullet2": "Delivering high-quality audio assets for various multimedia projects.",
-      "exp1-bullet3": "Collaborating with clients to define sonic identities.",
-      "exp2-role": "Music Producer",
-      "exp2-company": "Freelance",
-      "exp2-period": "Feb 2017 – Present",
-      "exp2-bullet1": "Studio recording, Mixing, and Mastering.",
-      "exp2-bullet2": "Electronic music production and arrangement.",
-      "exp3-role": "Production and Secretary Assistant",
-      "exp3-company": "Paideia Produções Artísticas",
-      "exp3-period": "Oct 2018 – Feb 2019",
-      "exp3-bullet1": "Worked on event production, including stage setup and administrative duties.",
-      "exp3-bullet2": "Contributed to logistics, organization, and event execution.",
-      "education-title": "Education",
-      "edu1-degree": "Bachelor of Music, Music Production and Research",
-      "edu1-school": "Federal University of Paraná (UFPR)",
-      "edu1-period": "Jun 2021 – Dec 2025",
-      "certifications-title": "Certifications",
-      "cert1-name": "Music Production – Futuresonic (2017)",
-      "cert2-name": "Furniture Design Technician – IFPR (2013)",
-      "technologies-title": "DAWs & Technologies",
-      "audio-production": "Audio Production",
-      "video-editing": "Video Editing",
-      "languages-title": "Languages",
-      "lang-pt": "Portuguese",
-      "lang-pt-level": "Native (100%)",
-      "lang-en": "English",
-      "lang-en-level": "Professional Working (65%)",
-      "role": "Sound Designer & Musician"
+      "hero": {
+        "title": "Resume & Credentials",
+        "description": "Sound Designer & Musician",
+        "action": {
+          "hire": "Get in touch",
+          "download-cv": "Download CV (PDF)"
+        }
+      },
+      "sidebar": {
+        "name": "Marcelo Caldart Filho",
+        "title": "Sound Designer & Musician",
+        "location": "Curitiba, Brazil"
+      },
+      "aria": {
+        "sidebar": {
+          "profile": "Profile"
+        },
+        "social": {
+          "linkedin": "LinkedIn",
+          "soundcloud": "SoundCloud"
+        }
+      },
+      "about": {
+        "heading": "Profile",
+        "location": {
+          "label": "Location"
+        }
+      },
+      "languages": {
+        "heading": "Languages"
+      },
+      "lang": {
+        "portuguese": "Portuguese",
+        "english": "English"
+      },
+      "level": {
+        "native": "Native",
+        "professional": "Professional Working"
+      },
+      "skills": {
+        "heading": "Skills",
+        "sound-design": {
+          "title": "Sound Design",
+          "desc": "Game audio, digital sound design, Foley, and music composition."
+        },
+        "music-production": {
+          "title": "Music Production",
+          "desc": "Studio recording, mixing, and mastering, plus electronic music production and arrangement."
+        },
+        "branding": {
+          "title": "Audiovisual & Branding",
+          "desc": "Audio for games, audiovisual projects, advertisements, and branding."
+        }
+      },
+      "tech": {
+        "heading": "DAWs & Technologies",
+        "group": {
+          "audio": "Audio & Video"
+        },
+        "cat": {
+          "audio-production": "Audio Production",
+          "video-editing": "Video Editing"
+        }
+      },
+      "experience": {
+        "heading": "Experience"
+      },
+      "exp": {
+        "summary": {
+          "label": "Summary"
+        },
+        "responsibilities": {
+          "label": "Highlights"
+        }
+      },
+      "experiences": [
+        {
+          "role": "Audio Designer",
+          "company": "Freelance",
+          "period": "Feb 2017 – Present",
+          "responsibilities": [
+            "Game audio, Digital sound, Sound design, Foley, and Music composition.",
+            "Delivering high-quality audio assets for various multimedia projects.",
+            "Collaborating with clients to define sonic identities."
+          ]
+        },
+        {
+          "role": "Music Producer",
+          "company": "Freelance",
+          "period": "Feb 2017 – Present",
+          "responsibilities": [
+            "Studio recording, Mixing, and Mastering.",
+            "Electronic music production and arrangement."
+          ]
+        },
+        {
+          "role": "Production and Secretary Assistant",
+          "company": "Paideia Produções Artísticas",
+          "period": "Oct 2018 – Feb 2019",
+          "responsibilities": [
+            "Worked on event production, including stage setup and administrative duties.",
+            "Contributed to logistics, organization, and event execution."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Music, Music Production and Research",
+          "school": "Federal University of Paraná (UFPR)",
+          "period": "Jun 2021 – Dec 2025"
+        }
+      ],
+      "headings": {
+        "education": "Education",
+        "projects": "Projects",
+        "certifications": "Certifications"
+      },
+      "projects": [],
+      "project": {
+        "view": {
+          "button": "View"
+        }
+      },
+      "period": {
+        "present": "Present"
+      },
+      "certifications": [
+        {
+          "title": "Music Production",
+          "issuer": "Futuresonic (2017)"
+        },
+        {
+          "title": "Furniture Design Technician",
+          "issuer": "IFPR (2013)"
+        }
+      ],
+      "labels": {
+        "credential-id": "ID"
+      }
     },
     "home": {
       "hero-title": "Marcelo Caldart Filho",

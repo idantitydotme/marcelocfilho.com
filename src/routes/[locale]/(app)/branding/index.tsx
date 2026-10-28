@@ -1,9 +1,8 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import type { Component } from "solid-js";
 import { t } from "@rimelight/i18n";
 
-export const BrandingPage: Component = () => {
+export default function BrandingPage() {
   useHead(() =>
     createSeoHead({
       title: t("page.branding.meta.title"),
@@ -21,6 +20,4 @@ export const BrandingPage: Component = () => {
       </div>
     </>
   );
-};
-
-export default BrandingPage;
+}

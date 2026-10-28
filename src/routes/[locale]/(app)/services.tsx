@@ -1,11 +1,10 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import type { Component } from "solid-js";
 import { For } from "solid-js";
 import { RLContainer, RLGrid, RLButton } from "@rimelight/ui";
 import { t } from "@rimelight/i18n";
 
-export const ServicesPage: Component = () => {
+export default function ServicesPage() {
   const servicesList = () => [
     {
       icon: "i-lucide-volume-2",
@@ -98,6 +97,4 @@ export const ServicesPage: Component = () => {
       </RLContainer>
     </>
   );
-};
-
-export default ServicesPage;
+}

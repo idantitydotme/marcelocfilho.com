@@ -1,11 +1,11 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import { type Component, Show, createMemo } from "solid-js";
+import { Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
 import { PageRenderer } from "@rimelight/cms/solid";
 import { t, getCurrentLocale } from "@rimelight/i18n";
 
-export const BlogPostPage: Component = () => {
+export default function BlogPostPage() {
   const params = useParams<{ locale: string; slug: string }>();
 
   const pageData = createMemo<any>(
@@ -97,6 +97,4 @@ export const BlogPostPage: Component = () => {
       </div>
     </>
   );
-};
-
-export default BlogPostPage;
+}

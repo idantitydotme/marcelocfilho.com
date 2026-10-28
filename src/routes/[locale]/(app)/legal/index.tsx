@@ -1,10 +1,10 @@
 import { useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
-import { type Component, For, createMemo } from "solid-js";
+import { For, createMemo } from "solid-js";
 import { RLContainer } from "@rimelight/ui";
 import { t, getLocaleUrl } from "@rimelight/i18n";
 
-export const LegalIndexPage: Component = () => {
+export default function LegalIndexPage() {
   const legalPages = createMemo<any[]>(
     async () => {
       try {
@@ -61,6 +61,4 @@ export const LegalIndexPage: Component = () => {
       </RLContainer>
     </>
   );
-};
-
-export default LegalIndexPage;
+}
