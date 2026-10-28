@@ -27,9 +27,9 @@ export const ProjectsIndexPage: Component = () => {
   );
 
   const categoryMessages = () => ({
-    website: t("projects.categories.website"),
-    app: t("projects.categories.app"),
-    other: t("projects.categories.other"),
+    website: t("page.projects.categories.website"),
+    app: t("page.projects.categories.app"),
+    other: t("page.projects.categories.other"),
   });
 
   const badgeColorMap: Record<string, "info" | "primary" | "success"> = {
@@ -39,7 +39,7 @@ export const ProjectsIndexPage: Component = () => {
   };
 
   const tabsItems = () => [
-    { label: "All", value: "all" },
+    { label: t("app.text.all"), value: "all" },
     { label: categoryMessages()["website"] || "Audiovisual", value: "website" },
     { label: categoryMessages()["app"] || "Games", value: "app" },
     { label: categoryMessages()["other"] || "Music & Sound", value: "other" },
@@ -55,14 +55,17 @@ export const ProjectsIndexPage: Component = () => {
   };
   useHead(() =>
     createSeoHead({
-      title: t("projects.title"),
-      description: t("projects.description"),
+      title: t("page.projects.meta.title"),
+      description: t("page.projects.meta.description"),
     }),
   );
 
   return (
     <>
-      <RLPageSection title={t("projects.title")} description={t("projects.description")}>
+      <RLPageSection
+        title={t("page.projects.meta.title")}
+        description={t("page.projects.meta.description")}
+      >
         <RLTabs
           items={tabsItems()}
           variant="underline"

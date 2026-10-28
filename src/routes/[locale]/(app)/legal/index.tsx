@@ -21,8 +21,8 @@ export const LegalIndexPage: Component = () => {
   );
   useHead(() =>
     createSeoHead({
-      title: t("legal.title"),
-      description: t("legal.description"),
+      title: t("page.legal.meta.title"),
+      description: t("page.legal.meta.description"),
     }),
   );
 
@@ -30,7 +30,7 @@ export const LegalIndexPage: Component = () => {
     <>
       <RLContainer class="py-16 max-w-3xl">
         <section class="legal-section">
-          <h1 class="text-3xl font-extrabold text-white mb-8">{t("legal.heading")}</h1>
+          <h1 class="text-3xl font-extrabold text-white mb-8">{t("page.legal.heading")}</h1>
           <ul class="legal-list flex flex-col gap-6">
             <For each={legalPages()}>
               {(doc) => {
@@ -49,7 +49,7 @@ export const LegalIndexPage: Component = () => {
                     </h3>
                     <p class="text-neutral-400 mb-2 text-sm">{description}</p>
                     <span class="date text-xs text-neutral-500">
-                      {t("legal.last-updated")}{" "}
+                      {t("page.legal.last-updated")}{" "}
                       {pubDate ? new Date(pubDate).toLocaleDateString() : ""}
                     </span>
                   </li>

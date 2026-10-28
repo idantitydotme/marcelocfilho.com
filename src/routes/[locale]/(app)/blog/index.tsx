@@ -27,9 +27,9 @@ export const BlogIndexPage: Component = () => {
   );
 
   const categoryMessages = () => ({
-    "project-updates": t("blog.categories.project-updates"),
-    "personal-stories": t("blog.categories.personal-stories"),
-    other: t("blog.categories.other"),
+    "project-updates": t("page.blog.categories.project-updates"),
+    "personal-stories": t("page.blog.categories.personal-stories"),
+    other: t("page.blog.categories.other"),
   });
 
   const badgeColorMap: Record<string, "info" | "primary" | "success"> = {
@@ -39,7 +39,7 @@ export const BlogIndexPage: Component = () => {
   };
 
   const tabsItems = () => [
-    { label: "All", value: "all" },
+    { label: t("app.text.all"), value: "all" },
     { label: categoryMessages()["project-updates"] || "Project Updates", value: "project-updates" },
     {
       label: categoryMessages()["personal-stories"] || "Personal Stories",
@@ -58,14 +58,17 @@ export const BlogIndexPage: Component = () => {
   };
   useHead(() =>
     createSeoHead({
-      title: t("blog.title"),
-      description: t("blog.description"),
+      title: t("page.blog.meta.title"),
+      description: t("page.blog.meta.description"),
     }),
   );
 
   return (
     <>
-      <RLPageSection title={t("blog.title")} description={t("blog.description")}>
+      <RLPageSection
+        title={t("page.blog.meta.title")}
+        description={t("page.blog.meta.description")}
+      >
         <RLTabs
           items={tabsItems()}
           variant="underline"

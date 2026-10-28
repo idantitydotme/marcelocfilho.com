@@ -30,8 +30,8 @@ export const ServicesPage: Component = () => {
   ];
   useHead(() =>
     createSeoHead({
-      title: t("page.services.title"),
-      description: t("page.services.description"),
+      title: t("page.services.meta.title"),
+      description: t("page.services.meta.description"),
     }),
   );
 
@@ -79,14 +79,14 @@ export const ServicesPage: Component = () => {
           </p>
           <div class="flex flex-wrap justify-center gap-4">
             <RLButton
-              label={t("page.services.cta-contact") || "Get in Touch"}
+              label={t("page.services.cta-contact")}
               href="/contact"
               color="primary"
               variant="solid"
               size="lg"
             />
             <RLButton
-              label={t("page.services.cta-projects") || "View Projects"}
+              label={t("page.services.cta-projects")}
               href="/projects"
               color="neutral"
               variant="outline"

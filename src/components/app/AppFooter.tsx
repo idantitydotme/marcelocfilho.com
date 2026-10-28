@@ -14,43 +14,43 @@ import { t } from "@rimelight/i18n";
 export const AppFooter: Component = () => {
   const columns = (): RLLinkGroupProps[] => [
     {
-      label: t("app.footer.links.navigation.label") || "Navigation",
+      label: t("app.footer.links.navigation.label"),
       links: [
         {
-          label: t("app.footer.links.projects") || "Projects",
+          label: t("app.footer.links.projects"),
           href: "/projects",
         },
         {
-          label: t("app.footer.links.services") || "Services",
+          label: t("app.footer.links.services"),
           href: "/services",
         },
         {
-          label: t("app.footer.links.about") || "About",
+          label: t("app.footer.links.about"),
           href: "/about",
         },
         {
-          label: t("app.footer.links.resume") || "Resume",
+          label: t("app.footer.links.resume"),
           href: "/resume",
         },
         {
-          label: t("app.footer.links.contact") || "Contact",
+          label: t("app.footer.links.contact"),
           href: "/contact",
         },
       ],
     },
     {
-      label: t("app.footer.links.legal.label") || "Legal",
+      label: t("app.footer.links.legal.label"),
       links: [
         {
-          label: t("app.footer.links.resources.cv") || "Download CV",
+          label: t("app.footer.links.resources.cv"),
           href: "https://pub-d59ba6f09fc247e5b5215dbca8bb5841.r2.dev/Resume/Resume_Marcelo_C_Filho.pdf",
         },
         {
-          label: t("app.footer.links.legal.privacy-policy") || "Privacy Policy",
+          label: t("app.footer.links.legal.privacy-policy"),
           href: "/legal/privacy-policy",
         },
         {
-          label: t("app.footer.links.legal.other-documents") || "Legal Documents",
+          label: t("app.footer.links.legal.other-documents"),
           href: "/legal",
         },
       ],
@@ -77,9 +77,7 @@ export const AppFooter: Component = () => {
         <div class="flex flex-col justify-between h-full gap-xs lg:items-start">
           <RLLogo variant="logotype" class="h-6 w-auto" />
           <div>
-            <p class="text-sm text-neutral-400">
-              {t("app.footer.tagline") || "Sound Designer & Musician"}
-            </p>
+            <p class="text-sm text-neutral-400">{t("app.footer.tagline")}</p>
             <span class="text-sm text-neutral-500">
               © {new Date().getFullYear()} Marcelo Caldart Filho
             </span>

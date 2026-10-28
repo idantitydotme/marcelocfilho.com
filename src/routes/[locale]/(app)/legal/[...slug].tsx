@@ -47,7 +47,10 @@ export const LegalDocPage: Component = () => {
   return (
     <>
       <RLContainer class="py-16 max-w-3xl">
-        <Show when={pageData()} fallback={<div class="p-8 text-center text-muted">Loading...</div>}>
+        <Show
+          when={pageData()}
+          fallback={<div class="p-8 text-center text-muted">{t("app.loading.default")}</div>}
+        >
           <article>
             <div class="prose max-w-none">
               <div class="title mb-8">
@@ -57,7 +60,7 @@ export const LegalDocPage: Component = () => {
                   </Show>
                   <Show when={updatedDate()}>
                     <div class="last-updated-on text-xs text-neutral-500 mt-1">
-                      {t("legal.last-updated-on")} <RLDate date={updatedDate()!} />
+                      {t("page.legal.last-updated-on")} <RLDate date={updatedDate()!} />
                     </div>
                   </Show>
                 </div>

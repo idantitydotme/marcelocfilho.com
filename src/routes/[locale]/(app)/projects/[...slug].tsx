@@ -53,7 +53,10 @@ export const ProjectPage: Component = () => {
   return (
     <>
       <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
-        <Show when={pageData()} fallback={<div class="p-8 text-center text-muted">Loading...</div>}>
+        <Show
+          when={pageData()}
+          fallback={<div class="p-8 text-center text-muted">{t("app.loading.default")}</div>}
+        >
           <Show when={heroImage()}>
             <div class="mb-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-sm aspect-[21/9]">
               <img src={heroImage()} alt={title()} class="w-full h-full object-cover" />

@@ -7,8 +7,8 @@ import { t } from "@rimelight/i18n";
 export const AboutPage: Component = () => {
   useHead(() =>
     createSeoHead({
-      title: t("page.about.title"),
-      description: t("page.about.description"),
+      title: t("page.about.meta.title"),
+      description: t("page.about.meta.description"),
     }),
   );
 
@@ -19,7 +19,7 @@ export const AboutPage: Component = () => {
           <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
             {t("page.about.heading")}
           </h1>
-          <p class="text-xl text-primary-400 font-medium">{t("page.about.description")}</p>
+          <p class="text-xl text-primary-400 font-medium">{t("page.about.meta.description")}</p>
         </header>
 
         <div class="space-y-12">
@@ -47,14 +47,14 @@ export const AboutPage: Component = () => {
 
           <section class="border-t border-neutral-800 pt-10 flex flex-wrap gap-4 items-center">
             <RLButton
-              label={t("page.about.cta-talk") || "Let's Talk"}
+              label={t("page.about.cta-talk")}
               href="/contact"
               color="primary"
               variant="solid"
               size="lg"
             />
             <RLButton
-              label={t("page.about.cta-projects") || "Browse Projects"}
+              label={t("page.about.cta-projects")}
               href="/projects"
               color="neutral"
               variant="outline"

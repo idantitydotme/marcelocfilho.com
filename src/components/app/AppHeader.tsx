@@ -16,27 +16,27 @@ export interface AppHeaderProps {
 export const AppHeader: Component<AppHeaderProps> = (props) => {
   const leftLinks = () => [
     {
-      label: t("app.header.left-links.projects.label") || "Projects",
+      label: t("app.header.left-links.projects.label"),
       to: "/projects",
     },
     {
-      label: t("app.header.left-links.services.label") || "Services",
+      label: t("app.header.left-links.services.label"),
       to: "/services",
     },
     {
-      label: t("app.header.left-links.about.label") || "About",
+      label: t("app.header.left-links.about.label"),
       to: "/about",
     },
     {
-      label: t("app.header.left-links.resume.label") || "Resume",
+      label: t("app.header.left-links.resume.label"),
       to: "/resume",
     },
     {
-      label: t("app.header.left-links.contact.label") || "Contact",
+      label: t("app.header.left-links.contact.label"),
       to: "/contact",
     },
     {
-      label: t("app.header.left-links.blog.label") || "Blog",
+      label: t("app.header.left-links.blog.label"),
       to: "/blog",
     },
   ];
@@ -78,7 +78,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
           <div class="block md:hidden">
             <RLSlideover
               side="left"
-              title="Menu"
+              title={t("app.header.menu.title")}
               trigger={
                 <RLButton
                   color="neutral"
@@ -86,7 +86,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                   rounded={true}
                   leadingIcon="i-lucide-menu"
                   class="!text-white"
-                  aria-label="Open Menu"
+                  aria-label={t("app.header.menu.open")}
                 />
               }
             >
@@ -118,7 +118,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
           <div class="block md:hidden">
             <RLSlideover
               side="right"
-              title="Actions"
+              title={t("app.header.actions.title")}
               trigger={
                 <RLButton
                   color="neutral"
@@ -126,7 +126,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                   rounded={true}
                   leadingIcon="i-lucide-ellipsis-vertical"
                   class="!text-white"
-                  aria-label="Open Actions"
+                  aria-label={t("app.header.actions.open")}
                 />
               }
             >

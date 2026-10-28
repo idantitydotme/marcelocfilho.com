@@ -7,38 +7,42 @@ import { t } from "@rimelight/i18n";
 export const ResumePage: Component = () => {
   const experiences = () => [
     {
-      role: t("page_resume.exp1Role"),
-      company: t("page_resume.exp1Company"),
-      period: t("page_resume.exp1Period"),
+      role: t("page.resume.exp1-role"),
+      company: t("page.resume.exp1-company"),
+      period: t("page.resume.exp1-period"),
       bullets: [
-        t("page_resume.exp1Bullet1"),
-        t("page_resume.exp1Bullet2"),
-        t("page_resume.exp1Bullet3"),
+        t("page.resume.exp1-bullet1"),
+        t("page.resume.exp1-bullet2"),
+        t("page.resume.exp1-bullet3"),
       ].filter(Boolean),
     },
     {
-      role: t("page_resume.exp2Role"),
-      company: t("page_resume.exp2Company"),
-      period: t("page_resume.exp2Period"),
-      bullets: [t("page_resume.exp2Bullet1"), t("page_resume.exp2Bullet2")].filter(Boolean),
+      role: t("page.resume.exp2-role"),
+      company: t("page.resume.exp2-company"),
+      period: t("page.resume.exp2-period"),
+      bullets: [t("page.resume.exp2-bullet1"), t("page.resume.exp2-bullet2")].filter(Boolean),
     },
     {
-      role: t("page_resume.exp3Role"),
-      company: t("page_resume.exp3Company"),
-      period: t("page_resume.exp3Period"),
-      bullets: [t("page_resume.exp3Bullet1"), t("page_resume.exp3Bullet2")].filter(Boolean),
+      role: t("page.resume.exp3-role"),
+      company: t("page.resume.exp3-company"),
+      period: t("page.resume.exp3-period"),
+      bullets: [t("page.resume.exp3-bullet1"), t("page.resume.exp3-bullet2")].filter(Boolean),
     },
   ];
 
   const tools = () => [
-    { name: "Reaper", category: t("page_resume.audioProduction"), icon: "i-lucide-audio-waveform" },
-    { name: "Pro Tools", category: t("page_resume.audioProduction"), icon: "i-lucide-disc" },
-    { name: "DaVinci Resolve", category: t("page_resume.videoEditing"), icon: "i-lucide-video" },
+    {
+      name: "Reaper",
+      category: t("page.resume.audio-production"),
+      icon: "i-lucide-audio-waveform",
+    },
+    { name: "Pro Tools", category: t("page.resume.audio-production"), icon: "i-lucide-disc" },
+    { name: "DaVinci Resolve", category: t("page.resume.video-editing"), icon: "i-lucide-video" },
   ];
   useHead(() =>
     createSeoHead({
-      title: t("page_resume.title"),
-      description: t("page_resume.description"),
+      title: t("page.resume.meta.title"),
+      description: t("page.resume.meta.description"),
     }),
   );
 
@@ -51,21 +55,21 @@ export const ResumePage: Component = () => {
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-2">
               Marcelo Caldart Filho
             </h1>
-            <p class="text-xl text-primary-400 font-medium mb-3">Sound Designer & Musician</p>
+            <p class="text-xl text-primary-400 font-medium mb-3">{t("page.resume.role")}</p>
             <div class="flex flex-wrap items-center gap-4 text-sm text-neutral-400">
               <span class="flex items-center gap-1.5">
-                <span class="i-lucide-map-pin text-primary-400" /> {t("page_resume.location")}
+                <span class="i-lucide-map-pin text-primary-400" /> {t("page.resume.location")}
               </span>
               <span class="flex items-center gap-1.5">
                 <span class="i-lucide-check-circle text-green-400" />{" "}
-                {t("page_resume.availability")}
+                {t("page.resume.availability")}
               </span>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-3 items-center">
             <RLButton
-              label={t("page_resume.downloadCV") || "Download CV"}
+              label={t("page.resume.download-cv")}
               href="https://pub-d59ba6f09fc247e5b5215dbca8bb5841.r2.dev/Resume/Resume_Marcelo_C_Filho.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -80,14 +84,16 @@ export const ResumePage: Component = () => {
         <div class="space-y-12">
           {/* Profile */}
           <section>
-            <h2 class="text-2xl font-bold text-white mb-4">{t("page_resume.aboutSectionTitle")}</h2>
-            <p class="text-neutral-300 text-lg leading-relaxed">{t("page_resume.aboutText")}</p>
+            <h2 class="text-2xl font-bold text-white mb-4">
+              {t("page.resume.about-section-title")}
+            </h2>
+            <p class="text-neutral-300 text-lg leading-relaxed">{t("page.resume.about-text")}</p>
           </section>
 
           {/* Experience */}
           <section class="border-t border-neutral-800 pt-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8">
-              {t("page_resume.experienceTitle")}
+              {t("page.resume.experience-title")}
             </h2>
             <div class="space-y-8">
               <For each={experiences()}>
@@ -114,28 +120,26 @@ export const ResumePage: Component = () => {
           {/* Education & Certifications */}
           <section class="border-t border-neutral-800 pt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2 class="text-2xl font-bold text-white mb-6">{t("page_resume.educationTitle")}</h2>
+              <h2 class="text-2xl font-bold text-white mb-6">{t("page.resume.education-title")}</h2>
               <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
-                <h3 class="text-lg font-bold text-white mb-1">{t("page_resume.edu1Degree")}</h3>
+                <h3 class="text-lg font-bold text-white mb-1">{t("page.resume.edu1-degree")}</h3>
                 <p class="text-primary-400 font-medium text-sm mb-2">
-                  {t("page_resume.edu1School")}
+                  {t("page.resume.edu1-school")}
                 </p>
-                <span class="text-xs text-neutral-400">{t("page_resume.edu1Period")}</span>
+                <span class="text-xs text-neutral-400">{t("page.resume.edu1-period")}</span>
               </div>
             </div>
 
             <div>
               <h2 class="text-2xl font-bold text-white mb-6">
-                {t("page_resume.certificationsTitle")}
+                {t("page.resume.certifications-title")}
               </h2>
               <div class="space-y-4">
                 <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
-                  <h3 class="text-base font-bold text-white">{t("page_resume.cert1Name")}</h3>
-                  <p class="text-xs text-neutral-400 mt-1">{t("page_resume.cert1Issuer")}</p>
+                  <h3 class="text-base font-bold text-white">{t("page.resume.cert1-name")}</h3>
                 </div>
                 <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
-                  <h3 class="text-base font-bold text-white">{t("page_resume.cert2Name")}</h3>
-                  <p class="text-xs text-neutral-400 mt-1">{t("page_resume.cert2Issuer")}</p>
+                  <h3 class="text-base font-bold text-white">{t("page.resume.cert2-name")}</h3>
                 </div>
               </div>
             </div>
@@ -143,7 +147,9 @@ export const ResumePage: Component = () => {
 
           {/* Technologies & Tools */}
           <section class="border-t border-neutral-800 pt-8">
-            <h2 class="text-2xl font-bold text-white mb-6">{t("page_resume.technologiesTitle")}</h2>
+            <h2 class="text-2xl font-bold text-white mb-6">
+              {t("page.resume.technologies-title")}
+            </h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <For each={tools()}>
                 {(tool) => (
@@ -161,18 +167,18 @@ export const ResumePage: Component = () => {
 
           {/* Languages */}
           <section class="border-t border-neutral-800 pt-8 pb-4">
-            <h2 class="text-2xl font-bold text-white mb-6">{t("page_resume.languagesTitle")}</h2>
+            <h2 class="text-2xl font-bold text-white mb-6">{t("page.resume.languages-title")}</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 flex justify-between items-center">
-                <span class="font-bold text-white">{t("page_resume.langPt")}</span>
+                <span class="font-bold text-white">{t("page.resume.lang-pt")}</span>
                 <span class="text-sm text-primary-400 font-medium">
-                  {t("page_resume.langPtLevel")}
+                  {t("page.resume.lang-pt-level")}
                 </span>
               </div>
               <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 flex justify-between items-center">
-                <span class="font-bold text-white">{t("page_resume.langEn")}</span>
+                <span class="font-bold text-white">{t("page.resume.lang-en")}</span>
                 <span class="text-sm text-primary-400 font-medium">
-                  {t("page_resume.langEnLevel")}
+                  {t("page.resume.lang-en-level")}
                 </span>
               </div>
             </div>
