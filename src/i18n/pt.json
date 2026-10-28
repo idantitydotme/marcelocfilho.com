@@ -1,4 +1,4 @@
-﻿{
+{
   "app": {
     "header": {
       "left-links": {
@@ -79,16 +79,16 @@
       "default": "Carregando..."
     },
     "text": {
-      "all": "All",
-      "sound-design": "Sound Design",
-      "immersive-soundscapes-and-custom-sfx-for-games-f": "Immersive soundscapes and custom SFX for games, film, and multimedia.",
-      "foley-art": "Foley Art",
-      "custom-organic-foley-recording-and-physical-inte": "Custom organic Foley recording and physical interaction textures.",
-      "music-composition": "Music Composition",
-      "original-soundtracks-adaptive-themes-and-emotive": "Original soundtracks, adaptive themes, and emotive scores.",
-      "mixing-mastering": "Mixing & Mastering",
-      "industry-standard-balance-clarity-and-spatial-lo": "Industry-standard balance, clarity, and spatial loudness optimization.",
-      "sound-designer-musician": "Sound Designer & Musician",
+      "all": "Todos",
+      "sound-design": "Design de Som",
+      "immersive-soundscapes-and-custom-sfx-for-games-f": "Paisagens sonoras imersivas e efeitos sonoros personalizados para jogos, cinema e multimídia.",
+      "foley-art": "Arte Foley",
+      "custom-organic-foley-recording-and-physical-inte": "Gravação Foley orgânica personalizada e texturas de interação física.",
+      "music-composition": "Composição Musical",
+      "original-soundtracks-adaptive-themes-and-emotive": "Trilhas sonoras originais, temas adaptativos e composições emotivas.",
+      "mixing-mastering": "Mixagem e Masterização",
+      "industry-standard-balance-clarity-and-spatial-lo": "Equilíbrio, clareza e otimização espacial de volume no padrão da indústria.",
+      "sound-designer-musician": "Designer de Som e Músico",
       "marcelo-caldart-filho": "Marcelo Caldart Filho"
     }
   },
@@ -178,13 +178,13 @@
       "about-text": "Sound designer, Foley artist e Compositor com Bacharelado em Música pela UFPR. Realizo produções de áudio para jogos, audiovisual, publicidade e branding. Minha abordagem une estratégia criativa e excelência técnica.",
       "experience-title": "Experiência Profissional",
       "exp1-role": "Designer de Áudio",
-      "exp1-company": "Freelance",
+      "exp1-company": "Freelancer",
       "exp1-period": "Fev 2017 – Presente",
       "exp1-bullet1": "Áudio para jogos, sound design digital, Foley e composição musical.",
       "exp1-bullet2": "Entrega de assets de alta qualidade para projetos multimídia.",
       "exp1-bullet3": "Colaboração com equipes para definição de identidades sonoras.",
       "exp2-role": "Produtor Musical",
-      "exp2-company": "Freelance",
+      "exp2-company": "Freelancer",
       "exp2-period": "Fev 2017 – Presente",
       "exp2-bullet1": "Gravação em estúdio, mixagem e masterização.",
       "exp2-bullet2": "Produção de música eletrônica e arranjos.",
