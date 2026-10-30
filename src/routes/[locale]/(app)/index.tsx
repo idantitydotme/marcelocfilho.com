@@ -1,5 +1,5 @@
 import { useHead } from "@solidjs/web";
-import { createSeoHead } from "@rimelight/seo/head";
+import { createPageHead } from "@rimelight/seo/head";
 import { For } from "solid-js";
 import { t } from "@rimelight/i18n";
 import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
@@ -68,7 +68,7 @@ export default function IndexPage() {
     },
   ];
   useHead(() =>
-    createSeoHead({
+    createPageHead({
       title: t("app.text.marcelo-caldart-filho"),
       description: t("app.text.sound-designer-musician"),
     }),

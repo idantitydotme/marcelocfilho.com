@@ -1,5 +1,5 @@
 import { useHead } from "@solidjs/web";
-import { createSeoHead } from "@rimelight/seo/head";
+import { createPageHead } from "@rimelight/seo/head";
 import { Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
 import { PageRenderer } from "@rimelight/cms/solid";
@@ -38,7 +38,7 @@ export default function LegalDocPage() {
   const pubDate = () => pageData()?.postedAt || pageData()?.createdAt;
   const updatedDate = () => pageData()?.updatedAt;
   useHead(() =>
-    createSeoHead({
+    createPageHead({
       title: title(),
       description: description(),
     }),

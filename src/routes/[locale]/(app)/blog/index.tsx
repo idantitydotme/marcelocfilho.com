@@ -1,5 +1,5 @@
 import { useHead } from "@solidjs/web";
-import { createSeoHead } from "@rimelight/seo/head";
+import { createPageHead } from "@rimelight/seo/head";
 import { For, createSignal, createMemo } from "solid-js";
 import { t } from "@rimelight/i18n";
 import { RLPageSection, RLTabs, RLGrid, RLPost } from "@rimelight/ui";
@@ -57,7 +57,7 @@ export default function BlogIndexPage() {
     });
   };
   useHead(() =>
-    createSeoHead({
+    createPageHead({
       title: t("page.blog.meta.title"),
       description: t("page.blog.meta.description"),
     }),

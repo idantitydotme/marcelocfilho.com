@@ -1,5 +1,5 @@
 import { useHead } from "@solidjs/web";
-import { createSeoHead } from "@rimelight/seo/head";
+import { createPageHead } from "@rimelight/seo/head";
 import { For } from "solid-js";
 import { RLContainer, RLGrid, RLButton } from "@rimelight/ui";
 import { t } from "@rimelight/i18n";
@@ -28,7 +28,7 @@ export default function ServicesPage() {
     },
   ];
   useHead(() =>
-    createSeoHead({
+    createPageHead({
       title: t("page.services.meta.title"),
       description: t("page.services.meta.description"),
     }),

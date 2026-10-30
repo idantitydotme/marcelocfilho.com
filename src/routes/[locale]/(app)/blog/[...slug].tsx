@@ -1,5 +1,5 @@
 import { useHead } from "@solidjs/web";
-import { createSeoHead } from "@rimelight/seo/head";
+import { createPageHead } from "@rimelight/seo/head";
 import { Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
 import { PageRenderer } from "@rimelight/cms/solid";
@@ -44,7 +44,7 @@ export default function BlogPostPage() {
   const category = () => content().properties?.category;
   const postDate = () => pageData()?.postedAt || pageData()?.createdAt;
   useHead(() =>
-    createSeoHead({
+    createPageHead({
       title: title(),
       description: description(),
     }),
