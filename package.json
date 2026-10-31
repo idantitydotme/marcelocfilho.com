@@ -1,6 +1,6 @@
 {
   "name": "marcelocfilho-dot-com",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "description": "My personal portfolio website.",
   "keywords": [
@@ -13,8 +13,8 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Marcelo Caldart Filho",
-    "email": "marcelocfilho96@gmail.com",
+    "name": "marcelocfilho.com",
+    "email": "contact@marcelocfilho.com",
     "url": "https://marcelocfilho.com"
   },
   "repository": {
