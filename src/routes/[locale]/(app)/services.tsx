@@ -1,7 +1,9 @@
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { For } from "solid-js";
-import { RLContainer, RLGrid, RLButton } from "@rimelight/ui";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
+import { RLGrid } from "@rimelight/ui/components/grid/RLGrid.tsx";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 import { t } from "@rimelight/i18n";
 
 export default function ServicesPage() {

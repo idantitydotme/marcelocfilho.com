@@ -2,7 +2,11 @@ import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { For } from "solid-js";
 import { t } from "@rimelight/i18n";
-import { RLPageSection, RLLogo, RLButton, RLGrid, RLContainer } from "@rimelight/ui";
+import { RLPageSection } from "@rimelight/ui/components/page-section/RLPageSection.tsx";
+import { RLLogo } from "@rimelight/ui/components/logo/RLLogo.tsx";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
+import { RLGrid } from "@rimelight/ui/components/grid/RLGrid.tsx";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
 
 export default function IndexPage() {
   const heroLinks = () => [

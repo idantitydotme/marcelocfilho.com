@@ -1,6 +1,7 @@
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { RLContainer, RLButton } from "@rimelight/ui";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 import { t } from "@rimelight/i18n";
 
 export default function AboutPage() {

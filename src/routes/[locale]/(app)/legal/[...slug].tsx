@@ -3,7 +3,8 @@ import { createPageHead } from "@rimelight/seo/head";
 import { Show, createMemo } from "solid-js";
 import { useParams } from "@solidjs/router";
 import { PageRenderer } from "@rimelight/cms/solid";
-import { RLContainer, RLDate } from "@rimelight/ui";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
+import { RLDate } from "@rimelight/ui/components/date/RLDate.tsx";
 import { t, getCurrentLocale } from "@rimelight/i18n";
 
 export default function LegalDocPage() {

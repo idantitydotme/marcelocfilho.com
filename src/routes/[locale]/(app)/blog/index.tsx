@@ -2,7 +2,10 @@ import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { For, createSignal, createMemo } from "solid-js";
 import { t } from "@rimelight/i18n";
-import { RLPageSection, RLTabs, RLGrid, RLPost } from "@rimelight/ui";
+import { RLPageSection } from "@rimelight/ui/components/page-section/RLPageSection.tsx";
+import { RLTabs } from "@rimelight/ui/components/tabs/RLTabs.tsx";
+import { RLGrid } from "@rimelight/ui/components/grid/RLGrid.tsx";
+import { RLPost } from "@rimelight/ui/components/post/RLPost.tsx";
 
 function getPageTitle(title: unknown): string {
   return t.localize(title);

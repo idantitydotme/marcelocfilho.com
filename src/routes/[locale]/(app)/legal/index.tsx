@@ -1,7 +1,7 @@
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { For, createMemo } from "solid-js";
-import { RLContainer } from "@rimelight/ui";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
 import { t, getLocaleUrl } from "@rimelight/i18n";
 
 export default function LegalIndexPage() {
