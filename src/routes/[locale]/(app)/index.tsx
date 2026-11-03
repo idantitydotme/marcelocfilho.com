@@ -82,7 +82,7 @@ export default function IndexPage() {
     <>
       {/* Hero Section */}
       <RLPageSection
-        variant="hero"
+        layout="hero"
         reverse={true}
         title={t("page.home.hero-title")}
         description={`${t("page.home.hero-subtitle")} — ${t("page.home.hero-desc")}`}
@@ -176,7 +176,7 @@ export default function IndexPage() {
 
       {/* CTA Section */}
       <RLPageSection
-        variant="cta"
+        layout="cta"
         ctaVariant="solid"
         title={t("page.home.cta-title")}
         description={t("page.home.cta-desc")}

@@ -71,9 +71,9 @@ export default function ProjectsIndexPage() {
       >
         <RLTabs
           items={tabsItems()}
-          variant="underline"
+          variant="link"
           value={activeTab()}
-          onChange={(val: string) => setActiveTab(val)}
+          onValueChange={(val: string) => setActiveTab(val)}
         />
 
         <div class="mt-6">
@@ -94,7 +94,7 @@ export default function ProjectsIndexPage() {
                     date={postDate}
                     title={titleVal}
                     description={content?.properties?.description}
-                    to={`/projects/${page.slug}/`}
+                    href={`/projects/${page.slug}/`}
                     badge={
                       categoryMessages()[category as keyof ReturnType<typeof categoryMessages>] ??
                       category

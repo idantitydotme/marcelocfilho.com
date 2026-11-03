@@ -74,9 +74,9 @@ export default function BlogIndexPage() {
       >
         <RLTabs
           items={tabsItems()}
-          variant="underline"
+          variant="link"
           value={activeTab()}
-          onChange={(val: string) => setActiveTab(val)}
+          onValueChange={(val: string) => setActiveTab(val)}
         />
 
         <div class="mt-6">
@@ -97,7 +97,7 @@ export default function BlogIndexPage() {
                     date={postDate}
                     title={titleVal}
                     description={content?.properties?.description}
-                    to={`/blog/${page.slug}/`}
+                    href={`/blog/${page.slug}/`}
                     badge={
                       categoryMessages()[category as keyof ReturnType<typeof categoryMessages>] ??
                       category
