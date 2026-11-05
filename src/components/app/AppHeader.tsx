@@ -79,22 +79,20 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                 <RLButton
                   color="neutral"
                   variant="ghost"
-                  rounded={true}
+                  shape="pill"
                   leadingIcon="i-lucide-menu"
                   class="!text-white"
                   aria-label={t("app.header.menu.open")}
                 />
               }
             >
-              {() => (
-                <RLNavigationMenu
-                  items={leftLinks()}
-                  orientation="vertical"
-                  ui={{
-                    link: "text-black dark:text-white flex justify-start items-center w-full text-left py-2 text-lg transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400",
-                  }}
-                />
-              )}
+              <RLNavigationMenu
+                items={leftLinks()}
+                orientation="vertical"
+                ui={{
+                  link: "text-black dark:text-white flex justify-start items-center w-full text-left py-2 text-lg transition-colors duration-200 hover:text-primary-400 data-[state=open]:text-primary-400 aria-[current]:text-primary-400",
+                }}
+              />
             </RLSlideover>
           </div>
         </div>
@@ -120,20 +118,18 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                 <RLButton
                   color="neutral"
                   variant="ghost"
-                  rounded={true}
+                  shape="pill"
                   leadingIcon="i-lucide-ellipsis-vertical"
                   class="!text-white"
                   aria-label={t("app.header.actions.open")}
                 />
               }
             >
-              {() => (
-                <div class="flex flex-col gap-md">
-                  <For each={socials()}>
-                    {(buttonProps) => <RLButton {...buttonProps} block={true} />}
-                  </For>
-                </div>
-              )}
+              <div class="flex flex-col gap-md">
+                <For each={socials()}>
+                  {(buttonProps) => <RLButton {...buttonProps} block={true} />}
+                </For>
+              </div>
             </RLSlideover>
           </div>
         </div>
